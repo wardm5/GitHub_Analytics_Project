@@ -2,19 +2,19 @@
 Codebase for GitHub Analytics Project
 
 
-##Project Idea/Business Value
+## Project Idea/Business Value
 
 
-##Tech Stack
+## Tech Stack
 
 
-##Data Source
+## Data Source
 
 
-##Engineering Challenge
+## Engineering Challenge
 
 
-##MVP
+## MVP
 
 
-##Stretch Goals
+## Stretch Goals
