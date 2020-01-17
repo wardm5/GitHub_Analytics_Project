@@ -1,6 +1,4 @@
 # GitHub Analytics Project
-Codebase for GitHub Analytics Project developed by Misha Ward
-
 ## Project Idea/Business Value
 ### Problem Statement
 With the expansion of the technology industry over the past few decades, the importance of hiring a qualified developer has never been more important. Due to the demand of seeking highly skilled developers, the demand for recruiters has also risen with many being hired with limited technology experience. The _GitHub Analytics Project_ is designed to help recruiters by providing them a tool to easily see if the candidate matches the experience the company is looking for by analyzing the candidate's GitHub account.
