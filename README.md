@@ -33,8 +33,20 @@ Potential components are also being considered and listed below:
 * Stack Overflow dataset
 * WakaTime API/dataset
 
-## Data Source
+The data pipeline for this project is outlined below:
+1. Place the *GitHub* dataset into an *Amazon S3* bucket
+2. Use *Apache Spark* to process the data into a *PosgreSQL* database
+3. Initialize *EC2* instance and use it to host a *web application*
+4. Use SQL queries to pull from the database pertinent information and display using *Plotify*
 
+## Data Source
+The data source for this project is mainly focusing on the GitHub dataset. The data source was found on Google's BigQuery public datasets and has no restrictions of use. It is important to analyze the data prior to developing and understanding the assumptions being made based on the data.
+
+### Assumptions with data
+Bigger commit/project size equals more complexity
+
+### Source Data Statistics
+Size: ~770Gb
 
 ## Engineering Challenge
 
