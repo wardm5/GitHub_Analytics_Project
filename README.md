@@ -13,15 +13,25 @@ In addition to recruiters using this tool, managers could use this tool for inco
 Finally, college admissions might find use for this tool as it would help with determining if candidates have enough skills in order to be able to complete coursework in highly technical fields.
 
 ### Relevancy
-Although this project is especially relevant to the software engineering field, the concepts could be expanded to other fields by using other datasets or APIs. For example, by linking to a LinkedIn API, profile information could be pulled and matched to the candidate’s experience and show similar statistics. The industries that might find this product interesting are listed below:
+Although this project is especially relevant to the software engineering field, the concepts could be expanded to other fields by using other datasets or APIs. For example, by linking to a LinkedIn API, profile information could be pulled and matched to the candidate’s experience and show similar statistics. Other industries that might find this product useful (although with modifications) are listed below:
 
-**Sports Industry**
-Sample Text
-#### Education
-Sample Text
+* Sports Industry
+* Education
 
 ## Tech Stack
+Although the project is just in its infancy, the projected technology stack components includes the following:
 
+* GitHub dataset (https://bigquery.cloud.google.com/dataset/bigquery-public-data:github_repos?pli=1)
+* Apache Spark (data processing)
+* Amazon S3 (storage)
+* PostegSQL (SQL database for queries)
+* EC2 Instance (hosting web application)
+* Plotify (frontend)
+
+Potential components are also being considered and listed below:
+* LinkedIn API/dataset
+* Stack Overflow dataset
+* WakaTime API/dataset
 
 ## Data Source
 
