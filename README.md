@@ -49,9 +49,9 @@ Bigger commit/project size equals more complexity
 Size: ~770Gb
 
 ## Engineering Challenge
-
+TBD
 
 ## MVP
-
+The minimum viable product for this would be a website which displays statistics regarding the candidate. This includes but is not limited to pie charts of languges used, commit analysis, and percentile analysis.
 
 ## Stretch Goals
