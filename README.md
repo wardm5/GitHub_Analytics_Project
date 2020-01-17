@@ -15,7 +15,7 @@ Finally, college admissions might find use for this tool as it would help with d
 ### Relevancy
 Although this project is especially relevant to the software engineering field, the concepts could be expanded to other fields by using other datasets or APIs. For example, by linking to a LinkedIn API, profile information could be pulled and matched to the candidate’s experience and show similar statistics. The industries that might find this product interesting are listed below:
 
-#### Sports Industry
+**Sports Industry**
 Sample Text
 #### Education
 Sample Text
