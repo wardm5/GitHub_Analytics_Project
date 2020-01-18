@@ -52,6 +52,6 @@ Size: ~770Gb
 TBD
 
 ## MVP
-The minimum viable product for this would be a website which displays statistics regarding the candidate. This includes but is not limited to pie charts of languges used, commit analysis, and percentile analysis.
+The minimum viable product for this would be a website which displays statistics regarding the candidate. This includes but is not limited to pie charts of languages used, commit analysis, and percentile analysis. This section will be updated as the project progresses.
 
 ## Stretch Goals
