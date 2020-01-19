@@ -3,3 +3,6 @@
 # Misha Ward - 17/Jan/2020
 
 wget -O- "https://data.ok.gov/sites/default/files/unspsc%20codes_3.csv" | aws s3 cp - s3://github-analysis-project/data-file/testing.csv
+#  aws s3 cp s3://github-analysis-project/data-file/testing.tar.gz - | tar -xz  | aws s3 cp s3://github-analysis-project/data-file/
+
+#  tar -xz aws s3 cp s3://github-analysis-project/data-file/testing.tar.gz | aws s3 cp - s3://github-analysis-project/data-file/
