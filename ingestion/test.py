@@ -2,8 +2,6 @@
 import boto3
 from io import BytesIO
 import gzip
-#testing github
-
 
 # setup constants
 bucket = 'github-analysis-project'
@@ -28,7 +26,6 @@ with contextlib.closing(requests.get(url, stream=True, verify=False)) as respons
         # Upload data to S3
         # s3Client.upload_fileobj(fp, 'github-analysis-project', 'github.csv')
         s3Client.upload_fileobj(fp, 'github-analysis-project', 'github.tar.gz')
-
 
 # # initialize s3 client, this is dependent upon your aws config being done
 # # s3 = boto3.client('s3', use_ssl=False)  # optional

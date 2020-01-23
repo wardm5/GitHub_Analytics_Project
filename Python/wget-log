@@ -1,6 +1,0 @@
---2020-01-21 12:24:33--  http://ghtorrent-downloads.ewi.tudelft.nl/mysql/mysql-2015-06-18.tar.gz
-Resolving ghtorrent-downloads.ewi.tudelft.nl (ghtorrent-downloads.ewi.tudelft.nl)... 131.180.125.37
-Connecting to ghtorrent-downloads.ewi.tudelft.nl (ghtorrent-downloads.ewi.tudelft.nl)|131.180.125.37|:80... connected.
-HTTP request sent, awaiting response... 404 Not Found
-2020-01-21 12:24:33 ERROR 404: Not Found.
-

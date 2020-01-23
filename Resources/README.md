@@ -1,5 +1,7 @@
 ## Programming Guides
 * Spark: http://spark.apache.org/docs/2.1.0/programming-guide.html
+* Pegasus: https://blog.insightdatascience.com/how-to-get-hadoop-and-spark-up-and-running-on-aws-7a1b0ab55459
+* Pegasus Install: https://github.com/InsightDataScience/pegasus
 
 ## Python/Boto3
 ### EC2:
@@ -19,6 +21,9 @@
 * **https://stackoverflow.com/questions/49490640/ho-to-read-gz-compressed-file-using-spark-df-or-ds (important)**
 * **https://stackoverflow.com/questions/42761912/how-to-read-gz-compressed-file-by-pyspark (important)**
 
+### GitTorrent:
+* **https://stackoverflow.com/questions/55766606/can-i-connect-to-ghtorrent-mysql-mongodb-database-through-ssh (semi-important)**
+
 ### Lambda:
 * https://www.quora.com/How-do-I-extract-a-zip-file-in-an-Amazon-S3-by-using-Lambda
 
@@ -35,6 +40,10 @@
 ## Google Cloud - BigQuery
 ### S3 Transfers:
 * https://stackoverflow.com/questions/39329580/exporting-data-from-google-cloud-storage-to-amazon-s3
+* https://cloud.google.com/bigquery-transfer/docs/s3-transfer
+* https://cloud.google.com/bigquery-transfer/docs/enable-transfer-service
+* https://cloud.google.com/bigquery/docs/exporting-data
+* https://cloud.google.com/bigquery/docs/datasets
 
 ## Scala
 ### Data Upload / Compression:
