@@ -35,7 +35,8 @@
 *  **https://stackoverflow.com/questions/46236776/aws-cli-is-there-a-way-to-extract-tar-gz-from-s3-to-home-without-storing-the-t/46239830  (important)**
 * https://stackoverflow.com/questions/46236776/aws-cli-is-there-a-way-to-extract-tar-gz-from-s3-to-home-without-storing-the-t/46239830
 * **https://stackoverflow.com/questions/19241671/downloading-a-file-from-internet-into-s3-bucket (semi-important)**
-* **https://superuser.com/questions/1248276/aws-upload-folder-to-s3-as-tar-gz-without-compressing-locally (se**mi-important)**
+* **https://superuser.com/questions/1248276/aws-upload-folder-to-s3-as-tar-gz-without-compressing-locally (semi-important)**
+* **https://medium.com/@praveenkumarpalai/install-and-setuppostgresql-on-ubuntu-amazon-ec2-5d1af79b4fca (semi-important)**
 
 ## Google Cloud - BigQuery
 ### S3 Transfers:
@@ -49,3 +50,6 @@
 ### Data Upload / Compression:
 * https://stackoverflow.com/questions/36604145/read-whole-text-files-from-a-compression-in-spark
 * https://stackoverflow.com/questions/38635905/reading-in-multiple-files-compressed-in-tar-gz-archive-into-spark
+
+## Vim Text Editor
+* https://unix.stackexchange.com/questions/161821/how-can-i-delete-all-lines-in-a-file-using-vi
