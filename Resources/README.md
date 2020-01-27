@@ -43,6 +43,9 @@
 * **https://medium.com/@praveenkumarpalai/install-and-setuppostgresql-on-ubuntu-amazon-ec2-5d1af79b4fca (semi-important)**
 * https://medium.com/@praveenkumarpalai/install-and-setuppostgresql-on-ubuntu-amazon-ec2-5d1af79b4fca
 
+### Misc
+* https://alvinalexander.com/linux-unix/vi-vim-delete-all-lines-how
+
 ## Google Cloud - BigQuery
 ### S3 Transfers:
 * https://stackoverflow.com/questions/39329580/exporting-data-from-google-cloud-storage-to-amazon-s3
@@ -67,6 +70,7 @@
 
 ### Deploying Flask App
 * https://towardsdatascience.com/deploying-a-python-web-app-on-aws-57ed772b2319
-* **https://www.datasciencebytes.com/bytes/2015/02/24/running-a-flask-app-on-aws-ec2/ (really important)**
+* **https://www.datasciencebytes.com/bytes/2015/02/24/running-a-flask-app-on-aws-ec2/ (semi-important)**
+* **https://vishnut.me/blog/ec2-flask-apache-setup.html (really important)**
 * https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80
 * https://www.codementor.io/@dushyantbgs/deploying-a-flask-application-to-aws-gnva38cf0
