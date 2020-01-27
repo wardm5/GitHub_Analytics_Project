@@ -1,5 +1,6 @@
 ## Programming Guides
 * Spark: http://spark.apache.org/docs/2.1.0/programming-guide.html
+* Spark: https://spark.apache.org/docs/latest/sql-getting-started.html
 * Pegasus: https://blog.insightdatascience.com/how-to-get-hadoop-and-spark-up-and-running-on-aws-7a1b0ab55459
 * Pegasus Install: https://github.com/InsightDataScience/pegasus
 
@@ -20,6 +21,9 @@
 * **https://medium.com/@joshua_robinson/parallelizing-downloads-with-spark-16bab8e337eb (important)**
 * **https://stackoverflow.com/questions/49490640/ho-to-read-gz-compressed-file-using-spark-df-or-ds (important)**
 * **https://stackoverflow.com/questions/42761912/how-to-read-gz-compressed-file-by-pyspark (important)**
+
+### Flask app
+* https://www.geeksforgeeks.org/flask-creating-first-simple-application/
 
 ### GitTorrent:
 * **https://stackoverflow.com/questions/55766606/can-i-connect-to-ghtorrent-mysql-mongodb-database-through-ssh (semi-important)**
@@ -62,4 +66,7 @@
 * https://serverfault.com/questions/403563/how-to-change-the-url-on-my-amazon-ec2-webserver
 
 ### Deploying Flask App
-* **https://towardsdatascience.com/deploying-a-python-web-app-on-aws-57ed772b2319 (important)**
+* https://towardsdatascience.com/deploying-a-python-web-app-on-aws-57ed772b2319
+* **https://www.datasciencebytes.com/bytes/2015/02/24/running-a-flask-app-on-aws-ec2/ (really important)**
+* https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80
+* https://www.codementor.io/@dushyantbgs/deploying-a-flask-application-to-aws-gnva38cf0
