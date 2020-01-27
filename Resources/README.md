@@ -37,6 +37,7 @@
 * **https://stackoverflow.com/questions/19241671/downloading-a-file-from-internet-into-s3-bucket (semi-important)**
 * **https://superuser.com/questions/1248276/aws-upload-folder-to-s3-as-tar-gz-without-compressing-locally (semi-important)**
 * **https://medium.com/@praveenkumarpalai/install-and-setuppostgresql-on-ubuntu-amazon-ec2-5d1af79b4fca (semi-important)**
+* https://medium.com/@praveenkumarpalai/install-and-setuppostgresql-on-ubuntu-amazon-ec2-5d1af79b4fca
 
 ## Google Cloud - BigQuery
 ### S3 Transfers:
@@ -53,3 +54,12 @@
 
 ## Vim Text Editor
 * https://unix.stackexchange.com/questions/161821/how-can-i-delete-all-lines-in-a-file-using-vi
+
+## Website Resources
+### Change domain name
+* **https://u.osu.edu/walujo.1/2016/07/07/associate-namecheap-domain-to-amazon-ec2-instance/ (important)**
+* **https://ap.www.namecheap.com/Domains/DomainControlPanel/data-analysis-project.xyz/advancedns (important)**
+* https://serverfault.com/questions/403563/how-to-change-the-url-on-my-amazon-ec2-webserver
+
+### Deploying Flask App
+* **https://towardsdatascience.com/deploying-a-python-web-app-on-aws-57ed772b2319 (important)**
