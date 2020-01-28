@@ -25,4 +25,7 @@ hs_err_pid*
 # yaml files
 *.yml
 
+# DS_Store
+*.DS_Store
+
 data/*
