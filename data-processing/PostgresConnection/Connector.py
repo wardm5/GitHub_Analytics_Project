@@ -4,14 +4,12 @@ class Connector():
         self.url = "jdbc:postgresql://database-1.cu6pvppk2zw2.us-west-2.rds.amazonaws.com:5432/" + self.table
         self.properties = {"user": "postgres","password": "Trotsky1","driver": "org.postgresql.Driver"}
 
-    def get_writer(data_frame):
-        return DataFrameWriter(data_frame)
-
     def write(data_frame, mode):
         df.write.jdbc(url=self.url, table="test_result", mode=mode, properties=self.properties)
 
+
     # table = 'test'
-    mode = "overwrite"
+    # mode = "overwrite"
     # url = "jdbc:postgresql://database-1.cu6pvppk2zw2.us-west-2.rds.amazonaws.com:5432/" + table
-    df.write.jdbc(url=url, table="test_result", mode=mode, properties=self.properties)
-    spark.stop()
+    # df.write.jdbc(url=url, table="test_result", mode=mode, properties=self.properties)
+    # spark.stop()
