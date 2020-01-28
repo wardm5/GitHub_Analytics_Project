@@ -3,6 +3,7 @@
 * Spark: https://spark.apache.org/docs/latest/sql-getting-started.html
 * Pegasus: https://blog.insightdatascience.com/how-to-get-hadoop-and-spark-up-and-running-on-aws-7a1b0ab55459
 * Pegasus Install: https://github.com/InsightDataScience/pegasus
+* PostgreSQL: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html
 
 ## Python/Boto3
 ### EC2:
@@ -21,6 +22,7 @@
 * **https://medium.com/@joshua_robinson/parallelizing-downloads-with-spark-16bab8e337eb (important)**
 * **https://stackoverflow.com/questions/49490640/ho-to-read-gz-compressed-file-using-spark-df-or-ds (important)**
 * **https://stackoverflow.com/questions/42761912/how-to-read-gz-compressed-file-by-pyspark (important)**
+* **https://stackoverflow.com/questions/38825836/write-spark-dataframe-to-postgres-database (very important)**
 
 ### Flask app
 * https://www.geeksforgeeks.org/flask-creating-first-simple-application/
