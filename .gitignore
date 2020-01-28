@@ -28,4 +28,9 @@ hs_err_pid*
 # DS_Store
 *.DS_Store
 
+# Python
+*.pyc
+__pycache__/
+
 data/*
+OLD_CODE/*
