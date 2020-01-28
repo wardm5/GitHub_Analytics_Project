@@ -47,6 +47,7 @@
 
 ### Misc
 * https://alvinalexander.com/linux-unix/vi-vim-delete-all-lines-how
+* https://askubuntu.com/questions/56326/how-do-i-rename-a-directory-via-the-command-line
 
 ## Google Cloud - BigQuery
 ### S3 Transfers:

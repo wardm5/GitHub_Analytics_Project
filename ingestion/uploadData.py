@@ -7,8 +7,6 @@ import gzip
 import urllib2
 
 # url = 'http://winterolympicsmedals.com/medals.csv'
-
-
 # setup constants
 bucket = 'github-analysis-project'
 gzipped_key = 'http://ghtorrent-downloads.ewi.tudelft.nl/mongo-full/users-dump.2015-12-01.tar.gz'
