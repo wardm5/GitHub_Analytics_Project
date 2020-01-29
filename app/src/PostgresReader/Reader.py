@@ -24,9 +24,11 @@ class Reader():
         return self.results
 
     def print_results(self):
-
-        print "\nShow me the databases:\n"
-        for row in self.results:
-            print "   ", row[0]
-            print "   ", row[1]
-            print "   ", row[2]
+        if (self.results == None):
+            print("Status: no results stored")
+            return
+        else:
+            for row in self.results:
+                print "   ", row[0]
+                print "   ", row[1]
+                print "   ", row[2]
