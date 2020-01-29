@@ -9,14 +9,17 @@
 #
 # if __name__ == '__main__':
 #   app.run()
-
+from PostgresReader.Reader import *
+sql = Reader()
 
 from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-	return 'Hello, World!'
+
+    return sql.run_query("""SELECT * from persons """)
+	# return 'Hello, World!'
 
 @app.route('/countme/<input_str>')
 def count_me(input_str):

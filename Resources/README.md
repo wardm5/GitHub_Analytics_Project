@@ -16,6 +16,10 @@
 * https://stackoverflow.com/questions/54289735/use-python-requests-to-download-an-compressed-tar-gzfile-and-unzip-it-using-tar
 * https://stackoverflow.com/questions/51276201/how-to-extract-files-in-s3-on-the-fly-with-boto3
 
+#### Psycopg2
+* **https://wiki.postgresql.org/wiki/Psycopg2_Tutorial (important)**
+* **https://stackoverflow.com/questions/11583714/install-psycopg2-on-ubuntu (very important)**
+
 ### PySpark:
 * https://stackoverflow.com/questions/55400119/how-to-read-large-zip-files-in-pyspark
 * **https://stackoverflow.com/questions/33682709/spark-to-process-many-tar-gz-files-from-s3 (important)**
@@ -23,6 +27,7 @@
 * **https://stackoverflow.com/questions/49490640/ho-to-read-gz-compressed-file-using-spark-df-or-ds (important)**
 * **https://stackoverflow.com/questions/42761912/how-to-read-gz-compressed-file-by-pyspark (important)**
 * **https://stackoverflow.com/questions/38825836/write-spark-dataframe-to-postgres-database (very important)**
+* **https://www.analyticsvidhya.com/blog/2016/10/spark-dataframe-and-operations/ (important)**
 
 ### Flask app
 * https://www.geeksforgeeks.org/flask-creating-first-simple-application/
@@ -48,6 +53,7 @@
 ### Misc
 * https://alvinalexander.com/linux-unix/vi-vim-delete-all-lines-how
 * https://askubuntu.com/questions/56326/how-do-i-rename-a-directory-via-the-command-line
+* **https://www.interserver.net/tips/kb/extract-tar-gz-files-using-linux-command-line/ (important)**
 
 ## Google Cloud - BigQuery
 ### S3 Transfers:
