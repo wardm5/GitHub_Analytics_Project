@@ -25,6 +25,6 @@ class Reader():
             print("Status: COMPLETE")
             return res
         elif (file_name == 'projects'):
-            res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_users_schema())
+            res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_projects_schema())
             print("Status: COMPLETE")
             return res

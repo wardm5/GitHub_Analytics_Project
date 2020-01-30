@@ -1,8 +1,8 @@
-from pyspark.sql.types import IntegerType, TimestampType, StructField, StructType, StringType, DecimalType
+from pyspark.sql.types import IntegerType, TimestampType, StructField, StructType, StringType, BooleanType, DecimalType
 class Schemas():
     def get_commits_schema(self):
         commit_schema = StructType([
-            StructField("commit_id", IntegerType(), True),
+            StructField("commit_id", IntegerType(), False),
             StructField("sha", StringType(), True),
             StructField("author_id", IntegerType(), True),
             StructField("committer_id", IntegerType(), True),
@@ -13,7 +13,7 @@ class Schemas():
 
     def get_users_schema(self):
         user_schema = StructType([
-            StructField("id", 	IntegerType(),True),	 	       #_C0
+            StructField("id", 	IntegerType(),False),	 	       #_C0
             StructField("login",    StringType(),True), 		   #_c1
             StructField("company",  StringType(),True), 		   #_c2
             StructField("created_at", TimestampType(),True),       #_c3
@@ -29,9 +29,9 @@ class Schemas():
         ])
         return user_schema
 
-    def get_project_schema(self):
+    def get_projects_schema(self):
         project_schema = StructType([
-            StructField("id", 	        IntegerType(),True),	 	#_C0
+            StructField("id", 	        IntegerType(),False),	 	#_C0
             StructField("url", 	        StringType(),True),	 	    #_C1
             StructField("owner_id", 	IntegerType(),True),	 	#_C2
             StructField("name", 	    StringType(),True),	 	    #_C3
@@ -46,7 +46,7 @@ class Schemas():
 
     def get_repo_label_schema(self):
         repo_label_schema = StructType([
-            StructField("id", 	        IntegerType(),True),	 	#_C0
+            StructField("id", 	        IntegerType(),False),	 	#_C0
             StructField("repo_id", 	    IntegerType(),True),	 	#_C1
             StructField("name", 	    StringType(),True),	 	    #_C2
         ])
