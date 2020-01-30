@@ -6,9 +6,15 @@ from PostgresConnector.Connector import *
 from S3Reader.Reader import *
 
 reader = Reader()
-df = reader.read("followers")
+df_users = reader.read("users")
 
-print(df.count())
+df_users.printSchema()
+df_users=df_users.drop(df_users.created_at)
+df_res=df_users.groupby(df_users.user_id).count()
+
+
+
+# print(df.count())
 
 conn = Connector()
 conn.write(df, 'overwrite')

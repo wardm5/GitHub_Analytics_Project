@@ -28,6 +28,7 @@
 * **https://stackoverflow.com/questions/42761912/how-to-read-gz-compressed-file-by-pyspark (important)**
 * **https://stackoverflow.com/questions/38825836/write-spark-dataframe-to-postgres-database (very important)**
 * **https://www.analyticsvidhya.com/blog/2016/10/spark-dataframe-and-operations/ (important)**
+* https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.head.html
 
 ### Flask app
 * https://www.geeksforgeeks.org/flask-creating-first-simple-application/
@@ -49,11 +50,13 @@
 * **https://superuser.com/questions/1248276/aws-upload-folder-to-s3-as-tar-gz-without-compressing-locally (semi-important)**
 * **https://medium.com/@praveenkumarpalai/install-and-setuppostgresql-on-ubuntu-amazon-ec2-5d1af79b4fca (semi-important)**
 * https://medium.com/@praveenkumarpalai/install-and-setuppostgresql-on-ubuntu-amazon-ec2-5d1af79b4fca
+* https://superuser.com/questions/598018/how-to-open-big-tar-gz-file
 
 ### Misc
 * https://alvinalexander.com/linux-unix/vi-vim-delete-all-lines-how
 * https://askubuntu.com/questions/56326/how-do-i-rename-a-directory-via-the-command-line
 * **https://www.interserver.net/tips/kb/extract-tar-gz-files-using-linux-command-line/ (important)**
+* https://unix.stackexchange.com/questions/461130/extracting-specific-files-from-tar-compressed-directory
 
 ## Google Cloud - BigQuery
 ### S3 Transfers:
@@ -83,3 +86,14 @@
 * **https://vishnut.me/blog/ec2-flask-apache-setup.html (really important)**
 * https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80
 * https://www.codementor.io/@dushyantbgs/deploying-a-flask-application-to-aws-gnva38cf0
+
+## SQL
+* https://www.tutorialspoint.com/sql/sql-sub-queries.htm
+* https://stackoverflow.com/questions/894490/sql-left-join-vs-multiple-tables-on-from-line
+* https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_sum
+* https://www.w3schools.com/sql/sql_count_avg_sum.asp
+* https://www.w3schools.com/sql/sql_like.asp
+
+## GitHub Dataset
+* http://ghtorrent.org/files/schema.pdf
+* http://ghtorrent.org/downloads.html
