@@ -32,11 +32,11 @@ class Schemas():
     def get_project_schema(self):
         project_schema = StructType([
             StructField("id", 	        IntegerType(),True),	 	#_C0
-            StructField("url", 	        StringType(),True),	 	#_C1
+            StructField("url", 	        StringType(),True),	 	    #_C1
             StructField("owner_id", 	IntegerType(),True),	 	#_C2
-            StructField("name", 	    StringType(),True),	 	#_C3
-            StructField("description", 	StringType(),True),	 	#_C4
-            StructField("language", 	StringType(),True),	 	#_C5
+            StructField("name", 	    StringType(),True),	 	    #_C3
+            StructField("description", 	StringType(),True),	 	    #_C4
+            StructField("language", 	StringType(),True),	 	    #_C5
             StructField("created_at", 	TimestampType(),True),	 	#_C6
             StructField("forked_from", 	IntegerType(),True),	 	#_C7
             StructField("deleted", 	    BooleanType(),True),	 	#_C8
@@ -44,4 +44,10 @@ class Schemas():
         ])
         return project_schema
 
-    # def get_repo_label_schema(self):
+    def get_repo_label_schema(self):
+        repo_label_schema = StructType([
+            StructField("id", 	        IntegerType(),True),	 	#_C0
+            StructField("repo_id", 	    IntegerType(),True),	 	#_C1
+            StructField("name", 	    StringType(),True),	 	    #_C2
+        ])
+        return repo_label_schema

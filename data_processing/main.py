@@ -9,22 +9,19 @@ from pyspark.sql import functions as F
 reader = Reader()
 
 commits = reader.read("commits")
-print(commits.schema.names)
-
-
-
 users = reader.read("users")
 columns_to_drop_commits = ['sha', 'project_id', 'author_id']
 commits = commits.drop(*columns_to_drop_commits)
-commits.printSchema()
+
 
 commits = commits.groupBy('committer_id').agg(F.count('commit_id'))
+commits.printSchema()
 # df_res=df_commits.groupby(_c3).count()
 # print(df_users.head())
-# df_res.show()
-c = commits.alias('commits')
-u = users.alias('users')
-inner_join = c.join(u.login, c.committer_id == u.id)
+commits.show()
+commit = commits.alias('commits')
+user = users.alias('users')
+inner_join = commit.join(u.login, commit.committer_id == user.id)
 inner_join.show()
 
 # df_users.printSchema()
