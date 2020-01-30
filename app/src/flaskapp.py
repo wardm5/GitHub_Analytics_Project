@@ -17,7 +17,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-
+    
     return sql.run_query("""SELECT * from persons """)
 	# return 'Hello, World!'
 
