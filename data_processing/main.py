@@ -8,7 +8,7 @@ from pyspark.sql import functions as F
 
 reader = Reader()
 
-# df_users = reader.read("users")
+
 df_commits = reader.read("commits")
 df_users = reader.read("users")
 columns_to_drop_commits = ['sha', 'project_id', 'author_id']

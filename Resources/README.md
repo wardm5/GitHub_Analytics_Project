@@ -29,6 +29,8 @@
 * **https://stackoverflow.com/questions/38825836/write-spark-dataframe-to-postgres-database (very important)**
 * **https://www.analyticsvidhya.com/blog/2016/10/spark-dataframe-and-operations/ (important)**
 * https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.head.html
+* **https://stackoverflow.com/questions/51632126/pysparkhow-to-calculate-avg-and-count-in-a-single-groupby (important)**
+* **https://stackoverflow.com/questions/39926411/provide-schema-while-reading-csv-file-as-a-dataframe (semi-important)**
 
 ### Flask app
 * https://www.geeksforgeeks.org/flask-creating-first-simple-application/
@@ -51,6 +53,7 @@
 * **https://medium.com/@praveenkumarpalai/install-and-setuppostgresql-on-ubuntu-amazon-ec2-5d1af79b4fca (semi-important)**
 * https://medium.com/@praveenkumarpalai/install-and-setuppostgresql-on-ubuntu-amazon-ec2-5d1af79b4fca
 * https://superuser.com/questions/598018/how-to-open-big-tar-gz-file
+* **https://stackoverflow.com/questions/28396065/how-to-move-files-from-amazon-ec2-to-s3-bucket-using-command-line (semi-important)**
 
 ### Misc
 * https://alvinalexander.com/linux-unix/vi-vim-delete-all-lines-how

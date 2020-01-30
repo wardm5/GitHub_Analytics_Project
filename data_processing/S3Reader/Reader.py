@@ -14,12 +14,10 @@ class Reader():
     # Inputs:
     def read(self, file_name):
         schemas = Schemas()
-        print("Status: Connecting to S3...")
+        print("Status: Connecting to S3... " + file_name)
         s3_file_str = "s3a://github-analysis-project/data-file/" + file_name + ".csv"
-
         if (file_name == 'commits'):
             res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_commits_schema())
-            # res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=self.get_commits_schema())
             print("Status: COMPLETE")
             return res
         elif (file_name == 'users'):
