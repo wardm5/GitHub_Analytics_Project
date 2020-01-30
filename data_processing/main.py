@@ -8,16 +8,12 @@ from pyspark.sql import functions as F
 
 reader = Reader()
 
-def
-
-
-
 # df_users = reader.read("users")
 df_commits = reader.read("commits")
 df_users = reader.read("users")
 df_commits.printSchema()
-df_commits=df_commits.drop()  # drop column 4...
-df_res = df_commits.groupBy('author_id').agg(F.count('c_id'))
+df_commits=df_commits.drop('')  # drop column 4...
+df_res = df_commits.groupBy('author_id').agg(F.count('commit_id'))
 # df_res=df_commits.groupby(_c3).count()
 # print(df_users.head())
 df_res.show()
