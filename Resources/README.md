@@ -31,6 +31,7 @@
 * https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.head.html
 * **https://stackoverflow.com/questions/51632126/pysparkhow-to-calculate-avg-and-count-in-a-single-groupby (important)**
 * **https://stackoverflow.com/questions/39926411/provide-schema-while-reading-csv-file-as-a-dataframe (semi-important)**
+* https://stackoverflow.com/questions/29600673/how-to-delete-columns-in-pyspark-dataframe
 
 ### Flask app
 * https://www.geeksforgeeks.org/flask-creating-first-simple-application/
@@ -100,3 +101,6 @@
 ## GitHub Dataset
 * http://ghtorrent.org/files/schema.pdf
 * http://ghtorrent.org/downloads.html
+
+## Atom (text editor)
+* https://www.sitepoint.com/12-favorite-atom-tips-and-shortcuts-to-improve-your-workflow/

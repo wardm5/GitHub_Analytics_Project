@@ -1,4 +1,4 @@
-from pyspark.sql.types import IntegerType, TimestampType, StructField, StructType, StringType
+from pyspark.sql.types import IntegerType, TimestampType, StructField, StructType, StringType, DecimalType
 class Schemas():
     def get_commits_schema(self):
         commit_schema = StructType([
@@ -44,4 +44,4 @@ class Schemas():
         ])
         return project_schema
 
-    def get_repo_label_schema(self):
+    # def get_repo_label_schema(self):
