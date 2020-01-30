@@ -5,32 +5,37 @@ from pyspark.sql import SQLContext
 from PostgresConnector.Connector import *
 from S3Reader.Reader import *
 from pyspark.sql import functions as F
+from pyspark.sql.functions import *
+
+def count_table_rows():
+    print("Status: counting rows of tables")
+    # print("commit count: " , commits.count())
+    # print("users count: " , users.count())
+    print("projects count: " , projects.count())
 
 reader = Reader()
 
 commits = reader.read("commits")
 users = reader.read("users")
-columns_to_drop_commits = ['sha', 'project_id', 'author_id']
+projects = reader.read("projects")
+
+count_table_rows()
+
+print("Status: dropping columns")
+columns_to_drop_commits = ['sha', 'author_id']
 commits = commits.drop(*columns_to_drop_commits)
 
-
-commits = commits.groupBy('committer_id').agg(F.count('commit_id'))
+print("Status: counting commits")
+commits = commits.groupBy('committer_id').agg(F.count('commit_id')).orderBy('count(commit_id)', ascending=False)
 commits.printSchema()
-# df_res=df_commits.groupby(_c3).count()
-# print(df_users.head())
-commits.show()
+# commits.show()
+
+print("Status: joining users and commits tables")
 commit = commits.alias('commits')
 user = users.alias('users')
-inner_join = commit.join(u.login, commit.committer_id == user.id)
-inner_join.show()
-
-# df_users.printSchema()
-# df_users=df_users.drop(_c4)  # drop column 4...
-# df_res=df_users.groupby(_c1).count()
-# print(df_users.head())
-# df_res.show()
-
-# print(df.count())
+inner_join = commit.join(user, commit.committer_id == user.id).select(user["login"],commit["*"])
+print("inner join table count: " , inner_join.count())
+# inner_join.show()
 
 # conn = Connector()
 # conn.write(df_users, 'overwrite')
