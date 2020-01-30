@@ -11,9 +11,11 @@ reader = Reader()
 # df_users = reader.read("users")
 df_commits = reader.read("commits")
 df_users = reader.read("users")
+columns_to_drop_commits = ['sha', 'project_id', 'author_id']
+df_commits = df_commits.drop(*columns_to_drop)
 df_commits.printSchema()
-df_commits=df_commits.drop('')  # drop column 4...
-df_res = df_commits.groupBy('author_id').agg(F.count('commit_id'))
+
+df_res = df_commits.groupBy('committer_id').agg(F.count('commit_id'))
 # df_res=df_commits.groupby(_c3).count()
 # print(df_users.head())
 df_res.show()

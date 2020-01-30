@@ -43,3 +43,5 @@ class Schemas():
             StructField("updated_at", 	TimestampType(),True),	 	#_C9
         ])
         return project_schema
+
+    def get_repo_label_schema(self):
