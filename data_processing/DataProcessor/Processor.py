@@ -97,14 +97,15 @@ class Processor():
             return
         print("Status: Getting commit counts per user")
         commits = self.dic['commits'].groupBy('committer_id').agg(F.count('commit_id'))
+        commits = commits.orderBy(commits['count(commit_id)'].asc())
         commits.show()
         print(commits.count())
-        # commits = self.dic['commits'].alias('commits')
-        # users = self.dic['users'].alias('users')
-        # print("Status: joining users and commits tables")
-        # inner_join = commits.join(users, commits.committer_id == users.id).select(users["login"],commits["*"])
-        # # print("inner join table count: " , inner_join.count())
-        # inner_join.show()
+        commits_table = self.dic['commits'].alias('commits_table')
+        users_table = self.dic['users'].alias('users_table')
+        print("Status: joining users and commits tables")
+        inner_join = commits.join(users_table, commits_table.committer_id == users_table.id).select(users["login"],commits["*"])
+        # print("inner join table count: " , inner_join.count())
+        inner_join.show()
         # self.dic['percentiles'] = inner_join
 
     # Creates Language Percent for final project

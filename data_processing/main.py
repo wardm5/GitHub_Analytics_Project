@@ -8,12 +8,12 @@ program.read_from_tables()
 program.preprocess_tables()
 
 # percentile for commits
-# program.create_default_table_1()
+program.create_default_table_1()
 # get commits per project
 # program.create_default_table_2()
 
-program.create_default_table_3()
-program.get_table_names()
+# program.create_default_table_3()
+# program.get_table_names()
 
 # program.write_specific_table_to_postgres('default_1')
 # program.write_specific_table_to_postgres('default_2')
