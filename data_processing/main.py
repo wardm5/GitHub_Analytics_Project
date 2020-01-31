@@ -7,16 +7,17 @@ program.read_from_tables()
 # preprocess tables (remove unnecessary columns)
 program.preprocess_tables()
 
-program.show_table('users')
-program.count_table_rows()
+program.create_percentile_table()
 
-commits = program.get_table('commits')
-projects = program.get_table('projects')
-users = program.get_table('users')
-users.show()
 
-print("Getting commit counts per user")
-commits = commits.groupBy('committer_id').agg(F.count('commit_id'))
+# program.show_table('users')
+# program.count_table_rows()
+
+# commits = program.get_table('commits')
+# projects = program.get_table('projects')
+# users = program.get_table('users')
+# users.show()
+
 # commits.printSchema()
 # commits.show()
 

@@ -21,7 +21,14 @@ class Processor():
         self.postgres_connector.write(users, 'overwrite')
         self.postgres_connector.write(projects, 'overwrite')
 
-    # Method to read from S3 database
+    # Method to write to PostgreSQL database for specific table   **** pending testing
+    def write_specific_table_to_postgres(self, name):
+        if (self.dic['name'] != None):
+            self.postgres_connector.write(name, 'overwrite')
+        else:
+            print("Error: No table by that name. Please re-try.")
+
+    # Method to read from S3 database  **** pending testing****
     def read_from_tables(self):
         users =  self.s3_reader.read('users')
         projects = self.s3_reader.read('projects')
@@ -48,6 +55,7 @@ class Processor():
             return self.dic.get(name)
         else:
             "Incorrect table selected"
+
 
     def get_table_names(self):
         print("Tables include:  ", self.dic.keys())
@@ -76,6 +84,27 @@ class Processor():
             self.dic.get(name).show()
         else:
             print("Incorrect table name, please try again")
+
+    # Method to add specific table to dictionary (should be used for outside tables)
+    def add_table(self, data_frame, name):
+        self.dic['name'] = data_frame
+
+    # Creates PERCENTILE TABLE for final project
+    def create_percentile_table(self):
+        if (self.started == None):
+            return
+        print("Status: Getting commit counts per user")
+        commits = self.dic['commits'].groupBy('committer_id').agg(F.count('commit_id'))
+        print("Status: joining users and commits tables")
+        commits = self.dic['commits'].alias('commits')
+        users = self.dic['users'].alias('users')
+        inner_join = commits.join(users, commits.committer_id == users.id).select(users["login"],commits["*"])
+        print("inner join table count: " , inner_join.count())
+        inner_join.show()
+        self.dic['percentiles'] = inner_join
+
+
+
 
 # conn = Connector()
 # conn.write(df_users, 'overwrite')
