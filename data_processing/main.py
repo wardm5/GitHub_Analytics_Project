@@ -7,7 +7,13 @@ program.read_from_tables()
 # preprocess tables (remove unnecessary columns)
 program.preprocess_tables()
 
-program.create_default_table_1()
+# percentile for commits
+# program.create_default_table_1()
+# get commits per project
+program.create_default_table_2()
+
+
+
 
 # program.show_table('users')
 # program.count_table_rows()

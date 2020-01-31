@@ -96,6 +96,7 @@ class Processor():
         print("Status: Getting commit counts per user")
         commits = self.dic['commits'].groupBy('committer_id').agg(F.count('commit_id'))
         commits.show()
+        print(commits.count())
         # commits = self.dic['commits'].alias('commits')
         # users = self.dic['users'].alias('users')
         # print("Status: joining users and commits tables")
@@ -108,9 +109,11 @@ class Processor():
     def create_default_table_2(self):
         if (self.started == None):
             return
-        print("Status: Getting commit counts per user")
-        commits = self.dic['commits'].groupBy('committer_id').agg(F.count('commit_id'))
-        commits.show()
+        print("Status: Getting commit counts per project")
+        projects = self.dic['projects'].groupBy('owner_id', 'language').agg(count('id')).select('owner_id', 'language', 'count(id)')
+        projects = projects.orderBy('owner_id', projects['count(id)'].desc())
+        projects.show()
+        # print(projects.count())
         # commits = self.dic['commits'].alias('commits')
         # users = self.dic['users'].alias('users')
         # print("Status: joining users and commits tables")
