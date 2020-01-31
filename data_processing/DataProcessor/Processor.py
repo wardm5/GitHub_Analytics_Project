@@ -19,16 +19,17 @@ class Processor():
     def write_to_postgres(self):
         if (self.started == False):
             return
-        self.postgres_connector.write(commits, 'overwrite')
-        self.postgres_connector.write(users, 'overwrite')
-        self.postgres_connector.write(projects, 'overwrite')
+        self.postgres_connector.write(commits, 'overwrite', 'commits')
+        self.postgres_connector.write(users, 'overwrite', 'users')
+        self.postgres_connector.write(projects, 'overwrite', 'projects')
 
     # Method to write to PostgreSQL database for specific table   **** pending testing
     def write_specific_table_to_postgres(self, name):
-        if (self.dic['name'] != None):
-            self.postgres_connector.write(name, 'overwrite')
-        else:
-            print("Error: No table by that name. Please re-try.")
+        try:
+            df = self.dic[name]
+            self.postgres_connector.write(df, 'overwrite', name)
+        except KeyError:
+            pass
 
     # Method to read from S3 database  **** pending testing****
     def read_from_tables(self):
@@ -89,7 +90,7 @@ class Processor():
 
     # Method to add specific table to dictionary (should be used for outside tables)
     def add_table(self, data_frame, name):
-        self.dic['name'] = data_frame
+        self.dic[name] = data_frame
 
     # Creates Percentile Table for final project
     def create_default_table_1(self):
@@ -103,7 +104,7 @@ class Processor():
         commits_table = self.dic['commits'].alias('commits_table')
         users_table = self.dic['users'].alias('users_table')
         print("Status: joining users and commits tables")
-        inner_join = commits.join(users_table, commits_table.committer_id == users_table.id).select(users["login"],commits["*"])
+        inner_join = commits.join(users_table, commits_table.committer_id == users_table.id).select(users_table["login"],commits_table["*"])
         # print("inner join table count: " , inner_join.count())
         inner_join.show()
         # self.dic['percentiles'] = inner_join
@@ -118,9 +119,8 @@ class Processor():
         projects_table = projects.alias('projects_table')
         users_table = self.dic['users'].alias('users_table')
         print("Status: joining users and commits tables")
-        inner_join = projects_table.join(users_table, projects_table.owner_id == users_table.id).select(users_table['login', 'country_code', 'state', 'city', 'location'],projects_table['*'])
+        inner_join = projects_table.join(users_table, projects_table.owner_id == users_table.id).select(users_table['*'],projects_table['*'])
         inner_join.show()
-        print(inner_join.count())
         self.dic['default_2'] = inner_join
 
     def create_default_table_3(self):

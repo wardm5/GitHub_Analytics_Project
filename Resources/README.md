@@ -39,7 +39,7 @@
 #### Python Syntax Reminders
 * https://stackoverflow.com/questions/6130768/return-none-if-dictionary-key-is-not-available
 * https://www.w3schools.com/python/python_dictionaries.asp
-
+* https://stackoverflow.com/questions/46024562/how-do-i-avoid-keyerror-when-working-with-dictionaries
 
 ### Flask app
 * https://www.geeksforgeeks.org/flask-creating-first-simple-application/
