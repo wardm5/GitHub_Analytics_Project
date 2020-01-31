@@ -140,8 +140,3 @@ class Processor():
         inner_join.show()
         # print(inner_join.count())
         self.dic['default_3'] = inner_join
-        # projects_table = projects.alias('projects_table')
-
-        # users_table = self.dic['users'].alias('users_table')
-# conn = Connector()
-# conn.write(df_users, 'overwrite')
