@@ -17,14 +17,14 @@ class Schemas():
         user_schema = StructType([
             StructField("id", 	IntegerType(),False),	 	       #_C0
             StructField("login",    StringType(),True), 		   #_c1
-            StructField("name",  StringType(),True), 		   #_c2
-            StructField("company", StringType(),True),       #_c3
-            StructField("location", 	StringType(),True),            #_c4
-            StructField("email", 	StringType(),True),           #_c5
+            StructField("name",  StringType(),True), 		       #_c2
+            StructField("company", StringType(),True),             #_c3
+            StructField("location", 	StringType(),True),        #_c4
+            StructField("email", 	StringType(),True),            #_c5
             StructField("created", 	TimestampType(),True),		   #_c6
-            StructField("type_of_user", 	StringType(),True),		   #_c7
-            StructField("fake", 	IntegerType(),True),		       #_c8
-            StructField("deleted", IntegerType(),True),		   #_c9
+            StructField("type_of_user", 	StringType(),True),	   #_c7
+            StructField("fake", 	IntegerType(),True),		   #_c8
+            StructField("deleted", IntegerType(),True),		       #_c9
         ])
         return user_schema
 
