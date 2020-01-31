@@ -10,8 +10,7 @@ class Reader():
                         .appName("Python Spark SQL basic example") \
                         .getOrCreate()
 
-    # Write method for connection, will write to the PostgreSQL database
-    # Inputs:
+    # Method to read from S3 database based on a specific file name
     def read(self, file_name):
         schemas = Schemas()
         print("Status: Connecting to S3... " + file_name)

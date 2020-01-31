@@ -1,5 +1,6 @@
 from pyspark.sql.types import IntegerType, TimestampType, StructField, StructType, StringType, BooleanType, DecimalType
 class Schemas():
+    # Method to return the commits schema
     def get_commits_schema(self):
         commit_schema = StructType([
             StructField("commit_id", IntegerType(), False),
@@ -11,6 +12,7 @@ class Schemas():
         ])
         return commit_schema
 
+    # Method to return the users schema
     def get_users_schema(self):
         user_schema = StructType([
             StructField("id", 	IntegerType(),False),	 	       #_C0
@@ -29,6 +31,7 @@ class Schemas():
         ])
         return user_schema
 
+    # Method to return the projects schema
     def get_projects_schema(self):
         project_schema = StructType([
             StructField("id", 	        IntegerType(),False),	 	#_C0
@@ -44,6 +47,7 @@ class Schemas():
         ])
         return project_schema
 
+    # Method to return the repo_lables schema
     def get_repo_label_schema(self):
         repo_label_schema = StructType([
             StructField("id", 	        IntegerType(),False),	 	#_C0

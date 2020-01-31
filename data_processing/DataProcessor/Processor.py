@@ -16,6 +16,7 @@ class Processor():
         self.started = False        # flag to see if setup
         # IDEA, make a map of name to dataframe for keeping track of tables...
 
+    # Method to write tables to PostgreSQL database
     def write_to_postgres(self):
         if (self.started == False):
             return
@@ -23,12 +24,15 @@ class Processor():
         self.postgres_connector.write(users, 'overwrite')
         self.postgres_connector.write(projects, 'overwrite')
 
+    # Method to read from S3 database
     def read_from_tables(self):
-        self.commits = self.s3_reader.read('commits')
         self.users = self.s3_reader.read('users')
         self.projects = self.s3_reader.read('projects')
+        self.commits = self.s3_reader.read('commits')
+        self.users = self.users.filter(self.users.id.isNotNull())
         self.started = True
 
+    # Method to count all table rows
     def count_table_rows(self):
         if (self.started == False):
             return
@@ -37,6 +41,7 @@ class Processor():
         print("users count: " , self.users.count())
         print("projects count: " , self.projects.count())
 
+    # Method to get table stored in class
     def get_table(self, name):
         if (self.started == False):
             return
@@ -51,21 +56,23 @@ class Processor():
 
     # get_table_names(self):
 
+    # Method to preprocess tables by removing unneeded columns
     def preprocess_tables(self):
         if (self.started == False):
             return
         print("Status: dropping columns: commits")
         columns_to_drop_commits = ['sha', 'author_id']
-        self.commits.drop(*columns_to_drop_commits)
+        self.commits = self.commits.drop(*columns_to_drop_commits)
 
         print("Status: dropping columns: users")
         columns_to_drop_users = ['company', 'type', 'fake', 'long', 'lat']
-        self.users.drop(*columns_to_drop_users)
+        self.users = self.users.drop(*columns_to_drop_users)
 
         print("Status: dropping columns: projects")
         columns_to_drop_projects = ['forked_from', 'deleted']
-        self.projects.drop(*columns_to_drop_projects)
+        self.projects = self.projects.drop(*columns_to_drop_projects)
 
+    # Method to show one specific table
     def show_table(self, name):
         if (name == 'users'):
             self.users.show()
@@ -75,22 +82,6 @@ class Processor():
             self.commits.show()
         else:
             print("Incorrect table name, please try again")
-
-# print("Status: dropping columns")
-# columns_to_drop_commits = ['sha', 'author_id']
-# commits = commits.drop(*columns_to_drop_commits)
-#
-# print("Status: counting commits")
-# commits = commits.groupBy('committer_id').agg(F.count('commit_id')).orderBy('count(commit_id)', ascending=False)
-# commits.printSchema()
-# commits.show()
-
-# print("Status: joining users and commits tables")
-# commit = commits.alias('commits')
-# user = users.alias('users')
-# inner_join = commit.join(user, commit.committer_id == user.id).select(user["login"],commit["*"])
-# print("inner join table count: " , inner_join.count())
-# inner_join.show()
 
 # conn = Connector()
 # conn.write(df_users, 'overwrite')

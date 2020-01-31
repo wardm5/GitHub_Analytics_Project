@@ -1,2 +1,3 @@
-('commit count: ', 296770665)
-('users count: ', 7953512)
+('commit count: ', 296,770,665)
+('users count: ', 7,953,512)
+('projects count: ', 21,845,198)

@@ -7,7 +7,6 @@ class Connector():
         self.properties = {"user": "postgres","password": "Trotsky1","driver": "org.postgresql.Driver"}
 
     # Write method for connection, will write to the PostgreSQL database
-    # Inputs: dataframe, mode
     def write(self, data_frame, mode, name):
         print("Status: writing to database...")
         data_frame.write.jdbc(url=self.url, table=name, mode=mode, properties=self.properties)
