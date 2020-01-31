@@ -91,7 +91,7 @@ class Processor():
     def add_table(self, data_frame, name):
         self.dic['name'] = data_frame
 
-    # Creates PERCENTILE TABLE for final project
+    # Creates Percentile Table for final project
     def create_default_table_1(self):
         if (self.started == None):
             return
@@ -107,7 +107,7 @@ class Processor():
         # inner_join.show()
         # self.dic['percentiles'] = inner_join
 
-    # Creates PERCENTILE TABLE for final project
+    # Creates Language Percent for final project
     def create_default_table_2(self):
         if (self.started == None):
             return
@@ -117,27 +117,27 @@ class Processor():
         projects_table = projects.alias('projects_table')
         users_table = self.dic['users'].alias('users_table')
         print("Status: joining users and commits tables")
-        inner_join = projects_table.join(users_table, projects_table.owner_id == users_table.id).select(users_table["login"],projects_table['*'])
+        inner_join = projects_table.join(users_table, projects_table.owner_id == users_table.id).select(users_table['login', 'country_code', 'state', 'city', 'location'],projects_table['*'])
         inner_join.show()
         print(inner_join.count())
         self.dic['default_2'] = inner_join
 
-    def percentile(self):
+    def create_default_table_3(self):
         if (self.started == None):
             return
         print("Status: Getting commit counts per project")
-
-        projects = self.dic['projects'].groupBy('owner_id', 'language').agg(count('id')).select('owner_id', 'language', 'count(id)')
-        projects = projects.orderBy('owner_id', projects['count(id)'].desc())
-        window = Window.partitionBy(projects['language']).orderBy(projects['count(id)'].asc())
+        projects = self.dic['projects'].groupBy('language', 'owner_id').agg(count('id')).select('language', 'owner_id', 'count(id)')
+        projects = projects.orderBy('language', projects['count(id)'].desc())
+        window = Window.partitionBy(projects['language']).orderBy(projects['count(id)'].desc())
         projects = projects.select('*', percent_rank().over(window).alias('rank'))
         projects.show()
         projects_table = projects.alias('projects_table')
         users_table = self.dic['users'].alias('users_table')
         print("Status: joining users and commits tables")
         inner_join = projects_table.join(users_table, projects_table.owner_id == users_table.id).select(users_table["login"],projects_table['*'])
+        inner_join = inner_join.orderBy('language', 'count(id)')
         inner_join.show()
-        print(inner_join.count())
+        # print(inner_join.count())
         self.dic['default_3'] = inner_join
         # projects_table = projects.alias('projects_table')
 

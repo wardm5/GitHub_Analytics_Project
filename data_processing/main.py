@@ -12,9 +12,12 @@ program.preprocess_tables()
 # get commits per project
 # program.create_default_table_2()
 
-program.percentile()
-print(program.get_table_names())
+program.create_default_table_3()
+program.get_table_names()
 
+# program.write_specific_table_to_postgres('default_1')
+# program.write_specific_table_to_postgres('default_2')
+# program.write_specific_table_to_postgres('default_3')
 
 # program.show_table('users')
 # program.count_table_rows()
