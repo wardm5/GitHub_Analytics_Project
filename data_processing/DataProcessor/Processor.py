@@ -90,19 +90,34 @@ class Processor():
         self.dic['name'] = data_frame
 
     # Creates PERCENTILE TABLE for final project
-    def create_percentile_table(self):
+    def create_default_table_1(self):
         if (self.started == None):
             return
         print("Status: Getting commit counts per user")
         commits = self.dic['commits'].groupBy('committer_id').agg(F.count('commit_id'))
-        print("Status: joining users and commits tables")
-        commits = self.dic['commits'].alias('commits')
-        users = self.dic['users'].alias('users')
-        inner_join = commits.join(users, commits.committer_id == users.id).select(users["login"],commits["*"])
-        print("inner join table count: " , inner_join.count())
-        inner_join.show()
-        self.dic['percentiles'] = inner_join
+        commits.show()
+        # commits = self.dic['commits'].alias('commits')
+        # users = self.dic['users'].alias('users')
+        # print("Status: joining users and commits tables")
+        # inner_join = commits.join(users, commits.committer_id == users.id).select(users["login"],commits["*"])
+        # # print("inner join table count: " , inner_join.count())
+        # inner_join.show()
+        # self.dic['percentiles'] = inner_join
 
+    # Creates PERCENTILE TABLE for final project
+    def create_default_table_2(self):
+        if (self.started == None):
+            return
+        print("Status: Getting commit counts per user")
+        commits = self.dic['commits'].groupBy('committer_id').agg(F.count('commit_id'))
+        commits.show()
+        # commits = self.dic['commits'].alias('commits')
+        # users = self.dic['users'].alias('users')
+        # print("Status: joining users and commits tables")
+        # inner_join = commits.join(users, commits.committer_id == users.id).select(users["login"],commits["*"])
+        # print("inner join table count: " , inner_join.count())
+        # inner_join.show()
+        # self.dic['percentiles'] = inner_join
 
 
 

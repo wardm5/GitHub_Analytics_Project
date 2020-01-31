@@ -7,8 +7,7 @@ program.read_from_tables()
 # preprocess tables (remove unnecessary columns)
 program.preprocess_tables()
 
-program.create_percentile_table()
-
+program.create_default_table_1()
 
 # program.show_table('users')
 # program.count_table_rows()
