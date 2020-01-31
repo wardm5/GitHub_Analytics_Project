@@ -4,6 +4,7 @@
 * Pegasus: https://blog.insightdatascience.com/how-to-get-hadoop-and-spark-up-and-running-on-aws-7a1b0ab55459
 * Pegasus Install: https://github.com/InsightDataScience/pegasus
 * PostgreSQL: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html
+* PySpark: https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PySpark_SQL_Cheat_Sheet_Python.pdf
 
 ## Python/Boto3
 ### EC2:

@@ -8,7 +8,7 @@ program.read_from_tables()
 program.preprocess_tables()
 
 program.show_table('users')
-# program.count_table_rows()
+program.count_table_rows()
 
 commits = program.get_table('commits')
 projects = program.get_table('projects')
