@@ -5,6 +5,8 @@ from PostgresConnector.Connector import *
 from S3Reader.Reader import *
 from pyspark.sql import functions as F
 from pyspark.sql.functions import *
+from pyspark.sql.window import Window
+from pyspark.sql.functions import percent_rank
 
 class Processor():
     def __init__(self):
@@ -112,17 +114,33 @@ class Processor():
         print("Status: Getting commit counts per project")
         projects = self.dic['projects'].groupBy('owner_id', 'language').agg(count('id')).select('owner_id', 'language', 'count(id)')
         projects = projects.orderBy('owner_id', projects['count(id)'].desc())
+        projects_table = projects.alias('projects_table')
+        users_table = self.dic['users'].alias('users_table')
+        print("Status: joining users and commits tables")
+        inner_join = projects_table.join(users_table, projects_table.owner_id == users_table.id).select(users_table["login"],projects_table['*'])
+        inner_join.show()
+        print(inner_join.count())
+        self.dic['default_2'] = inner_join
+
+    def percentile(self):
+        if (self.started == None):
+            return
+        print("Status: Getting commit counts per project")
+
+        projects = self.dic['projects'].groupBy('owner_id', 'language').agg(count('id')).select('owner_id', 'language', 'count(id)')
+        projects = projects.orderBy('owner_id', projects['count(id)'].desc())
+        window = Window.partitionBy(projects['language']).orderBy(projects['count(id)'].asc())
+        projects = projects.select('*', percent_rank().over(window).alias('rank'))
         projects.show()
-        # print(projects.count())
-        # commits = self.dic['commits'].alias('commits')
-        # users = self.dic['users'].alias('users')
-        # print("Status: joining users and commits tables")
-        # inner_join = commits.join(users, commits.committer_id == users.id).select(users["login"],commits["*"])
-        # print("inner join table count: " , inner_join.count())
-        # inner_join.show()
-        # self.dic['percentiles'] = inner_join
+        projects_table = projects.alias('projects_table')
+        users_table = self.dic['users'].alias('users_table')
+        print("Status: joining users and commits tables")
+        inner_join = projects_table.join(users_table, projects_table.owner_id == users_table.id).select(users_table["login"],projects_table['*'])
+        inner_join.show()
+        print(inner_join.count())
+        self.dic['default_3'] = inner_join
+        # projects_table = projects.alias('projects_table')
 
-
-
+        # users_table = self.dic['users'].alias('users_table')
 # conn = Connector()
 # conn.write(df_users, 'overwrite')

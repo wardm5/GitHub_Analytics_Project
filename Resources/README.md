@@ -33,6 +33,13 @@
 * **https://stackoverflow.com/questions/51632126/pysparkhow-to-calculate-avg-and-count-in-a-single-groupby (important)**
 * **https://stackoverflow.com/questions/39926411/provide-schema-while-reading-csv-file-as-a-dataframe (semi-important)**
 * https://stackoverflow.com/questions/29600673/how-to-delete-columns-in-pyspark-dataframe
+* https://stackoverflow.com/questions/34514545/spark-dataframe-groupby-and-sort-in-the-descending-order-pyspark
+* **http://www.learnbymarketing.com/1100/pyspark-joins-by-example/ (semi-important)**
+
+#### Python Syntax Reminders
+* https://stackoverflow.com/questions/6130768/return-none-if-dictionary-key-is-not-available
+* https://www.w3schools.com/python/python_dictionaries.asp
+
 
 ### Flask app
 * https://www.geeksforgeeks.org/flask-creating-first-simple-application/

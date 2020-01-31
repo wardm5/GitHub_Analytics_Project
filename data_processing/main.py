@@ -10,9 +10,10 @@ program.preprocess_tables()
 # percentile for commits
 # program.create_default_table_1()
 # get commits per project
-program.create_default_table_2()
+# program.create_default_table_2()
 
-
+program.percentile()
+print(program.get_table_names())
 
 
 # program.show_table('users')
