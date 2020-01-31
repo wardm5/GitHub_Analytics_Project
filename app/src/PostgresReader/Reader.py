@@ -1,7 +1,5 @@
 import psycopg2
 
-
-
 class Reader():
     # Constructor for the Reader, this reads from PostgreSQL database or provides an error message.
     def __init__(self):
@@ -35,7 +33,4 @@ class Reader():
             print("Status: no results stored")
             return
         else:
-            for row in self.results:
-                print "   ", row[0]
-                print "   ", row[1]
-                print "   ", row[2]
+            print(self.results)

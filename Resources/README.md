@@ -112,3 +112,6 @@
 
 ## Atom (text editor)
 * https://www.sitepoint.com/12-favorite-atom-tips-and-shortcuts-to-improve-your-workflow/
+
+## Business Case
+* https://research.hackerrank.com/tech-recruiting/2018
