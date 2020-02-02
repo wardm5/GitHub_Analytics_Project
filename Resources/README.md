@@ -100,6 +100,10 @@
 * https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80
 * https://www.codementor.io/@dushyantbgs/deploying-a-flask-application-to-aws-gnva38cf0
 
+## Deploying Dash App
+* **https://stackoverflow.com/questions/23166158/make-python-script-to-run-forever-on-amazon-ec2 (very important)**
+
+
 ## SQL
 * https://www.tutorialspoint.com/sql/sql-sub-queries.htm
 * https://stackoverflow.com/questions/894490/sql-left-join-vs-multiple-tables-on-from-line
