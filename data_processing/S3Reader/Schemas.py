@@ -7,9 +7,6 @@ class Schemas():
         self.add_schema_to_map('commits', self.get_commits_schema())
         self.add_schema_to_map('users', self.get_users_schema())
         self.add_schema_to_map('projects', self.get_projects_schema())
-        # self.schema_map['commits'] = get_commits_schema()
-        # self.schema_map['users'] = get_users_schema()
-        # self.schema_map['projects'] = get_projects_schema()
 
     # Method to add schema to schema map
     def add_schema_to_map(self, name, schema):
@@ -18,7 +15,7 @@ class Schemas():
     # Method to get schema from map
     def get_schema(self, name):
         if (self.schema_map.get(name) != None):
-            return self.dic.get(name)
+            return self.schema_map.get(name)
         else:
             "Incorrect schema selected"
 
