@@ -21,22 +21,3 @@ class Reader():
             return res
         except:
             print("Status: FAILED - could not read table in S3")
-        # if (file_name == 'commits'):
-        #     res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_commits_schema())
-        #     print("Status: COMPLETE")
-        #     return res
-        # elif (file_name == 'users'):
-        #     res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_users_schema())
-        #     print("Status: COMPLETE")
-        #     return res
-        # elif (file_name == 'projects'):
-        #     res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_projects_schema())
-        #     print("Status: COMPLETE")
-        #     return res
-        # else:
-        #     try:
-        #         res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_users_schema())
-        #         print("Status: COMPLETE")
-        #         return res
-        #     except:
-        #         print("Status: FAILED - could not read table in S3")
