@@ -13,7 +13,7 @@ class Processor():
         self.postgres_connector = Connector()   # writes tables to PostgreSQL
         self.s3_reader = Reader()               # reads tables from S3
         self.table_map = {}
-        self.started = False        # flag to see if setup
+        self.started = False        # flag to see tables have been read from database
 
     # Method to write tables to PostgreSQL database
     def write_to_postgres(self):
@@ -60,7 +60,7 @@ class Processor():
         else:
             "Incorrect table selected"
 
-
+    # Method to print and return the table names stored in the map
     def get_table_names(self):
         print("Tables include:  ", self.table_map.keys())
         return self.table_map.keys()
@@ -69,7 +69,6 @@ class Processor():
     def preprocess_tables(self):
         if (self.started == False):
             return
-
         print("Status: dropping columns: commits")
         columns_to_drop_commits = ['sha', 'author_id']
         self.table_map['commits'] = self.table_map['commits'].drop(*columns_to_drop_commits)
@@ -111,7 +110,7 @@ class Processor():
         inner_join.show()
         # self.table_map['percentiles'] = inner_join
 
-    # Creates Language Percent for final project
+    # Creates Language Percent for final project - FINAL QUERY, DO NOT CHANGE
     def create_bar_chart_of_langauge_table(self):
         if (self.started == None):
             return
@@ -121,7 +120,7 @@ class Processor():
         projects_table = projects.alias('projects_table')
         users_table = self.table_map['users'].alias('users_table')
         print("Status: joining users and projects tables")
-        inner_join = projects_table.join(users_table, projects_table.owner_id == users_table.id).select(users_table['*'],projects_table['*'])
+        inner_join = projects_table.join(users_table, projects_table.owner_id == users_table.id).select(users_table['login'], users_table['location'],projects_table['*'])
         inner_join.show()
         self.table_map['default_2'] = inner_join
 
@@ -141,6 +140,7 @@ class Processor():
         inner_join.show()
         # print(inner_join.count())
         self.table_map['default_3'] = inner_join
+
 
     def create_projects_language_filter_table(self):
         if (self.started == None):
