@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.types import IntegerType, TimestampType, StructField, StructType, StringType
+from pyspark.sql.types import *
 from Schemas import *
 # Class to connect to PostgreSQL database
 class Reader():
@@ -17,16 +17,16 @@ class Reader():
         s3_file_str = "s3a://github-analysis-project/data-file/" + file_name + ".csv"
         if (file_name == 'commits'):
             res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_commits_schema())
-            res.read.schema(schemas.get_commits_schema())  # should add headers to the table
+            # res.read.schema(schemas.get_commits_schema())  # should add headers to the table
             print("Status: COMPLETE")
             return res
         elif (file_name == 'users'):
             res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_users_schema())
-            res.read.schema(schemas.get_users_schema())  # should add headers to the table
+            # res.read.schema(schemas.get_users_schema())  # should add headers to the table
             print("Status: COMPLETE")
             return res
         elif (file_name == 'projects'):
             res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_projects_schema())
-            res.read.schema(schemas.get_projects_schema())  # should add headers to the table
+            # res.read.schema(schemas.get_projects_schema())  # should add headers to the table
             print("Status: COMPLETE")
             return res

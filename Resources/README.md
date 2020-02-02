@@ -17,7 +17,7 @@
 * https://stackoverflow.com/questions/54289735/use-python-requests-to-download-an-compressed-tar-gzfile-and-unzip-it-using-tar
 * https://stackoverflow.com/questions/51276201/how-to-extract-files-in-s3-on-the-fly-with-boto3
 
-#### Psycopg2
+### Psycopg2
 * **https://wiki.postgresql.org/wiki/Psycopg2_Tutorial (important)**
 * **https://stackoverflow.com/questions/11583714/install-psycopg2-on-ubuntu (very important)**
 
@@ -36,6 +36,10 @@
 * https://stackoverflow.com/questions/29600673/how-to-delete-columns-in-pyspark-dataframe
 * https://stackoverflow.com/questions/34514545/spark-dataframe-groupby-and-sort-in-the-descending-order-pyspark
 * **http://www.learnbymarketing.com/1100/pyspark-joins-by-example/ (semi-important)**
+
+### Dash
+* https://dash.plot.ly/integrating-dash
+* https://dash.plot.ly/datatable
 
 #### Python Syntax Reminders
 * https://stackoverflow.com/questions/6130768/return-none-if-dictionary-key-is-not-available
@@ -100,9 +104,9 @@
 * https://medium.com/@rodkey/deploying-a-flask-application-on-aws-a72daba6bb80
 * https://www.codementor.io/@dushyantbgs/deploying-a-flask-application-to-aws-gnva38cf0
 
-## Deploying Dash App
+### Deploying Dash App
 * **https://stackoverflow.com/questions/23166158/make-python-script-to-run-forever-on-amazon-ec2 (very important)**
-
+* **http://www.lauradhamilton.com/how-to-set-up-a-nodejs-web-server-on-amazon-ec2 (very important)**
 
 ## SQL
 * https://www.tutorialspoint.com/sql/sql-sub-queries.htm

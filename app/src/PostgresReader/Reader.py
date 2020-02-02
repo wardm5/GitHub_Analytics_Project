@@ -1,4 +1,6 @@
 import psycopg2
+import pandas as pd
+import pandas.io.sql as sqlio
 
 class Reader():
     # Constructor for the Reader, this reads from PostgreSQL database or provides an error message.
@@ -23,13 +25,14 @@ class Reader():
 
     # Method allows one to run a query to the SQL database and returns the results from that query
     def run_query(self, query):
-        self.query.execute(query)
-        self.results = self.query.fetchall()
+        self.results = sqlio.read_sql_query(query, self.conn)
+        # self.query.execute(query)
+        # self.results = self.query.fetchall()
         return self.results
 
     # Method prints out the results from the last SQL query or provides error message noting no results stored
     def print_results(self):
-        if (self.results == None):
+        if (self.results is not None):
             print("Status: no results stored")
             return
         else:

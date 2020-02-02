@@ -114,7 +114,7 @@ class Processor():
         if (self.started == None):
             return
         print("Status: Getting commit counts per project")
-        projects = self.dic['projects'].groupBy('owner_id', 'language').agg(count('id')).select('owner_id', 'language', 'count(id)')
+        projects = self.dic['projects'].groupBy('owner_id', 'language').agg(count('id').alias('count')).select('owner_id', 'language', 'count(id)')
         projects = projects.orderBy('owner_id', projects['count(id)'].desc())
         projects_table = projects.alias('projects_table')
         users_table = self.dic['users'].alias('users_table')
