@@ -9,21 +9,26 @@
 #
 # if __name__ == '__main__':
 #   app.run()
-from PostgresReader.Reader import *
-sql = Reader()
+# from PostgresReader.Reader import *
+# sql = Reader()
 
-from flask import Flask
-app = Flask(__name__)
-
-@app.route('/')
-def hello_world():
-    
-    return sql.run_query("""SELECT * from persons """)
-	# return 'Hello, World!'
-
-@app.route('/countme/<input_str>')
-def count_me(input_str):
-    return input_str
-
-if __name__ == "__main__":
-    app.run()
+            # from flask import Flask
+            # app = Flask(__name__)
+            #
+            # @app.route('/')
+            # def hello_world():
+            #
+            #     # return sql.run_query("""SELECT * from persons """)
+            # 	return 'Hello, World!'
+            #
+            # @app.route('/countme/<input_str>')
+            # def count_me(input_str):
+            #     return input_str
+            #
+            # if __name__ == "__main__":
+            #     app.run()
+            #
+            # @app.route('/analysis/<filename>')
+            # def analysis(filename):
+            #     x = pd.DataFrame(np.random.randn(20, 5))
+            #     return render_template("analysis.html", name=filename, data=x)

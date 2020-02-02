@@ -22,6 +22,7 @@
 * **https://stackoverflow.com/questions/11583714/install-psycopg2-on-ubuntu (very important)**
 
 ### PySpark:
+* **https://hendra-herviawan.github.io/pyspark-groupby-and-aggregate-functions.html (very important)**
 * https://stackoverflow.com/questions/55400119/how-to-read-large-zip-files-in-pyspark
 * **https://stackoverflow.com/questions/33682709/spark-to-process-many-tar-gz-files-from-s3 (important)**
 * **https://medium.com/@joshua_robinson/parallelizing-downloads-with-spark-16bab8e337eb (important)**
@@ -105,6 +106,8 @@
 * https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_sum
 * https://www.w3schools.com/sql/sql_count_avg_sum.asp
 * https://www.w3schools.com/sql/sql_like.asp
+* https://www.geeksforgeeks.org/sql-aliases/
+* https://www.w3schools.com/sql/sql_join_inner.asp
 
 ## GitHub Dataset
 * http://ghtorrent.org/files/schema.pdf

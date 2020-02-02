@@ -52,3 +52,7 @@ class Schemas():
             StructField("name", 	    StringType(),True),	 	    #_C2
         ])
         return repo_label_schema
+
+    # Method to return followers schema
+    def get_followers_schema(self):
+        return None
