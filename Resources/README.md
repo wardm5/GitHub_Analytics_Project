@@ -36,6 +36,7 @@
 * https://stackoverflow.com/questions/29600673/how-to-delete-columns-in-pyspark-dataframe
 * https://stackoverflow.com/questions/34514545/spark-dataframe-groupby-and-sort-in-the-descending-order-pyspark
 * **http://www.learnbymarketing.com/1100/pyspark-joins-by-example/ (semi-important)**
+* https://stackoverflow.com/questions/29988287/renaming-columns-for-pyspark-dataframes-aggregates
 
 ### Dash
 * https://dash.plot.ly/integrating-dash
