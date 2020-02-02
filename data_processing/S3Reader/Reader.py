@@ -15,18 +15,28 @@ class Reader():
         schemas = Schemas()
         print("Status: Connecting to S3... " + file_name)
         s3_file_str = "s3a://github-analysis-project/data-file/" + file_name + ".csv"
-        if (file_name == 'commits'):
-            res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_commits_schema())
-            # res.read.schema(schemas.get_commits_schema())  # should add headers to the table
+        try:
+            res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_schema(file_name))
             print("Status: COMPLETE")
             return res
-        elif (file_name == 'users'):
-            res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_users_schema())
-            # res.read.schema(schemas.get_users_schema())  # should add headers to the table
-            print("Status: COMPLETE")
-            return res
-        elif (file_name == 'projects'):
-            res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_projects_schema())
-            # res.read.schema(schemas.get_projects_schema())  # should add headers to the table
-            print("Status: COMPLETE")
-            return res
+        except:
+            print("Status: FAILED - could not read table in S3")
+        # if (file_name == 'commits'):
+        #     res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_commits_schema())
+        #     print("Status: COMPLETE")
+        #     return res
+        # elif (file_name == 'users'):
+        #     res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_users_schema())
+        #     print("Status: COMPLETE")
+        #     return res
+        # elif (file_name == 'projects'):
+        #     res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_projects_schema())
+        #     print("Status: COMPLETE")
+        #     return res
+        # else:
+        #     try:
+        #         res = self.spark.read.load(s3_file_str, format="csv", header=False, sep=',', schema=schemas.get_users_schema())
+        #         print("Status: COMPLETE")
+        #         return res
+        #     except:
+        #         print("Status: FAILED - could not read table in S3")

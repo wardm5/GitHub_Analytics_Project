@@ -1,5 +1,28 @@
 from pyspark.sql.types import IntegerType, TimestampType, StructField, StructType, StringType, BooleanType, DecimalType
 class Schemas():
+    # Constructor that creates map to store schemas
+    def __init__(self):
+        self.schema_map = {}
+        # adds default schemas to map
+        self.add_schema_to_map('commits', self.get_commits_schema())
+        self.add_schema_to_map('users', self.get_users_schema())
+        self.add_schema_to_map('projects', self.get_projects_schema())
+        # self.schema_map['commits'] = get_commits_schema()
+        # self.schema_map['users'] = get_users_schema()
+        # self.schema_map['projects'] = get_projects_schema()
+
+    # Method to add schema to schema map
+    def add_schema_to_map(self, name, schema):
+        self.schema_map[name] = schema
+
+    # Method to get schema from map
+    def get_schema(self, name):
+        if (self.schema_map.get(name) != None):
+            return self.dic.get(name)
+        else:
+            "Incorrect schema selected"
+
+    #**************************** Default schemas ****************************#
     # Method to return the commits schema
     def get_commits_schema(self):
         commit_schema = StructType([
