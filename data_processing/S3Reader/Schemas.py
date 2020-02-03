@@ -80,7 +80,7 @@ class Schemas():
             StructField("language", 	        StringType(),True),	 	    #_C5
             StructField("created_at", 	        TimestampType(),True),	 	#_C6
             StructField("forked_from", 	        IntegerType(),True),	 	#_C7
-            StructField("deleted", 	            BooleanType(),True),	 	#_C8
+            StructField("deleted", 	            IntegerType(),True),	 	#_C8
             StructField("updated_at", 	        TimestampType(),True),      #_C9
             StructField("forked_commit_id", 	IntegerType(),True)	 	    #_C10
         ])
