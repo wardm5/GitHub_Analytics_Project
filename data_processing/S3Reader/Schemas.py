@@ -87,7 +87,7 @@ class Schemas():
         schema = StructType([
             StructField("id", 	        IntegerType(),False),	 	#_C0
             StructField("repo_id", 	    IntegerType(),True),	 	#_C1
-            StructField("name", 	    StringType(),True),	 	    #_C2
+            StructField("name", 	    StringType(),True)	 	    #_C2
         ])
         return schema
 
