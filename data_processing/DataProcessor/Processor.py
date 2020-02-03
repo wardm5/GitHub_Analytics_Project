@@ -26,12 +26,14 @@ class Processor():
     # Method to write to PostgreSQL database for specific table
     def write_specific_table_to_postgres(self, name):
         try:
+            df = self.table_map.get(name)
             print("Status: Writing to table ", name)
-            df = self.table_map[name]
             self.postgres_connector.write(df, 'overwrite', name)
             print("Status: COMPLETE")
         except KeyError:
             print("Status: FAILURE - did not write to PostgreSQL database. ")
+            print("Make sure you spelt your table name correctly")
+            print(KeyError)
             pass
 
     # Method to read from S3 database  **** pending testing****
@@ -113,23 +115,25 @@ class Processor():
     def create_pie_chart_data(self):
         if (self.started == None):
             return
-        print(type(self.table_map['projects']))
+        # print(type(self.table_map['projects']))
         print("Status: Getting commit counts per project")
         projects = self.table_map['projects'].alias('projects')
         prod_lang = self.table_map['project_languages'].alias('prod_lang')
         inner_join = projects.join(prod_lang, projects.id == prod_lang.project_id) \
-                        .select(projects.owner_id, projects.url, projects.deleted, \
+                        .select(projects.owner_id.alias('author'), projects.url, \
                         projects.name.alias('project_name') , projects.id.alias('product_id'), \
-                        prod_lang.language, prod_lang.bytes, projects.forked_from) \
-                        .where(projects['updated_at'] == prod_lang['created_at'])
+                        prod_lang.language, prod_lang.bytes, projects.forked_from, \
+                        projects.deleted) \
+                        .where(projects.updated_at == prod_lang.created_at)
 
         inner_join = inner_join.orderBy('owner_id', 'id', inner_join['bytes'].desc())
-
+        print(type(inner_join))
         inner_join = inner_join.alias('inner_join')
         users = self.table_map['users'].alias('users')
-        inner_join = inner_join.join(users, users.id == inner_join.owner_id) \
+        inner_join = inner_join.join(users, users.id == inner_join.author) \
                         .select(users.login, users.id, users.location, inner_join.url, \
                         inner_join.project_name, inner_join.language, inner_join.bytes, inner_join.deleted)
         inner_join = inner_join.orderBy(inner_join.login)
         inner_join.show()
-        # self.table_map['pie_chart_data'] = inner_join
+        print(type(inner_join))
+        self.table_map['pie_chart_data'] = inner_join
