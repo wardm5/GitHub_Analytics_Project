@@ -1,0 +1,1008 @@
+id,commit_id,user_id,body,line,position,comment_id,created_at,,,
+354222,21004157,26545,"Yeah, but I don't like to post that until *after* the presentation. Will add it now though.",\N,\N,1284005,5/2/12 16:46,,,
+354223,21004157,26545,Cool. Thank you :-),\N,\N,1284166,5/2/12 17:18,,,
+354224,21004157,47104,Thanks -- I thought the slides were pretty good BTW.,\N,\N,1284087,5/2/12 17:05,,,
+354225,2009333,9192,"Edy, 4.2-milestone-1 hasn't been released yet..",\N,\N,1599287,7/18/12 14:38,,,
+354226,19371307,108054,^^ sorry but your index.php don't work with me ;-),3,3,1599559,7/18/12 15:27,,,
+354227,19371307,192562,;(,3,3,1599549,7/18/12 15:26,,,
+354228,6753320,20642,"I'd prefer not to clutter up the Gemfile with conditionals like this.\
+\
+In this situation, I tend to just work with a locally modified version of the Gemfile.",\N,\N,1597097,7/18/12 6:52,,,
+354229,6753320,66821,"This is a convention used widely in other projects within Alphagov, and given the way the standardised development environment works (i.e checks out everything including the GovSpeak Gem), it works as expected.",\N,\N,1597109,7/18/12 6:54,,,
+354230,6753320,60759,"I'm with James on this: I've seen it used in the various Alphagov Gemfiles but I'm not a fan.  I can see that it helps when you're using the standard development environment but it just adds noise when you're not.  Anyways, I realise that's not a particula",\N,\N,1597208,7/18/12 7:16,,,
+354231,6753320,64971,"I chatted with Brad about this and also had a look for a better way of handling this but unfortunately couldn't find one.  I too feel uncomfortable with clogging the `Gemfile` up with conditionals. With so many different gem dependencies, it could quickly ",\N,\N,1599242,7/18/12 14:29,,,
+354232,6753320,20642,"How about adding your own `Gemfile.local` and using `bundle install --gemfile=Gemfile.local` and setting `BUNDLE_GEMFILE=Gemfile.local` in your environment?\
+\
+If you want to load everything in the standard `Gemfile`, you can add something like this `eval Fi",\N,\N,1599284,7/18/12 14:37,,,
+354234,130874,5902,Why remove the Demographics from prepop?,\N,\N,1599341,7/18/12 14:46,,,
+354235,14733131,10506,remove,3575,27,1599552,7/18/12 15:27,,,
+355858,17960117,45261,"It's certainly not unheard of, just look at heroku, RTD, etc. I am +1 on pursing it for experimental purposes.",\N,\N,1300824,5/7/12 13:51,,,
+355859,6586637,60989,Just for lulz.,\N,\N,1560411,7/10/12 10:03,,,
+355860,17795499,13840,Is there a reason why you wrap the above inside a Fiber? Does the fiber potentially get suspended in #send_data or Readline.readline?,\N,\N,914314,1/30/12 13:24,,,
+355861,4333128,29184,OK,756,16,1569633,7/11/12 21:07,,,
+355862,17795499,87037,It's going to have to change to properly support shelling out too.,\N,\N,914337,1/30/12 13:32,,,
+355863,18301048,21440,#NAME?,\N,\N,1571396,7/12/12 8:14,,,
+355864,66205472,178806,Derp. I forgot to `git add` this in my commit.,\N,\N,1572390,7/12/12 12:05,,,
+355865,11187858,87445,"What's the reason for this? Now amx_assembly has to be in the root folder in include files as opposed to its own folder, which makes it hard to use a a submodule. ",\N,\N,1570451,7/12/12 2:43,,,
+355866,66205103,118872,This should go inside spynepi and not spyne. This doesn't belong here.,\N,\N,1572964,7/12/12 13:55,,,
+355867,66205474,95171,"Nevermind, no it doesn't. Ignore the comment.",\N,\N,1572633,7/12/12 12:50,,,
+355868,66205474,95058,"Hahahahahah\
+\
+Getting my hopes up !! Xx\
+\
+If something frustrated you and you want to move on to another battle, we can look at it together tomorrow x\
+\
+Do you want to give grabbing from other google services a go ? Or facebook? Facebooks graph api is g",\N,\N,1572651,7/12/12 12:55,,,
+355869,74834,20450,r+,\N,\N,1543618,7/5/12 17:19,,,
+355870,16765311,32125,"Please use tabs to spaces.\
+\
+Compare these two lines:\
+Filename: system/language/en/core_errors.php\
+Line 1: 26\
+Line 2: 27",\N,\N,1530844,7/2/12 22:43,,,
+355871,2504028,314860,I will definitely change it!,\N,\N,1529369,7/2/12 17:02,,,
+355872,981409,70928,"That was supposed to read \Improve speed of Fx5DOMWrapper\""""",\N,\N,1539823,7/4/12 22:25,,,
+355873,16765311,102022,"I do use the tab key when indenting new lines, it's just the way GitHub displays them for some reason, cloning the repository produces a file with lines 26 and 27 lined up properly.\
+\
+![Tabkey](http://i222.photobucket.com/albums/dd33/jestur2/tabkey.png)",\N,\N,1530862,7/2/12 22:51,,,
+355874,1081055,120083,Проверката не става ли с функцията: class_exists ?,\N,\N,1526944,7/2/12 7:25,,,
+355875,2504028,97887,"Silly point... We have 2 IMPS presentations, we probably shouldn't call them 'IMPS presentation'!",\N,\N,1528852,7/2/12 15:20,,,
+355876,1081055,120086,За коя проверка става на дума?,\N,\N,1527136,7/2/12 8:25,,,
+355877,1252804,2903,This comment doesn't seem to match the code below.,190,46,688407,11/1/11 17:56,,,
+355878,720516,120083,"Защо \Pragma: public\"" ?""",\N,\N,1560005,7/10/12 7:59,,,
+355879,2001724,310366,Не сильно ли редко — раз в час?,1,3,1553486,7/9/12 2:16,,,
+355880,2001724,310367,"Нормально, но надо чаще пытаться детектить табу, а на сервак запрос слать раз в 3 минуты не ок.",1,3,1553968,7/9/12 5:55,,,
+355881,5668640,174142,jajajajajajaja!!! buenisimo xD ,\N,\N,1557988,7/9/12 21:04,,,
+355882,18328950,193737,Wow ruby1.9.3 doesn't love this commit.... thanks travis CI ,\N,\N,1542194,7/5/12 12:49,,,
+355883,5668640,177503,LOL XD,\N,\N,1557955,7/9/12 20:59,,,
+355884,8462767,36334,Really better! :),\N,\N,1404401,6/1/12 13:35,,,
+355885,3882022,421330,"this marks the 1st change, this will help programmers using encoded urls to play with the script directly",28,178,1569927,7/11/12 22:46,,,
+355886,3882022,421330,"change 2 allows caching of images on secure servers, like facebook cdn",51,201,1569928,7/11/12 22:47,,,
+355887,66205115,61275,"I have a strong preference against `exclude`. I haven't double checked this is true with tastypie `ModelResource` but it was definitely true with django `ModelForms`:\
+\
+I f you have a form and you use `exclude`, and you add a field to the model it is based ",34,12,1573261,7/12/12 15:02,,,
+355888,3611253,157464,"Hello, DEFAULS looks like a typo",\N,\N,1475187,6/19/12 7:38,,,
+355889,18333719,17582,are you expecting BOM version and Drone version to diverse ? ,27,33,1185803,4/8/12 11:50,,,
+355890,7047522,25260,indent two spaces,17,5,1573797,7/12/12 16:58,,,
+355891,1414680,28749,The issue #460 is on openspending: https://github.com/openspending/openspending/issues/460,\N,\N,1567612,7/11/12 14:50,,,
+355892,18621210,90892,"just curious, is there any reason your using the parent directory to make the name of the template ? ",40,40,1365396,5/23/12 9:25,,,
+355893,1141005,131904,Absolutely!,\N,\N,1504113,6/26/12 7:30,,,
+355894,7276026,513996,"well, that didn't seem to change anything. ",\N,\N,1573347,7/12/12 15:21,,,
+355895,3081465,150530,me la comoooooooooooooooooooooooooooooooooooooooooooooooooo,4,4,1545349,7/6/12 1:06,,,
+355896,91557,24459,"Hey David, that ViewState problem was happening on DefinedTypes and GlobalAttributes too.  I set EnableViewState on the database end, but should I be setting that manually from the page?",\N,\N,1429202,6/7/12 15:51,,,
+355897,3963527,10254,great patch :),\N,\N,1306151,5/8/12 14:44,,,
+355898,1984715,111427,Only if you run the doxygen binary in that directory,48,48,1540989,7/5/12 7:47,,,
+355899,685133,39557,Use ScopedNameMixin here.,10,10,1559942,7/10/12 7:45,,,
+355900,4641074,49213,yeah I know. it's taken from another adson. Im just too lazy to do spell check ;),\N,\N,1534611,7/3/12 16:36,,,
+355901,19174564,157344,"\
+On 3 Jul 2012, at 23:27, Stuart Gale wrote:\
+\
+> No, it wouldn't work for that case... We can always add more test cases though :)\
+\
+Keep going then! :)",\N,\N,1535744,7/3/12 20:40,,,
+355902,3074291,135287,You'd better use DomainWrapper.wrap() here,197,31,1546865,7/6/12 9:54,,,
+355903,1974727,308198,what do you mean Y?,\N,\N,1451772,6/13/12 7:43,,,
+355904,66205150,15665,"This could also be a separate function `restack(Desktop *d)`, but there's not really a need. \
+It would make the code base larger, but the overall code simpler possibly. \
+Just bringing up a past though, for the future.\
+",505,103,1577331,7/13/12 8:50,,,
+355905,6615026,37404,This `unless` isn't necessary.,27,16,1567110,7/11/12 13:21,,,
+355906,1894262,170404,偶记得以前的是路子用 autohotkey 做的，现在该你维护这个了？不错啊~,\N,\N,1570877,7/12/12 5:31,,,
+355907,547737,10673,![derp](http://weknowmemes.com/wp-content/uploads/2012/02/that-really-rustled-my-jimmies.jpg),\N,\N,1289249,5/3/12 17:33,,,
+355908,547737,4539,what is wrong with you?,\N,\N,1289055,5/3/12 16:55,,,
+355909,66205164,53982,"Looking at gui.tex diff, it seems that Github (or git itself?) does not treat endlines as simply whitespaces, which means that changing unix endlines to windows endlines results in the diff showing the whole file changed when actually only lines 109 and 11",\N,\N,1528368,7/2/12 13:31,,,
+355910,66205161,407899,"Sure you are right.  I'll fix it. Thanx.\
+UPD: done",49,16,1548063,7/6/12 14:11,,,
+355911,1213375,201956,"Yeah, but performance is crucial since these are executed many times as you edit.",58,6,1539703,7/4/12 20:41,,,
+355912,2131133,50659,Why didn't you push your project on? Would be fun to watch your progress:D,\N,\N,1549595,7/6/12 19:46,,,
+355913,547737,4539,"also, I dominate you in terms of lines added (please, god please, don't put lame commits in place to try to top me on that).  @adamdill beats me there.",\N,\N,1289063,5/3/12 16:57,,,
+355914,25544513,130399,"\Modification\"" is misspelled.""",10,5,1570808,7/12/12 5:10,,,
+355915,4336903,74772,files updated and corrected.,\N,\N,1550430,7/7/12 2:22,,,
+355916,13654457,6764,:) :+1:,\N,\N,1569857,7/11/12 22:24,,,
+355917,805600,11840,"I guess it's better to capitalize on-open/on-message/on-close to help Emacs documentation engine.  Also, maybe\
+\
+    the websocket as...\
+    => the `websocket' instance as...\
+\
+is better?",270,92,1403038,6/1/12 8:01,,,
+355918,75158,21084,Done. :-),\N,\N,1561494,7/10/12 13:45,,,
+355919,75158,21077,Please also port to 3 as I was in need of them yesterday ;),\N,\N,1561379,7/10/12 13:28,,,
+355920,1156834,38977,vusim regulator can't be disabled! Vusim does provide audio_regulator to TLV codec.,\N,\N,1580172,7/13/12 20:37,,,
+355921,1156834,178594,You are right. I'll correct my mistake.,\N,\N,1580659,7/14/12 2:12,,,
+355922,2091227,317382,"**TODO**\
+* remove tight polling from cortex drain(); Going to try to use condition variables there too. May get complicated...\
+* make benchmark times floats instead of whole numbers (it might already be the case but ALL values are integers at the moment, w",\N,\N,1565812,7/11/12 8:36,,,
+355923,1401871,145060,It seems that in line 306 `baseParts = [baseName];` baseParts should also be replaced with normalizedBaseParts.,312,12,1537669,7/4/12 8:40,,,
+355924,8995316,87380,"sorry, i've edit it",\N,\N,1551881,7/8/12 4:40,,,
+355925,19669407,354599,"Technically, the issue is not a deadlock in pevents itself per se, but rather a SetEvent that is missed/does not take if fired at a particular instant, and only in a WaitForMultipleObjects context. Subsequent SetEvent calls would go through, which made the",\N,\N,1552834,7/8/12 17:31,,,
+355926,14340948,18141,It's here: https://github.com/causemetric/sqoot/commit/4855a9b59951fbb49aeafeda40b502ac1b3ea51a,23,13,1616752,7/23/12 12:39,,,
+355927,2344337,8209,use `!==`,11,7,1615258,7/23/12 6:15,,,
+355928,14340948,26282,I don't see /v1 there.,23,13,1616762,7/23/12 12:40,,,
+355929,397989,77913,#NAME?,\N,\N,1615848,7/23/12 8:56,,,
+355930,2344335,8209,yeah it's supposed to be this way,12,4,1615260,7/23/12 6:16,,,
+355931,397989,77969,This is a step backwards. What other args? ,\N,\N,1615569,7/23/12 7:26,,,
+355932,1765680,288028,all look good to me.,\N,\N,1557250,7/9/12 17:57,,,
+355933,475683,90762,use simple scale instead of real 3D animation,73,19,1538544,7/4/12 12:55,,,
+355934,14340948,18141,"With `faraday` the `/v1` after the `.com` is not being respected. So when doing a request if using blocks you need to add that per request `/v1/offers` or `/v2/deals` \
+\
+That's the reason why i removed the `/v1` there.",23,13,1616776,7/23/12 12:42,,,
+355935,66205476,102154,is this a role or an user ?,22,22,1615263,7/23/12 6:17,,,
+355936,4500081,60915,"This change is not compatible with Symfony 2.0.13:\
+Fatal error: Declaration of Ivory\\CKEditorBundle\\Form\\Type\\CKEditorType::getDefaultOptions() must be compatible with that of Symfony\\Component\\Form\\FormTypeInterface::getDefaultOptions() in /var/www/vendor",40,19,1336979,5/16/12 7:29,,,
+355937,1709364,1136424,"Maybe this code should be used in project not in widget itself, because I want to use * for required fields.",\N,\N,1514446,6/28/12 6:05,,,
+355938,21729990,128715,"Was machst Du, wenn der Pfad Spaces enthält? => local FILE=\$1\"". Das nicht nur für Zuweisungen: Die Variablen **immer** mit Gänsefüßchen umschließen. Du hast es fast im ganzen Skript ohne.""",120,120,1611823,7/21/12 2:41,,,
+355939,4977496,21843,"Yes, I forgot to patch libsolvext on Friday. Sorry.",\N,\N,1214310,4/16/12 6:57,,,
+355940,21729990,128715,"Die Shebang-Zeile muẞ lauten: #!/bin/sh, denn wir schreiben immer POSIX-kompatible Skripte, und benutzen nicht die BASH-Spezialitäten. Unsere Skripte sollen also von allen möglichen Shells (Bash, Sh, Ksh, Zsh, ...) ausgeführt werden können. Zum Beispiel be",1,1,1611831,7/21/12 3:00,,,
+355941,21729990,128715,param1 und param2 vertauscht,39,39,1611835,7/21/12 3:02,,,
+355942,21729990,128715,Siehe Kommentare,\N,\N,1611837,7/21/12 3:06,,,
+355943,21729990,128728,Danke. Werde ich Montag ändern.,\N,\N,1612503,7/21/12 14:52,,,
+355944,10209663,705121,прверил комментирование из другого  места,\N,\N,1615686,7/23/12 8:02,,,
+355945,16879853,21545,yeah this does not work. you could have pulled the correct version from my commits,\N,\N,1468550,6/17/12 20:16,,,
+355946,16879853,73648,"sorry, processing commits one by one. Your commit is more correct than mine, too, so thanks!",\N,\N,1468677,6/17/12 22:20,,,
+355947,21738286,81199,프로젝트 진행을위해 폴더구조 및 타일즈를 적용한 소스와 폴더들 커밋,\N,\N,1615933,7/23/12 9:20,,,
+355948,4435443,449238,"Is it like a \hogehoge\"" name?""",11,13,1615750,7/23/12 8:20,,,
+355949,66205481,203579,"Dude, we're starting 4.3.4 dev or you're just messing around?",\N,\N,1615832,7/23/12 8:49,,,
+355950,11867437,11082,"I think this implementation is hard to understand: in particular the LazyLocalMavenPatternTransformer.\
+\
+It would be simpler if we did something like:\
+\
+        try {\
+            File localMavenRepository = localMavenRepositoryLocator.getLocalMavenRepository",\N,\N,1617107,7/23/12 13:57,,,
+355951,6214025,145809,"Why do you use an Either here, rather simply throwing an exception?",31,48,1487752,6/21/12 13:15,,,
+355952,6214025,145809,"Most methods should return an Iterator like this:\
+```scala\
+class GeoPipelineIterator(gp: GeoPipeline) extends Iterator[SpatialDatabaseRecord] {\
+  def hasNext = gp.hasNext\
+\
+  def next() = gp.next.getRecord\
+}\
+```",\N,\N,1487764,6/21/12 13:17,,,
+355953,6214025,550946,"Normally an exception should here never occur, but an exception happen mostly unexpected and break often the application. \
+Using an Either object prevent for try/catch cascades, rethrowing and masking exceptions. I think using an Either make code cleaner, ",31,48,1490955,6/22/12 2:14,,,
+355954,5167902,38187,"raw_data couldn't be removed from pyfb. it is a very useful param when you don't want to get an object in the response and you just want a python dictionary. Think that the object we are generating via the object factory is no \picklable\"". You cannot seria""",\N,\N,1255437,4/25/12 10:33,,,
+355955,3357980,111042,ok,\N,\N,1571647,7/12/12 9:03,,,
+355956,3357980,5274,"I don't really think that's necessary, Weblint is only deployed to Heroku so 1.8.7 compatibility is not a concern, for example.",\N,\N,1571623,7/12/12 8:58,,,
+355957,791574,127129,"Like.\
+\
+Except, shouldn't the border-top-color prop just have the color?",\N,\N,1428144,6/7/12 12:07,,,
+355958,1601450,10136,You forgot to raise version number in ChangeLog and CMakeLists.txt :),\N,\N,1616409,7/23/12 11:23,,,
+355959,353211,22449,Awesome!,\N,\N,769517,12/5/11 15:32,,,
+355960,1601450,128836,"Well, well, it's always something :-)\
+\
+I've fixed it now though (and bumped the version to 11 so that I don't forget it next time...)",\N,\N,1616429,7/23/12 11:28,,,
+355961,66205484,22753,"Why are you maintaining the multi-key set() and rmkeys() functions in KeyValueDBMemory? They should be removed just like LevelDB's, right?",\N,\N,1617676,7/23/12 15:54,,,
+355962,66205484,22766,"Oh. I see. This baffled me for a while, because that din't match what I have on my local version.\
+\
+Turns out I did that when I created this patch, and it was wrong. A posterior patch fixes it. When I rebuilt the history I missed it, so it shouldn't be ther",\N,\N,1617738,7/23/12 16:04,,,
+355963,21743379,1136839,Thanks to micrenda for spotting the error!! :D,\N,\N,1616052,7/23/12 9:53,,,
+355964,66205485,118872,please use single quotes for the string literal here. escaped double quotes look ugly.,75,52,1618240,7/23/12 17:34,,,
+355965,66205485,118872,why?,73,50,1618248,7/23/12 17:35,,,
+355966,66205485,118872,"this should be:\
+\
+```python\
+        app = Application([SomeService], \tns\""", in_protocol=XmlObject(), out_protocol=XmlObject())\,,,,,
+"```""",63,40,1618235,7/23/12 17:33,,,,,,
+355967,66205485,118872,this is not necessary. ,72,49,1618246,7/23/12 17:35,,,
+355968,353897,69580,it will be used at a later point.,\N,\N,1616310,7/23/12 11:02,,,
+355969,66205485,118898,"I had made yet another rookie mistake, Yey !",75,52,1618492,7/23/12 18:24,,,
+355970,66205485,118872,an empty line would look nice right before this one.,72,49,1618267,7/23/12 17:38,,,
+355971,66205485,118872,"just do:\
+\
+```python\
+assert etree.fromstring(''.join(ctx.out_document)).xpath('//ns1:b', nsmap=app.interface.nsmap)[0].attrib['c'] == \bar\"".\",,,,,,,
+```\,,,,,,,,,,
+\,,,,,,,,,,
+"this is off the top of my head. ask me tomorrow if something isn't clear.""",76,53,1618255,7/23/12 17:37,,,,,,
+355972,66205485,118898,"I tried and couldn't make it work that way.I think i would need a little\
+help on that issue",63,40,1618477,7/23/12 18:21,,,
+355973,66205485,118898,Using xpath is really a greater idea instead of comparing to an ugly string ,76,53,1618524,7/23/12 18:31,,,
+355974,4439542,17067,Oops. :-),586,7,1458280,6/14/12 12:05,,,
+355975,4439542,38158,"yup, my thought exactly",586,7,1458332,6/14/12 12:14,,,
+355976,4439542,38136,;),586,7,1458295,6/14/12 12:07,,,
+355977,66205485,118898,Changing root element's name shortens the comparison string.  I doesn't make much sense really,73,50,1618542,7/23/12 18:33,,,
+355978,3387185,61120,So I'll take your changing the links back to sourceforge that you're not planning on using GitHub primarily?,\N,\N,1473168,6/18/12 20:21,,,
+355979,3387185,104701,"I like SF's download stats lol.  I'm hoping with enough downloads phpseclib might become one of their projects of the month.\
+\
+Also, the zipball link is a real-time snapshot of Git.  I think explicit releases serve a useful purpose.  It gives me an excuse t",\N,\N,1480100,6/20/12 3:03,,,
+355980,353897,72648,"If this code isn't used anymore it should be deleted instead of being commented out. You can always get it back from the git repository, if you change your mind.",\N,\N,1616134,7/23/12 10:17,,,
+355981,66205486,30482,"Will not work properly, when month begin with a weekend.",197,92,1616228,7/23/12 10:40,,,
+355982,4935554,146813,"[Pavol Pitonak » richrates #19](https://buildhive.cloudbees.com/job/ppitonak/job/richrates/19/) FAILURE\
+Looks like this commit caused a build failure\
+[(what's this?)](https://www.cloudbees.com/what-is-buildhive)",\N,\N,1616153,7/23/12 10:23,,,
+355983,4439542,38136,"Definitely not from the outside, and on the inside it doesn't make sense\
+since it can't resume itself.\
+\
+What's the use-case?\
+\
+Cheers,\
+V\
+On Jun 21, 2012 11:30 AM, \oschulz\"" <\",,,,,,,
+reply@reply.github.com>\,,,,,,,,,,
+wrote:\,,,,,,,,,,
+\,,,,,,,,,,
+> A bit OT," but: Would it be possible to make acto""",\N,\N,1486357,6/21/12 7:41,,,,,
+355984,4439542,375274,"A bit OT, but: Would it be possible to make actor suspend / resume accessible in the public API (ActorRef)? I think that would be very useful in some scenarios (e.g. making an actor wait for something without blocking a thread). Or is this already possible",\N,\N,1486334,6/21/12 7:30,,,
+355985,4439542,375274,"> What if the child dies?\
+The child doing the actual work could be watched by an intermediate supervisor, which would handle this case,  i guess.\
+\
+> In this case just use \become\"" + Stash and you can accomplish the same\",,,,,,,
+"Sure - I'm not saying it's necessary""",\N,\N,1487693,6/21/12 13:00,,,,,,
+355986,4439542,375274,"> Suspension of a parent implies suspension of children\
+\
+Uhm, yes, this was originally about hierarchial suspension, wasn't it? There's the flaw in my plan ... just forget everything I said - sorry! :-)\
+",\N,\N,1487844,6/21/12 13:32,,,
+355987,4439542,38136,"On Thu, Jun 21, 2012 at 5:00 PM, oschulz <\
+reply@reply.github.com\
+> wrote:\
+\
+> > What if the child dies?\
+> The child doing the actual work could be watched by an intermediate\
+> supervisor, which would handle this case,  i guess.\
+>\
+\
+Suspension of a parent im",\N,\N,1487712,6/21/12 13:05,,,
+355988,4439542,375274,"Resume would have to be possible from outside, of course. The use case I was thinking of was:\
+An actor gets a message, instructing it to do some long-running operation. The actor spaws a child (or children) to do all that stuff, but until it's finished (fo",\N,\N,1486891,6/21/12 10:14,,,
+355989,4439542,38136,"On Thu, Jun 21, 2012 at 2:14 PM, oschulz <\
+reply@reply.github.com\
+> wrote:\
+\
+> Resume would have to be possible from outside, of course. The use case I\
+> was thinking of was:\
+> An actor gets a message, instructing it to do some long-running operation.",\N,\N,1487205,6/21/12 11:25,,,
+355990,11886412,707411,File does not exit.,37,37,1340701,5/16/12 21:30,,,
+355991,11886412,770064,"Hi AgentShark, \
+\
+The PHP implementation of Github is actually completely out of date. We will push the latest version later today. Approx 1pm GMT\
+\
+Sorry about that\
+------Original Message------\
+From: AgentShark\
+To: trafficspaces\
+Subject: Re: [trafficspaces-",71,71,1340725,5/16/12 21:39,,,
+355992,11886412,707411,TrafficspacesBase does not exist. Do you mean TrafficspacesResource?,71,71,1340710,5/16/12 21:34,,,
+355993,11886412,707411,"Hi,\
+I am currently waiting for the updated php source so I can start \
+implementing my project. Please can you push it ASAP?\
+Thanks.\
+\
+-----Original Message----- \
+From: trafficspaces\
+Sent: Wednesday, May 16, 2012 7:39 PM\
+To: AgentShark\
+Subject: Re: [traffics",71,71,1344585,5/17/12 16:51,,,
+355994,4576131,1367,I generally avoid initializing return values...,180,207,990600,2/21/12 10:21,,,
+355995,4576131,1367,"On the whole, it looks pretty good Philipp!  I'm hoping to get a chance to try it out in the next week or so.",\N,\N,990621,2/21/12 10:28,,,
+355996,4576131,1367,...because things like this happen.  Do we want to return EXIT_SUCCESS in this case?,191,218,990603,2/21/12 10:23,,,
+355997,4576131,1367,Same here... does it make sense to return EXIT_SUCCESS?,246,307,990617,2/21/12 10:27,,,
+355998,11886412,770064,"We are running final tests on all the implementation. Once we are done, we'll push it live.\
+\
+It definitely be ready by tomorrow morning.\
+\
+Thanks for your patience\
+------Original Message------\
+From: Avery Stephen\
+To: trafficspaces\
+Subject: Re: [traf",71,71,1345776,5/17/12 21:13,,,
+355999,4576131,1367,Nice!,\N,\N,991976,2/21/12 15:36,,,
+356000,1014350,147226,This shouldn't have been inlined into the graph rendering function: it is also called by the table renderer just above (line 626).,628,28,1616291,7/23/12 10:59,,,
+356001,1014350,131720,"Well spotted. The call to this was missing in the cancel functionality, which I added.",628,28,1616307,7/23/12 11:01,,,
+356002,4576131,265956,"Thanks for your feedback.  You're right about the return values in case of empty input.  I have dropped the 'ret' variables altogether now, see e7f0318.",\N,\N,991926,2/21/12 15:27,,,
+356003,1014350,147226,Thanks for catching that. Also the revised names for things make much more sense.,628,28,1616320,7/23/12 11:03,,,
+356004,3626202,475530,https://github.com/rounce/sockjs-erlang/commit/944b1ba694b383a92a73321b188004662095caf8 or something like that,\N,\N,1136704,3/27/12 7:59,,,
+356005,3579935,150968,This handler looks too much like the previous one. Maybe we could extract the code that exists in common and put it in a separate function?,278,352,1486217,6/21/12 6:57,,,
+356006,1173019,186441,"This commit breaks compatibility with Redmine 2.0.2!\
+The earlier version works well in 2.0.2 => https://github.com/paginagmbh/redmine_silencer",\N,\N,1422982,6/6/12 13:04,,,
+356007,5627541,127327,"I think you should probably use 'isinstance' for these instead of using ==. Also, you can use basestring instead of 'str or unicode'",427,39,1617740,7/23/12 16:04,,,
+356008,16796,6187,"@burtbeckwith Should the cache plugin be listed in gradle/assemble.gradle too?  \task pluginsFromRepo\""  Looks like database-migration plugin isn't there either.  Please let me know.""",\N,\N,1540185,7/5/12 2:32,,,
+356009,16796,6278,Good catch - thanks. I updated with both plugins.,\N,\N,1540202,7/5/12 2:44,,,
+356010,66205488,105656,せめてMicroBenchとClass周りの修正は別個にコミットしてください,\N,\N,1616806,7/23/12 12:47,,,
+356011,21755908,289491,Het verspringen is nu weg.,\N,\N,1308471,5/9/12 0:59,,,
+356012,12630604,116858,"Hi victor, there should be any xforms in edutrac. Xforms shouldn't be handling any messages at all. Unless somthing changed. Just remove xforms from the SMS_APPS in your settings.",\N,\N,949372,2/9/12 12:13,,,
+356013,12630604,34602,"Moses and I spotted a weird bug with this line, so added this fix. Message errors were sent to users responding to Non-rapidsms-xforms apps:\
+\
+```shell\
+Project-Id-Version: Django Report-Msgid-Bugs-To: POT-Creation-Date: 2011-03-15 13:14-0400 PO-Revision-",\N,\N,949326,2/9/12 11:53,,,
+356014,66205490,77913,#NAME?,21,5,1616544,7/23/12 11:53,,,
+356015,21758029,85651,Typo: cosing,32,32,1617838,7/23/12 16:25,,,
+356016,21755550,120613,Why not System.arraycopy ?,24,24,1339058,5/16/12 15:24,,,
+356017,21758029,85651,Typo: coffe,39,39,1617841,7/23/12 16:26,,,
+356018,66205490,62830,Can we stick to using lowercase `true` and `false` in templates,21,5,1616342,7/23/12 11:08,,,
+356019,21755550,17013,Probably because I'm superstitious. I'll try profiling System.arraycopy and see how it does. Thanks for the suggestion!,24,24,1339118,5/16/12 15:34,,,
+356020,21758029,85656,That's not a typo but intentional ;),35,35,1619043,7/23/12 20:09,,,
+356021,30128138,66821,This isn't actually `display:block` - `inline-block` has a very different context. If you read the bug it doesn't behave the way you described. Suggest a different fix.,\N,\N,1616571,7/23/12 12:02,,,
+356022,21758029,85651,Typo: naise,35,35,1617843,7/23/12 16:26,,,
+356023,30128138,67072,"Experimenting a bit, it looks like when the link is longer than one line, the behaviour of `inline-block` causes the link element to have its width set to the container width, and the nature of the block means that content to either side will appear as if ",\N,\N,1616653,7/23/12 12:20,,,
+356024,1272144,48787,"I just merged those changes in my repo, all conflicts resolved, and the main demo runs.\
+\
+I noticed a few things that need to be fixed in my port, but it already runs way better then my first version of the port :D",\N,\N,1438226,6/9/12 22:36,,,
+356025,17954780,2170786,need attention...,68,54,1542792,7/5/12 14:46,,,
+356026,6879058,78151,This looks great. Will merge this all momentarily.,\N,\N,1616736,7/23/12 12:35,,,
+356027,1347118,859,missing comma,24,13,1617379,7/23/12 14:47,,,
+356028,6879058,11300,"There are in fact more to add, just a preliminary list of potentially dangerous stuff ;) I will also add Java/Grails stuff soon.",\N,\N,1616748,7/23/12 12:38,,,
+356029,12288562,569120,"Hey Volker\
+\
+The links are working when ajax is enabled.",37,5,1617912,7/23/12 16:42,,,
+356030,66205492,16449,Looks good! I'd push it.,\N,\N,1616659,7/23/12 12:22,,,
+356031,2438527,23823,"Running the GC before a benchmark is standard practice in managed languages so that a GC cycle doesn't mess up results.  Ruby's own `Benchmark::bmbm` does it as well.  Anyways, it probably isn't an issue now that the multi-value insert is avoiding the reco",59,31,1558490,7/10/12 0:36,,,
+356032,2438527,23824,"I pushed improved version for PG as well, doing multiple inserts + code cleanups.",\N,\N,1558563,7/10/12 1:13,,,
+356033,1781332,31665,Why are we adding a duplicate README here?,3,3,1617507,7/23/12 15:17,,,
+356034,8995550,589510,good job ;),81,4,1616855,7/23/12 12:59,,,
+356035,2438527,23824,You are right!,59,31,1558530,7/10/12 0:59,,,
+356036,1774317,29720,"Why this? This triggers only if somebody types !gif\\n!gif or !image\\n!gif , right?",14,7,1618225,7/23/12 17:32,,,
+356037,1781332,31654,mistake. it should be removed,3,3,1617566,7/23/12 15:29,,,
+356038,1774317,159099,"This triggers when the input is:\
+A: !gif\
+B: !gif\
+So, I figured we wouldn't want to search for a gif with the term 'gif'.\
+\
+This works basically the same way the !image search works right now.",14,7,1618305,7/23/12 17:46,,,
+356039,1774317,10153,It should - this line doesn't appear to be necessary.,14,7,1618292,7/23/12 17:43,,,
+356040,1892818,154235,"Could you push this out in a release, please? This would be really helpful as 1.0.3 keeps trying to download Play2.1-0496.\
+\
+Great work! \
+\
+Cheers.\
+ken lim",17,5,1329044,5/14/12 15:20,,,
+356041,1892818,947,"Hmm, it has been pushed. Though I think the problem lies with repo.typesafe.com caching the result.\
+Try adding https://oss.sonatype.org/content/groups/public/ as a resolver.\
+\
+I must get in touch with typesafe and see what there caching strategy the oss.son",\N,\N,1329063,5/14/12 15:23,,,
+356042,2211802,75646,"Thilina,\
+please post your weekly report.",\N,\N,1617278,7/23/12 14:26,,,
+356043,66205494,74947,I also removed the key from .ssh/authorized_hosts so its all good. But holy shit there was a ~12 hour period where anyone could ssh into my server,\N,\N,1617155,7/23/12 14:03,,,
+356044,2211802,75641,"Hi Marc,\
+I posted the weekly report.",\N,\N,1617531,7/23/12 15:23,,,
+356045,6818751,10612,"recieving is spelled wrong, should be receiving (i before e except after c). +1 to the is not change.",\N,\N,1616957,7/23/12 13:24,,,
+356046,1310514,1257537,Я бы купил такую в печатном виде :),\N,\N,1323497,5/12/12 10:31,,,
+356047,3323735,372577,pourquoi g32010.tds.td6 ??? Il faudrait peut-être remplacer g32000 par g12345 pour que la différence soit plus marquée ?,49,49,1439311,6/10/12 17:45,,,
+356048,4437480,467670,Trying to add this few docs,\N,\N,1617338,7/23/12 14:37,,,
+356049,21781364,9779,We kind of do already though. But I see what you mean.,46,13,1465686,6/15/12 22:11,,,
+356050,5786513,146444,:red_circle:,\N,\N,1237743,4/20/12 17:36,,,
+356051,5786513,221962,![yo dawg](http://i.imgur.com/S9GTz.jpg),\N,\N,1237736,4/20/12 17:35,,,
+356052,5786513,19434,"If y'all have got a better name in mind, I'm all ears.\
+\
+![ALL EARS](http://p1k3.com/imgs/cat_ears.jpg)",\N,\N,1237769,4/20/12 17:47,,,
+356053,5786513,221962,"DID YOU MEAN :ear: ?\
+\
+Nah, you're good bro. :thumbsup:",\N,\N,1237820,4/20/12 18:12,,,
+356054,5786513,19434,"call me bro one more time\
+\
+:gun:",\N,\N,1237877,4/20/12 18:32,,,
+356055,2714305,346539,"Need to come back to this; the feedback message on submit says \You chose the correct answer..... \""\",,,,,,,
+"Iff this is multiple response then it should be \""You chose a correct answer....\"".\",,,,,,,,,,
+"Also the taking away of marks if more than the maximum number of choices i""",\N,\N,1618441,7/23/12 18:12,,,,,,
+356056,21782373,132557,"HAHA. Many thanks. Insulation, in this context, means something other than a thin piece of ceiling/floor wood between me and the outside. I posted a few of these figures on facebook and some people (presumably being cheeky) requested the data and scripts b",\N,\N,1362993,5/22/12 20:04,,,
+356057,21782373,255360,I've been living in apartments with single glazed windows for more than 5 years now. Finally somebody has the data to show how insane that is. ,\N,\N,1360779,5/22/12 13:26,,,
+356058,595635,105789,se quito el arreglo de prueba una ves verificado que los datos se estan sacando de un archivo oculto dentro del servidor,44,3,1618792,7/23/12 19:19,,,
+356059,7210477,266399,This produces an error if the value of `data-connectors` is a simple number and not a string like \1,"3\"". `$().data('key')` tries to return the appropriate data type for the value. In this case you will eventually end up trying to use `.split` on a value of""",\N,\N,1172335,4/4/12 10:47,,
+356060,21782373,132557,Unfortunately the data shows that the double-glazing didn't have a large impact on room temperature. Adding insulation did! If on a budget I'd invest in heavy drapes instead. ,\N,\N,1362945,5/22/12 19:50,,,
+356061,3390544,37697,For debugging.,25,12,1617761,7/23/12 16:10,,,
+356062,7210477,83664,"Thanks you very much for the info! Unfortunately this is a new bug, which found its way into the release in the last second :-( I will change it back to attr() as soon as possible.",\N,\N,1173515,4/4/12 15:16,,,
+356063,21782373,255360,"I guess I don't know what insulation means here. I figured it means a 21st century window that actually tightly closes and is double glazed. Anyway, I just had to comment your new exciting research field. ",\N,\N,1362979,5/22/12 19:59,,,
+356064,5358979,2170786,I think this comment can be removed,453,45,1617594,7/23/12 15:36,,,
+356065,1992496,297275,"It is intended to save in preferences whether an example deck was ever built. If was, no other building should happen. This method should check for this preference and can also make sure DB is empty.\
+\
+The suggested usage of the class is then:\
+\
+    ExampleD",36,36,1594220,7/17/12 18:23,,,
+356066,1992496,23881,Why do you not want to run build from `SQLiteOpenHelper#onCreate`? It would be enough.,36,36,1594316,7/17/12 18:42,,,
+356067,1992496,297275,"Ah, right. This would be much simpler and clearer.",36,36,1596712,7/18/12 5:08,,,
+356068,5358979,157583,Removed,453,45,1617612,7/23/12 15:39,,,
+356069,5791357,75904,"I presume that you saw my earlier comments to Dave lamenting the addition of this method entirely? Perhaps you can convince him that his circumstances don't extenuate badly enough to need it.\
+",\N,\N,547622,8/23/11 17:23,,,
+356070,5791357,76286,"And someone will come along in the future and add a pick (T[] array, int beginIndex, int endIndex, T ifEmpty) when subList() could be used.\
+\
+:(",\N,\N,547612,8/23/11 17:21,,,
+356071,5791357,76286,"I did, I commented there too.\
+\
+I don't know his circumstances, but maybe we just need to convince him that arrays suck. A List can grow, shrink, provide sub-views, be immutable, validate element addition, work with generics better... You can easily provi",\N,\N,547664,8/23/11 17:39,,,
+356072,7001869,101936,"\$#array\"" returns the zero-based index of the last item in an array. The scalar function is used to force a scalar context", which is unnecessary here because the assignment is already scalar context. So all you need is:,,,,,,
+\,,,,,,,,,,
+,,,,,,,,,,
+\,,,,,,,,,,
+$count = @ids;,,,,,,,,,,
+\,,,,,,,,,,
+",\N,\N,1042153,2012-03-05 08:11:12""",,,,,,,,,,
+356073,6577198,42087,"`make test` included the line:\
+`[SKIP] functions-hash`\
+But I have glibc 2.16.0. on my system.\
+The command `pkg-config glib --atleast-version=2.16.0` exits with 1.\
+`pkg-config glib-2.0 --atleast-version=2.16.0` works, as does:\
+`pkg-config --exists --print-e",\N,\N,1562446,7/10/12 16:49,,,
+356074,36509,9880,"Great thanks for reporting this! I'm looking into it now. In the meantime I recommend using the last release from PyPI which does not include the session changes. Thanks!\
+\
+On Jun 28, 2012, at 9:59, cdaviduik<reply@reply.github.com> wrote:\
+\
+> I receive this",\N,\N,1516785,6/28/12 15:54,,,
+356075,36509,9880,This should be fixed now. Thanks again.,\N,\N,1518599,6/29/12 0:43,,,
+356076,6794136,21540,"The ``service_uri`` should not come from the controller. Only the model should know about the data storage, the controller does not know that an API is called behind it. ",110,39,1619301,7/23/12 21:13,,,
+356077,36509,2788301,"I receive this error when attempting to use rauth which I believe are due to these changes:\
+\
+Status Code: 500\
+TypeError: 'Session' object is not callable \
+../rauth/service.py\", line 325, in get_access_token response = self.session(method," self.access_token""",\N,\N,1516504,6/28/12 14:59
+356078,2484445,15665,thanks to @baskerville,\N,\N,1617667,7/23/12 15:51,,,
+356079,6794136,19216,"True, I was pondering this and I am in two minds. So here is what I am wondering, I can do more refactoring an move the service_uri into the model, the method that builds it is in the model already but, there is a little more effort that will need to go in",110,39,1620153,7/24/12 3:15,,,
+356080,5564978,43461,"[Fake 川口耕介 » sandbox-ant #8](http://infradna.com:18080/job/kohsuke2/job/sandbox-ant/8/) FAILURE\
+Looks like this commit caused a build failure\
+[(what's this?)](https://www.cloudbees.com/what-is-buildhive)",\N,\N,1253069,4/24/12 22:55,,,
+356081,1220645,5049,Er make that [[Category:UA: Android 2.3.6; en-us; Nexus S Build/GRK39F]],\N,\N,1575234,7/12/12 22:26,,,
+356082,30064412,6748,Unit test?,\N,\N,1617851,7/23/12 16:27,,,
+356083,21796931,2370,Carefully read http://www.eclipse.org/xtend/documentation.html#lambdas to spot the difference. Use square brackets instead of parens.,17,5,1617836,7/23/12 16:25,,,
+356084,286164,163020,"Will be good to set some CNAME records for dicteo subdomain. Like:\
+\
+www CNAME dicteo.pl.\
+\
+in domain provider admin panel.\
+\
+Now we have:\
+\
+\
+; <<>> DiG 9.8.1 <<>> ns www.dicteo.pl\
+;; global options: +cmd\
+;; Got answer:\
+;; ->>HEADER<<- opcode: QUERY, status: N",\N,\N,1620450,7/24/12 5:20,,,
+356085,1220645,5049,Creates a category that will look something like: [[Category:Android 2.3.6; en-us; Nexus S Build/GRK39F]],\N,\N,1575230,7/12/12 22:24,,,
+356086,6572094,132760,Be brave. Delete commented out code; We have version control.,72,6,1617115,7/23/12 13:58,,,
+356087,78948,22183,"Technically I didn't write the original code for SendAsync though I did customize it a bit... I can try to look up the original author but it was mostly some code pasted on stackoverflow.\
+",\N,\N,1619356,7/23/12 21:26,,,
+356088,30062186,16435,This looks good. Thanks David!,\N,\N,1619296,7/23/12 21:12,,,
+356089,70204,144629,"Mistake here, '.button.disabled'",82,14,1615453,7/23/12 6:57,,,
+356090,310799,61266,"why should the app name take you to the review permalink page, but the app icon takes you to the app detail page?",19,17,1618239,7/23/12 17:34,,,
+356091,6633531,10019,"How selfish of me, should have checked the other cases :)",\N,\N,1182651,4/6/12 17:52,,,
+356092,1394782,245166,"Didju, cesse de commiter ton fichier .gwt-log.  \
+Je sais que ca fait monter tes stats (3000 lignes par commit :p), mais à part ca, ca merge mes logs et les tiens, et c'est la merde :)",\N,\N,1619202,7/23/12 20:39,,,
+356093,1126454,55930,"This is clearly wrong. RFIFO_PUT would have been better, but you could skip many messages by doing this. The solution is to jump to RFIFO_GET + 3 + header_buf[2].",388,49,1618134,7/23/12 17:17,,,
+356094,3822686,231376,In-law is ambiguous with different meanings over time,38,18,1461737,6/15/12 3:28,,,
+356095,3402616,28328,"NOTE: once we sort out the templates in pinax-theme-bootstrap we should move this below ``\pinax_theme_bootstrap\""``.""",129,46,1239811,4/21/12 20:01,,,
+356096,7026271,279477,"Hm, should igbinary return false on error? I know the bundled serializer does, but I think a bad unserialize should instead return null, representing \nothing\"".",,,,,,,
+\,,,,,,,,,,
+",\N,\N,316440,2011-03-26 12:40:21""",,,,,,,,,,
+356097,7026271,336047,"Problem is compatibility. I don't mind rolling back this change tho.\
+\
+However I would prefer to keep it. Technically there is no good solution\
+here but to use exception. As null is just as valid as false, from a value\
+pov (binary data).\
+\
+On 26 Mar 2011 14:",\N,\N,316454,3/26/11 13:17,,,
+356098,3491525,154945,"Hmm nah, will undo this change later since user can have both Songbird and Nightingale, thought the feature should be heavily improved in different ways.",\N,\N,1541812,7/5/12 11:18,,,
+356099,5591,1948,"To clarify some of the changes made in this commit:\
+Multiple.htm was renamed to createActivity.htm\
+Moved the 3 welcome.php files to a folder unused_files\
+Created getStudentActivites.php to return the list of activities a student has created for a particula",\N,\N,1618189,7/23/12 17:26,,,
+356100,7026271,336047,"Hi,\
+\
+Compatibilty was my concern. Maybe we can change this behavior in php's\
+trunk. But there is not much difference  between false and null in this\
+case.\
+\
+Exception sounds better but....:)\
+\
+Cheers,\
+\
+On 26 Mar 2011 14:40, \tricky\"" <\",,,,,,,
+"reply@reply.github.com>""",\N,\N,316523,3/26/11 14:11,,,,,,
+356101,3822686,132809,So do you think it should be removed? Or are you suggesting a clarification?,38,18,1464133,6/15/12 14:40,,,
+356102,3822686,114857,Ordered by what?,1055,126,1480645,6/20/12 6:13,,,
+356103,7026271,279479,"I vote for compatibility. Just to avoid any gotchas when using igbinary in place of the standard serializer.\
+\
+I personally prefer returning NULL when something is empty or broken. Especially Memcached::get is rather silly because I can't know for sure if",\N,\N,316509,3/26/11 14:03,,,
+356104,8598636,6224,"@alexgibson this code is great!  I'm wondering, have you seen this work on any android devices?",\N,\N,362737,4/29/11 14:13,,,
+356105,3822686,231376,"Remove - can be specified under \Other\"" - or alternatively allow any word with the above just being recommended standard values""",38,18,1523393,6/30/12 3:30,,,
+356106,6577198,531661,"Ah, I see, it's a typo.\
+\
+Fixed in HEAD",\N,\N,1562675,7/10/12 17:24,,,
+356107,7026271,279477,"I'm inclined to go with compatibility as well, even if I dislike it.\
+\
+Igbinary provides no real method to check for errors, only an error message. Exceptions and perhaps a igbinary_error() and igbinary_strerror() for all procedularists out there. :) I'm ",\N,\N,316674,3/26/11 17:00,,,
+356108,8598636,6224,"Thanks @alexgibson, These are the same conclusions I'm coming to.  I posted a question on stackoverflow: http://stackoverflow.com/questions/5834232/android-browser-shake-detection-with-javascript-for-a-web-application to see if anyone there had any input. ",\N,\N,363103,4/29/11 18:25,,,
+356109,8598636,23783,"I don't think Android has access to accelerometer data in the browser quite yet (expect it will before long though). I believe the playbook has it, although I can't confirm just yet.",\N,\N,363090,4/29/11 18:18,,,
+356110,8598636,23783,I think it will be a long time before we see this working on Windows Mobile ;),\N,\N,363107,4/29/11 18:29,,,
+356111,66205496,198705,Maybe we could split the Interaction into MethodSignature and Result in order to keep number of instance variables low. We could also try to implement a some kind of NullResult to remove the condition from == operator.,1,2,1618851,7/23/12 19:31,,,
+356112,21811822,14585,Add more details to frameworks. Should not affect demo.,2,3,1618226,7/23/12 17:32,,,
+356113,4662442,22764,good point. I forgot to add that when I changed it to not create the object as well.,1202,110,1529531,7/2/12 17:43,,,
+356114,4662442,22768,"this also needs to truncate to 0, or use write_full (if its available here? i forget)",1202,110,1529500,7/2/12 17:34,,,
+356115,4662442,22764,"On second thought, this is handled by the stat and size check already. I'll add a test for it though.",1202,110,1530005,7/2/12 19:33,,,
+356116,4662442,22764,"and the test already exists too. hooray!\
+",1202,110,1530015,7/2/12 19:34,,,
+356117,6819169,500455,Don't de-accelerate the menu item 'Configure Proxy'.  Instead change the accelerater to Ctl-c or Ctl-x.,\N,\N,1616823,7/23/12 12:51,,,
+356118,5820191,61266,leading and trailing whitespace?,59,59,1395947,5/30/12 19:34,,,
+356119,310793,61266,can we combine these two `<a>`s?,19,5,1619496,7/23/12 22:10,,,
+356120,5820191,61266,what?! this is totally good!,42,42,1395941,5/30/12 19:34,,,
+356121,5820191,61266,we do four on AMO :blush:,37,37,1395942,5/30/12 19:34,,,
+356122,5820191,203,"I prefer 4, but they made me do it... I think.",37,37,1395951,5/30/12 19:35,,,
+356123,1161132,30361,don't forget the license!,1,1,687666,11/1/11 13:34,,,
+356124,5820191,61270,Why 2?,37,37,1395950,5/30/12 19:35,,,
+356125,5820191,61270,Completely disagree.,42,42,1395952,5/30/12 19:35,,,
+356126,5820191,61270,"with 4 space indents, you get the right effect.",42,42,1395967,5/30/12 19:38,,,
+356127,5820191,61266,trailing whitespace,215,215,1395961,5/30/12 19:36,,,
+356128,5820191,203,I'm of the opinion that the style for declaring var's doesn't really need to be defined. Either way works fine.,42,42,1395974,5/30/12 19:39,,,
+356129,5820191,9061,This makes my Pythonista self feel warm and fuzzy.,200,200,1395987,5/30/12 19:43,,,
+356130,5820191,71885,looks nicer. fine change it to snuggle up against the [] for all i care!,59,59,1395969,5/30/12 19:38,,,
+356131,5820191,9061,"Not that this is a matter of voting, but 4 has been \webdev standard\""[TM] for a long time.""",37,37,1395983,5/30/12 19:42,,,
+356132,5820191,63911,"Github nees a \Like this line\"" button :)""",200,200,1396000,5/30/12 19:46,,,
+356133,5820191,27606,"2 doesn't provide most people enough of a visual indentation, myself included.",37,37,1396122,5/30/12 20:15,,,
+356134,5820191,203,"It is easy to accidentally leave a global var with comma separated, but\
+always using jshint (as it says at the top) catches them.",42,42,1396060,5/30/12 19:57,,,
+356135,5820191,61264,There's lots of pros and cons on this for example its easy to accidentally create a global var. I think it's worth defining.,42,42,1396003,5/30/12 19:47,,,
+356136,5820191,28864,"In Ruby, `0` is truthy. I just came here to say that.",200,200,1396217,5/30/12 20:42,,,
+356137,5820191,63911,"js === 4 spaces\
+html === 2 spaces",37,37,1395994,5/30/12 19:45,,,
+356138,5820191,28864,"I find it kind of confusing to read but would love to hear why it's easier for debugging.\
+\
+What about anonymous functions?\
+\
+    doSomething({\
+      onSuccess: function successfulThing(arg) {\
+        return 'yay';\
+      }\
+    });\
+\
+Seems a bit verbose and ha",130,130,1396181,5/30/12 20:33,,,
+356139,5820191,28864,"I don't like it much if this is a democracy, but I don't care enough that I'll defend it in follow-up comments or complain if it stays.",59,59,1396227,5/30/12 20:46,,,
+356140,5820191,61270,I actually kinda like the whitespace.,59,59,1396223,5/30/12 20:44,,,
+356141,5820191,61270,"when an function shows up in a stacktrace it will include its name if it was part of the function declaration.\
+\
+for example:\
+\
+    $.when(doSomething).done(function(foo) {...});\
+\
+will show up in a stacktrace as `function ?(foo)`\
+\
+    $.when(doSomething).don",130,130,1396232,5/30/12 20:47,,,
+356142,5820191,61270,"Additional style points we use on AMO:\
+\
+- we use $ before variables that are known jQuery objects (a bit hungarian, but prevents us from \double dollaring\"" things which can get expensive)\",,,,,,,
+\,,,,,,,,,,
+for example:\,,,,,,,,,,
+\,,,,,,,,,,
+    var $el = $('#el');\,,,,,,,,,,
+\,,,,,,,,,,
+"- Something about using $.De""",\N,\N,1396251,5/30/12 20:51,,,,,,
+356143,5820191,61270,I just came here to laugh at Ruby a little bit and then wonder if sometimes that's not the right behavior.,200,200,1396235,5/30/12 20:48,,,
+356144,5820191,5269,I don't think there's much to gain by naming a function when it is being assigned to another variable.,130,130,1396146,5/30/12 20:25,,,
+356145,5820191,28864,"The second sentence (in parenthesis) seems redundant. Just say \always test for equality without type coercion\"" and be done with it.""",145,145,1396197,5/30/12 20:37,,,
+356146,5820191,28864,"OK, cool, thanks then. Let's amend the anonymous function below (and elsewhere in the guide if they exist) to be named then.",130,130,1396256,5/30/12 20:52,,,
+356147,5820191,203,"Most JavaScript engines don't properly build stack traces with unnamed\
+functions. You end up with a stack of anonymous,  or \()\"".\",,,,,,,
+\,,,,,,,,,,
+So yes, its useful to even name your callbacks, in case an error is\,,,,,,,,
+"triggered from somewhere inside.""",130,130,1396245,5/30/12 20:49,,,,,,
+356148,5820191,28864,"Don't you usually get line numbers in said stacktraces too? That would be enough to find the error, no?\
+\
+(Related: should we say anything about deferred objects or something to avoid callback soup in the guide?)",130,130,1396248,5/30/12 20:50,,,
+356149,5820191,27606,"For me, the leading and trailing spaces in arrays and parens only make the line longer and contradicts cutting down on indentation.  I don't necessarily think that the spaces improve readability either.",59,59,1396262,5/30/12 20:53,,,
+356150,5820191,28864,It does for me (and most Rubyists). And CoffeeScript uses 2 as well.,37,37,1396275,5/30/12 20:55,,,
+356151,5820191,9061,Man these Ruby people neither have real gems nor real truthiness. WHAT'S WRONG WITH YOU,200,200,1396282,5/30/12 20:56,,,
+356152,5820191,9061,"It's mostly because \if\"" is not a function"," it's a language construct. You're not *calling* if.""",111,111,1396450,5/30/12 21:38,,
+356153,5820191,27606,"Much like my comments about not having leading and trailing parens and brackets, I guess I don't see what value the additional space after the \if\"" provides.  I do prefer a space after the closing parent with functions though.""",111,111,1396277,5/30/12 20:55,,,
+356154,5820191,9061,"looks like we might have to change this guideline to:\
+\
+\Indent.\""""",37,37,1396443,5/30/12 21:37,,,
+356155,5820191,5269,I think you mean remove. If an anonymous function is named it's no longer anonymous.,130,130,1396467,5/30/12 21:44,,,
+356156,5820191,203,CoffeeScript does whatever Ruby does. It's not JavaScript.,37,37,1396497,5/30/12 21:52,,,
+356157,5820191,28864,"And I like the spaces _here_, because I find stuff like `if(!foo){` or even `if(!foo) {` harder to parse than `if (!foo) {`. It makes it clear it _isn't_ being called and, instead, is a conditional. Kinda nice.",111,111,1396459,5/30/12 21:41,,,
+356158,5820191,823,"Similar to the last comment... I liked when JSLint would yell at me to write `function (err, res) { }`, because `function` is a keyword and not a function to be called as `function()`. It can also be vaguely confused with `new Function(\...\"")`"," which is so""",135,135,1396717,5/30/12 23:14,,
+356159,5820191,8211,I'd like to say that I had to reload this page twice before github decided to show the comments. But I persevered through github hoo-hah because I found all this pretty interesting.,200,200,1396473,5/30/12 21:46,,,
+356160,5820191,28864,"Yeah, that's what I meant. I made a bad in my English. Basically: we shouldn't allow anonymous functions if we're saying this.",130,130,1396474,5/30/12 21:46,,,
+356161,5820191,61270,what @tofumatt said.,59,59,1396527,5/30/12 22:06,,,
+356162,5820191,61270,"\CoffeeScript does x\"" is as good an argument as I need against something :D""",37,37,1396515,5/30/12 22:02,,,
+356163,5820191,823,"I tend to disagree with this, and like a space before *and* after the function name, eg. `function doSomething (argOne, argTwo) { }`. That way, maybe it's more clear that `doSomething` is being defined and not being called (ie. `doSomething()`)\
+\
+See also, ",125,125,1396713,5/30/12 23:13,,,
+356164,5820191,28864,"I think the keyword `function` beforehand covers it, plus the `{ /* function contents */ }` afterward. I dislike the aesthetics of spaces on either side, and have never been confused by this when defining functions.",125,125,1396727,5/30/12 23:16,,,
+356165,5820191,63911,+1 to what @potch said about $vars. I've been doing that for years; really helps.,\N,\N,1396596,5/30/12 22:28,,,
+356166,5820191,28864,"Seemingly only @ednapiranha and I are fans of 2 spaces. Maybe we should do 4 spaces instead. I know @seanmonstar likes tabs, but seemingly 4 spaces is preferred to 2 by nearly everyone except the weird wooby Canucks. I wave a white flag*.\
+\
+* So Canadian, e",37,37,1396744,5/30/12 23:20,,,
+356167,5820191,823,"I'd say \Follow what your team does\"". But", if I'm in there first," I'm starting with 4-space indent.""",37,37,1396729,5/30/12 23:16,
+356168,5820191,823,What color should the syntax highlighting be?,37,37,1396787,5/30/12 23:36,,,
+356169,5820191,28864,"Given the above discussion: we shouldn't be using anonymous functions at all. Though that JSLint rule is a bit harsh, I think.",135,135,1396733,5/30/12 23:17,,,
+356170,5820191,71885,fyi i wrote that. someone give me some cotton candy and bourbon!,200,200,1396790,5/30/12 23:36,,,
+356171,5820191,71885,also devtools does 2 spaces. do we hate devtools? :(,37,37,1396800,5/30/12 23:38,,,
+356172,5820191,71885,"goddd, let's just get this over with and merged. EVERYBODY HUG.",37,37,1396767,5/30/12 23:29,,,
+356173,5820191,203,"Ya @ednapiranha, what's that about? :D",59,59,1395959,5/30/12 19:36,,,
+356174,5820191,203,Only solarized is acceptable.,37,37,1396799,5/30/12 23:38,,,
+356175,5820191,27606,"I much, much, much, much prefer tabs too.",37,37,1396823,5/30/12 23:45,,,
+356176,5820191,823,"You can have 2 spaces, but only if you bust out the One True GNU Brace Style:\
+\
+    if (condition)\
+      {\
+        statement1;\
+        statement2;\
+      }",37,37,1396807,5/30/12 23:41,,,
+356177,5820191,71885,omg that's heathen. DOWN WITH SATAN!!!,37,37,1396811,5/30/12 23:42,,,
+356178,5820191,61270,"The realistic answer is that nobody's going to go back and re-indent an existing project, so I'm with Fred.",37,37,1399923,5/31/12 15:17,,,
+356179,5820191,27606,+1 as well.  Bonus points for not using jQuery :D,\N,\N,1396825,5/30/12 23:46,,,
+356180,5820191,5038,Why do you all hate nice things?,37,37,1399002,5/31/12 11:56,,,
+356181,5820191,9061,"On a more serious note, perhaps we have to just allow both here. \Indent with 2 or 4 spaces. On an existing project"," stick with what the project already does; no mixing indentation styles.\""""",37,37,1399808,5/31/12 14:50,,
+356182,5820191,203,"That's like Python: if there's an existing style, keep with it. New\
+projects, pick one?",37,37,1400248,5/31/12 16:14,,,
+356183,226545,37839,"Aha!\
+\
+<<< Needs to watch changes better",\N,\N,1229870,4/19/12 3:06,,,
+356184,196317,45675,"This looks good. Two stylistic changes (also see my commit) - \
+1. when there are continuation of long lines, use indent so the continuation stands out. \
+2. do not output an empty space at the end of the line. To automate, use these in your .vimrc\
+\
+\ Remove""",\N,\N,1619835,7/24/12 0:22,,,
+356185,3850518,61648,"Looks really nice (and seems to work ;-). It's a nice unification of the commands and is easier to use than having to remember different key bindings.\
+\
+I was confused by one thing however: I selected some text and tried the command \| wc\"". I expected to se""",\N,\N,1524302,6/30/12 18:10,,,
+356186,4035846,239090,i'll make the change now and just push it through on my next round,310,7,1423470,6/6/12 14:30,,,
+356187,4035846,59579,Might read better as `if ($appeal->getStatus() != Appeal::$STATUS_UNVERIFIED) {`  :P,310,7,1423463,6/6/12 14:28,,,
+356188,3850518,61648,"Ah, that lack of STDIN support for build systems is a bit annoying. Might be better to just go with the sync version so we can get all of the combinations.",\N,\N,1524800,7/1/12 5:28,,,
+356189,3850518,61648,"Nice, looks good.",\N,\N,1559172,7/10/12 4:42,,,
+356190,3850518,17482,@inkytonik 37c22107ccfa6b26cd7eade13ddbc5dfec1573bb fixes this limitation. It just uses echo and shell quotes all the text that is selected. So we can still leverage ST's build systems to get for async,\N,\N,1558332,7/9/12 23:13,,,
+356191,3850518,17482,"Yeah. Since commands that aren't redirected leverage the ST build system and the build system doesn't support piping to STDIN, we'd need to do some magic to make that work. Using `echo` should do it... I just haven't written it yet.\
+\
+Also, multiple selec",\N,\N,1524329,6/30/12 18:42,,,
+356192,21823053,9135,"Hi, to be honest, EventMachine-LE is not EventMachine master branch. EventMachine-LE incorporates lot of fixes and pull requests that EM master just ignores for months/years.\
+\
+For example, EventMachine-LE completely supports IPv6 (for UDP and TCP in both c",39,4,1123533,3/23/12 10:16,,,
+356193,6038266,27007,"Really? Ugh. Stupid line endings.\
+\
+Here's the actual diff: http://plugins.trac.wordpress.org/changeset/571082/vipers-video-quicktags",\N,\N,1570638,7/12/12 4:10,,,
+356194,6913714,78643,"Not sure what happened with this commit. It looks like a combination of both previous 2 commits. Plus, it looks like we're still having line-ending issues. :(",\N,\N,1618709,7/23/12 19:05,,,
+356195,6913714,78765,"Oh for heavens sake. That's so annoying.\
+On Jul 23, 2012 5:05 PM, \Brandon Bowles\"" <\",,,,,,,
+reply@reply.github.com>\,,,,,,,,,,
+wrote:\,,,,,,,,,,
+\,,,,,,,,,,
+> Not sure what happened with this commit. It looks like a combination of\,,,,,,,,,,
+> both previous 2 commits. Plus," it looks like we're still having""",\N,\N,1618729,7/23/12 19:09,,,,,
+356196,6038254,27007,This commit was made by https://github.com/benbalter/Github-to-WordPress-Plugin-Directory-Deployment-Script which I didn't realize also pushed to GitHub in addition to WP.org SVN.,\N,\N,1618717,7/23/12 19:07,,,
+356197,3456312,132372,"I suppose this error follows:\
+\
+\
+Fatal error: Call to undefined method Symfony\\Component\\Form\\FormView::addVars() in /Applications/MAMP/htdocs/Symfony2.1/vendor/gregwar/captcha-bundle/Gregwar/CaptchaBundle/Type/CaptchaType.php on line 84",\N,\N,1621358,7/24/12 9:24,,,
+356198,66205498,521715,Forgot to mention that alt text no longer shows the outer quotes.,\N,\N,1618756,7/23/12 19:14,,,
+356199,16044328,94437,Great stuff.,\N,\N,1620035,7/24/12 2:02,,,
+356200,4854495,86901,@ranyefet can you take a look at the fader plugin layout ... seems broken with your layout refactor?,\N,\N,1618796,7/23/12 19:19,,,
+356201,2757311,197585,I love to embed images this way. Saves me the trouble of managing yet another file.,107,27,228013,12/29/10 4:52,,,
+356202,2757311,197585,"The version number is wrong on this commit, it should be v0.2.5",\N,\N,228014,12/29/10 4:53,,,
+356203,2757311,197585,"Oops, skipped a rev. I had been using the Google Anaytics fix internally for a bit so I bumped this up one more when I added the whole word options. Of course my commit message is wrong =\\",3,5,228011,12/29/10 4:51,,,
+356204,21826699,1030589,first!,\N,\N,1417033,6/5/12 10:59,,,
+356205,1319013,75043,undo - should only test public api,45,5,1619108,7/23/12 20:19,,,
+356206,16044199,94437,"interesting, not completely sold, but cool. Is there any way we can make it stop at a certain point?",\N,\N,1620056,7/24/12 2:15,,,
+356207,16044199,20191,"I'm also not 100% sold, but it's kinda neat.",\N,\N,1620101,7/24/12 2:32,,,
+356208,3816948,34650,why using ivars if you have attr_accessors set up,27,27,1619543,7/23/12 22:26,,,
+356209,3816948,173759,Wouldn't that go through a method invocation versus accessing the variable directly?,27,27,1619564,7/23/12 22:32,,,
+356210,3816948,173759,And why aren't you submitting new feature pull requests?? :),27,27,1619682,7/23/12 23:09,,,
+356211,5479,1948,"All this commit did was fix the issues I said I'd fix in my previous commit.  In testing merging master INTO this respoitory (I was testing to make sure I'd merge correctly into this branch, before I tried merging into the master branch), it apparently mad",\N,\N,1618892,7/23/12 19:41,,,
+356212,21829495,362530,If I'm not mistaken you can also remove this two lines.,51,36,1152308,3/30/12 5:54,,,
+356213,9806179,187464,"Oren, The default values should be either symbols or strings translated later (same goes for the time resolutions). can you please fix that?",58,19,1572416,7/12/12 12:09,,,
+356214,21833795,13964,"The first param to the replace function is the full match, 'keyboard'. the next params are the individual groups. So the function should read `function(_, k,e,yb,o,ard)` in order to work.",17,23,1115928,3/21/12 19:39,,,
+356215,1635241,50268,"Admittedly I haven't really updated the test code. The general idea is that sessions are no longer tied to queues. You have one session, multiple requests, and as many queues as you like.",\N,\N,1072149,3/12/12 8:39,,,
+356216,47405945,129250,"This is going to give you errors, since there is no longer an anchor_object.",805,10,1619029,7/23/12 20:07,,,
+356217,774702,76623,"Awesome. Thanks!\
+\
+Any idea when 0.0.4 will get released? ",\N,\N,1619168,7/23/12 20:33,,,
+356218,1635241,6,"Since the code in Test is using enqueueRequest extensively, I am confused as to how session and requests interacts now that it is gone",\N,\N,1072133,3/12/12 8:30,,,
+356219,1635241,6,"ok, thank you for your answer. keep up the good work",\N,\N,1072233,3/12/12 9:06,,,
+356220,774702,17470,"Just pushed 0.0.4 to rubygems!\
+\
+On Jul 23, 2012, at 3:33 PM, Simon Wistow wrote:\
+\
+> Awesome. Thanks!\
+> \
+> Any idea when 0.0.4 will get released?\
+> \
+> ---\
+> Reply to this email directly or view it on GitHub:\
+> https://github.com/ruckus/quickeebook",\N,\N,1619175,7/23/12 20:34,,,
+356221,990496,145199,"I've comment all this code because I believe the new code added after solved this TODO.\
+\
+Am I right, @danilogr @alexcr ?",289,5,1619266,7/23/12 21:00,,,
+356222,990496,145199,"Check if the interface of the event is the same of the port.\
+\
+Works cool with 'undefined' interfaces as well.",324,37,1619272,7/23/12 21:01,,,
+356223,990496,145199,Pass the interface used by the port.,320,28,1619268,7/23/12 21:01,,,
+356224,777510,125684,"You realize those lines are there in the raw, what makes you feel them are 'unnecessary'?\
+\
+Also the raw line count is 8, not 7.",\N,\N,1620239,7/24/12 4:06,,,
+356225,777509,125684,"Sorry about that one, my fault entirely.",\N,\N,1620247,7/24/12 4:07,,,
+356226,774702,76623,"On Mon, Jul 23, 2012 at 03:34:52PM -0700, Cody Caughlan said:\
+> Just pushed 0.0.4 to rubygems!\
+\
+Awesomesauce.",\N,\N,1619189,7/23/12 20:37,,,
+356227,66205500,61275,"Ah, this looks familiar, this is the complex relations stuff, right?",41,12,1619437,7/23/12 21:55,,,
+356228,18770240,66609,HPX_BUILD_TYPE should be marked as ADVANCED,34,5,1619494,7/23/12 22:09,,,
+356229,66205500,61275,r+ yay transactions,\N,\N,1619438,7/23/12 21:55,,,
+356230,1481206,7449,[Fix](https://github.com/tricycle/lesswrong/commit/67ffeeb3f320ee2020429cec3c2a474ee252da74) deployed to production.,\N,\N,1619778,7/23/12 23:42,,,
+356231,66205501,59546,Don't the newlines around the `<a>` and `</a>` introduce [undesired] space?  It's why I had `<a ...><img.../>` immediately next to each other and also the closing `</a>` on the same line as its preceding element.,\N,\N,1618126,7/23/12 17:16,,,
+356232,1481206,50576,"Did this change also just go live on LessWrong.com?  Because I'm pretty sure that voting is now broken.  When I click the thumbs up icon, I get (in my Chromium console): \Uncaught TypeError: Cannot read property 'api_loc' of undefined\"".  The vote count doe""",\N,\N,1619626,7/23/12 22:49,,,
+356233,1394757,245166,"Et si mon gwt-log est parti avec, c'est juste pcq ce merge m'emmerdait, et c'était plus simple ainsi..",\N,\N,1619313,7/23/12 21:16,,,
+356234,66205501,30112,"I didn't notice anything like that, but you could be right.",\N,\N,1619975,7/24/12 1:36,,,
+356235,66205503,61275,r+,\N,\N,1619501,7/23/12 22:11,,,
+356236,12629556,71976,Adding a note here to say I should wrap this with callback ( json_goes_here ) so then it can get called cross-domain with the JSONP hack,\N,\N,1136913,3/27/12 9:03,,,
+356237,5964495,16928,"Perhaps I should rephrase: since this kind of detail is now being delegated to video.js, you can probably remove this entire section of user-agent-sniffing fallback code.",143,14,1479691,6/20/12 0:06,,,
+356238,5964495,16928,I thought that video.js took care of this?,143,14,1436361,6/8/12 20:09,,,
+356239,5964495,1294508,I'm not sure. I could look into it. What versions of Firefox was this problem occurring in?,143,14,1479630,6/19/12 23:35,,,
+356240,1183923,49772,"Thanks, Jason.",\N,\N,1619481,7/23/12 22:05,,,
+356241,18301013,21782,"Instantiantions of this grammar were previously guarded by `#if BOOST_VERSION >= 104700`. I know you've moved to boost 1.47+, but we're going to stick with 1.46 for some time, as that is the version we currenty have on servers, and will probably only updat",\N,\N,1621817,7/24/12 11:29,,,
+356242,30056149,2788302,Does this mean the calls issue will be fixed? :),\N,\N,1619668,7/23/12 23:04,,,
+356243,1893423,37617,The local development environment may auto-commit.,\N,\N,1534173,7/3/12 15:05,,,
+356244,1893423,179546,"There is something weird going on here. I never actually wrote a commit message for this. Somehow, when I am developing locally git is auto committing for me.",\N,\N,1531336,7/3/12 2:36,,,
+356245,21845364,228298,This is causing a regression. Creating #13.,\N,\N,1544848,7/5/12 22:00,,,
+356246,1893423,37617,"It may happen when you are editing a project that isn't a git repo, so the commits will float up to the upper git repo which happens to be for pixieengine.com",\N,\N,1534179,7/3/12 15:07,,,
+356247,6679625,163014,"I think it's a waste of exit code space to return number of failed tests. What could it be used for?\
+Maybe it would be more useful to instead indicate the kind of failure: test failure, setup/teardown error, internal framework error.\
+For example, if there ",\N,\N,1572696,7/12/12 13:04,,,
+356248,6679625,138511,"It was just returning 1 previously. I agree that returning something more specific (and non-zero) is a good idea, but I'm still hashing out the details.\
+\
+I was considering making teardown errors return a distinct sentinel value (MAX-1, perhaps? I have to c",\N,\N,1572742,7/12/12 13:14,,,
+356249,6679625,163014,"If you don't parse the output, but only register the number of the failed tests and show it in the report, it doesn't help much.\
+\
+If a human reads such report, what shall he do with this number? He won't be thinking: \if only 2 tests failed", then it's OK," """,\N,\N,1572843,7/12/12 13:31,
+356250,6679625,138511,"All right. I will think about it some more, and probably rework it over the weekend. (Or I'll take pull requests, if it's high priority.)",\N,\N,1572869,7/12/12 13:39,,,
+356251,6679625,163014,Thanks :) I think you can better decide how to implement this properly. Meanwhile I'll have some more minor fixes for you to pull soon.,\N,\N,1572974,7/12/12 13:57,,,
+356252,1238535,191168,Ok we will discuss this issue tomorrow. I shouldn't have forked it in the first place. But I can systemize the commits and re-order them.,\N,\N,1619687,7/23/12 23:11,,,
+356253,1238535,191168,"I added changed the `<div>` tags to `<li>`'s for styling, this was already done in my `pull#2` request, without colors, but for some reason those changes werent seen when I cloned the repo. So I re-added those changes from `pull#2`.\
+",\N,\N,1619573,7/23/12 22:35,,,
+356254,1238535,210882,"Hey Uday,\
+\
+I am not sure if I am using git correctly, but I just pushed changes where\
+I added pulldown menus to the fixed fields for creating new patients.\
+\
+I pushed it to my repository, but I am having some trouble with git, if you\
+did not get it, please ",\N,\N,1619643,7/23/12 22:57,,,
+356255,1783602,289704,"After extensive [conversation with the gas-preprocessor](https://github.com/yuvi/gas-preprocessor/issues/16) guys, I realized there was a mistake in our ffmpeg build configuration. Anyone paying close attention should see a slight improvement in decoding p",\N,\N,1268416,4/27/12 19:35,,,
+356256,66205505,456092,Not sure why mvn release:* goals advance this on release branch!!!,\N,\N,1619645,7/23/12 22:57,,,
+356257,2051460,24717,"Using the many -> many field doesn't actually tie the saved searches to users though, does it? If we wanted to add a relationship with another table, we can just another many to many field and it will still work right? Only the relevant fields will be set ",31,17,1582850,7/15/12 13:45,,,
+356258,2051460,211998,"I think it would be better to leave `user` out of this model definition, and define an explicit intermediary like `UserSavedSearch` with explicit foreign keys to both `auth.User` and `SearchField`.  The database schema ends up looking the same, but I expec",31,17,1582730,7/15/12 12:02,,,
+356259,2051460,211998,Stray comma!  Panic!,890,21,1582723,7/15/12 11:59,,,
+356260,2051460,24717,Good catch! I was copy pasting a little overzealously and didn't notice it. I fixed this and pushed a new update.,890,21,1582853,7/15/12 13:46,,,
+356261,21808405,114292,thanx Alexi!,\N,\N,1621289,7/24/12 8:57,,,
+356262,2051460,211998,"I just don't like the concepts to be tied so directly in the code -- I'd prefer to have one `SearchQuery` class that represents the search itself, and a second class that represents the relationship between a query and a user.  So saving a new search query",31,17,1582974,7/15/12 15:07,,,
+356263,6815394,179549,"You're right - started and processing overlap in meaning in the context of\
+photo. Changed.\
+\
+--\
+Jonathan Beilin\
+@jonbeilin\
+\
+\
+\
+On Thu, Jul 19, 2012 at 9:58 AM, Andrew Sliwinski <\
+reply@reply.github.com\
+> wrote:\
+\
+> I'm curious if we should isolate the \camCap""",93,13,1605231,7/19/12 15:52,,,
+356264,6815394,63634,"I'm curious if we should isolate the \camCaptureStarted\"" / \""Stopped\"" delegate methods from the still capture cycle and reserve them for video. Right now the \""processing delegate\"" isn't going to be called until iOS returns from the \""captureStillImageAsync..""",93,13,1604935,7/19/12 14:58,,,
+356265,21736616,305736,Buena prueba,\N,\N,1619627,7/23/12 22:50,,,
+356266,21851416,1140126,Should change this to a comment line.,2,4,1619653,7/23/12 23:00,,,
+356267,2607121,119934,"you could include wrappers with the full path:\
+\
+#include \AI/Wrappers/Cpp/src-generated/Lua.h\""",,,,,,,
+\,,,,,,,,,,
+,,,,,,,,,,
+\,,,,,,,,,,
+"(?)""",\N,\N,704507,11/9/11 0:56,,,,,,
+356268,2607121,112655,"The reasoning behind this is that I can't make a reliable path using VStudio macros, also that file is generated any commit would be fruitless\
+\
+I need to rearrange the folder structure so that the vcproj itself is one folder above amongst other things. M",\N,\N,704447,11/9/11 0:22,,,
+356269,2607121,119934,"linux compile still broken, this would fix it:\
+\
+diff --git a/src/API/api_wrap.cpp b/src/API/api_wrap.cpp\
+index becd236..5ae7602 100644\
+--- a/src/API/api_wrap.cpp\
++++ b/src/API/api_wrap.cpp\
+@@ -739,8 +739,8 @@ SWIG_UnpackDataName(const char *c, void *",\N,\N,704432,11/9/11 0:11,,,
+356270,2607065,153513,Works! Nice work! Did you also figure out why this causes an endless loop?,\N,\N,1620687,7/24/12 6:24,,,
+356271,2607121,119934,"yeah, that should work. the c++ wrappers doesn't depend on anything inside shard, so the include paths can be removed for that...",\N,\N,709554,11/10/11 21:08,,,
+356272,2607065,112655,related? http://lua-users.org/lists/lua-l/2006-03/msg00294.html,\N,\N,1620902,7/24/12 7:13,,,
+356273,2607065,119934,"Tarendai: yep, thats related. see also the comment: https://github.com/Tarendai/Shard/blob/5dc0afab657a75a3140a5d66d17e1ffd3c62f631/lib/lua/luaconf.h#L566",\N,\N,1621035,7/24/12 7:45,,,
+356274,2607121,112655,Does that work? I'd have thought that would break other places ( like compiling the cpp files in the C++ generated wrappers? ) Or am I being dimheaded? Early morningness..,\N,\N,705122,11/9/11 9:14,,,
+356275,2607065,112655,"Thanks for fixing this btw, I doubt I could ever have found it myself =]",\N,\N,1620906,7/24/12 7:13,,,
+356276,2607065,119934,"the cause... i seems like lua doesn't like some specific FPU flags... and for some reason they default to the \unsecure\"" but faster approach...""",\N,\N,1621198,7/24/12 8:30,,,
+356277,6586912,425505,(⊙﹏⊙) 3,\N,\N,1559896,7/10/12 7:34,,,
+356278,6893713,73016,"Sorry, I left in a debugging comment  :D",\N,\N,1619765,7/23/12 23:38,,,
+356279,2404843,246099,タイポタイポ,\N,\N,1299442,5/7/12 7:12,,,
+356280,66205507,16646,LPA doesn't work. There's a lot of supporting infrastructure that is still missing. This property does nothing right now.,\N,\N,1619738,7/23/12 23:31,,,
+356281,6656939,569622,"Just curious, -Werror caused issues for you?  I get the rest of the changes, but it should by 32 and 64 bit compatible without warnings...  any chance you could give me the warnings you received?",\N,\N,1572939,7/12/12 13:51,,,
+356282,5942322,31384,"This method was causing issues by not closing the connection when finished (unfortunately this JDBC driver does a full schema lock on operations), so I just moved the working method definition from line 140 up to the top level of the spec.",28,18,1622814,7/24/12 15:09,,,
+356283,12280584,20069,"At the time when this was written, CodeIgniter was at version 1.7. I do not know if this will work in the later versions and am reluctant to pull this if it ends up breaking the library for both versions. Can you test this in the newer version and post bac",\N,\N,1622881,7/24/12 15:23,,,
+356284,2998154,201147,"No, the survey list page WAS the user profile page. That was the idea. You just need to edit the \next\"" link in the login page.""",\N,\N,1619940,7/24/12 1:20,,,
+356285,12280584,446969,"It seems to work in the new version :)\
+\
+I am having issues with $result being empty but i dont think that is the same thing...",\N,\N,1622923,7/24/12 15:32,,,
+356286,6656939,75414,"I just recently fixed the error that -Werror exposed. I can't remember\
+why I skipped it last time, but I'll update the pull request.\
+\
+On Thu, Jul 12, 2012 at 8:51 AM, Kit Scuzz\
+<reply@reply.github.com>\
+wrote:\
+> Just curious, -Werror caused issues for you? ",\N,\N,1573288,7/12/12 15:07,,,
+356287,66205509,17171,"Much better than before, add oil!",\N,\N,1620324,7/24/12 4:44,,,
+356288,19199679,13870,"Out of curiosity, why did you do this?",\N,\N,1620342,7/24/12 4:50,,,
+356289,19199679,72550,i was testing out travis quickly and one of the problems was all my tests failed. They are for back when I was using the YAML. I didn't want to rewrite the tests last night so I just commented them out for now and I'm going to write new ones today.,\N,\N,1621660,7/24/12 10:51,,,
+356290,66205509,94743,OK Thanks,\N,\N,1621500,7/24/12 10:06,,,
+356291,6656939,75414,"I've fixed this in the latest commit.\
+\
+<pre>\
+% make clean all\
+rm -f *.o n_stress\
+gcc -Wall -Werror -O2 -c n_stress.c -o n_stress.o\
+gcc -Wall -Werror -O2 -c packets.c -o packets.o\
+packets.c: In function ‘recv_check’:\
+packets.c:249:17: error: ‘n’ may be used",\N,\N,1574140,7/12/12 18:15,,,
+356292,19546660,86935,You have NO IDEA how hard it was to get imgur.desktop to be recognized by dolphin as a proper context menu.,\N,\N,1619951,7/24/12 1:26,,,
+356293,1196457,73030,@cnwggu Have a look into the description .,\N,\N,1622091,7/24/12 12:28,,,
+356294,1043226,1866366,"how to you get the Person URI ? \
+\
+\
+IMO: \
+\
+- Address and Person could extends a trait hasUri, but it's not a good pattern for reasoning around Persons and Adresses only.\
+\
+- It could be done with a typeclass, but that's terrible since the URI is not necessar",11,5,1622310,7/24/12 13:12,,,
+356295,1043226,17062,"I'm working on that, I *really* need to get it done quickly",11,5,1622331,7/24/12 13:18,,,
+356296,21862956,396855,You were supposed to change it back to 25 -.-,26,5,769343,12/5/11 14:41,,,
+356297,1043226,1866366,ok ;) !,11,5,1622347,7/24/12 13:21,,,
+356298,1356073,32592,"max_rows is Python style, maxRows would be JS style",82,78,1620176,7/24/12 3:35,,,
+356299,135987,33179,Just a commit to test integration with pivotal tracker,\N,\N,1456321,6/14/12 1:55,,,
+356300,1356073,32592,"General principle in web dev: do as few UI updates as possible. When your for loop tries to update the UI in every iteration, that can make the page slow. I would experiment with pushing all the newRow's into an array and then doing an append outside of th",92,88,1620183,7/24/12 3:39,,,
+356301,1356073,32592,"$('#state-choice').val() would work as well\
+",98,94,1620184,7/24/12 3:40,,,
+356302,8752819,141824,Notify my after a couple of weeks how it goes ;),\N,\N,707373,11/10/11 5:54,,,
+356303,1356073,32592,"Particularly for a long for loop, I'd recommend saving marketArr[i] into a variable, var market = marketArr[i]; \
+That is usually faster, as the browser doesn't have to look up the index each time.",83,79,1620198,7/24/12 3:45,,,
+356304,1356073,32592,"I would generally use data attributes instead of class names for something like this. Info on those:\
+http://ejohn.org/blog/html-5-data-attributes/\
+\
+i.e. earlier I'd have newRow.attr('data-state', marketArr[i].properties.State) and here I'd have if ($(this)",100,96,1620197,7/24/12 3:43,,,
+356305,17610832,74329,https://github.com/shawn42/foxy,\N,\N,1622336,7/24/12 13:19,,,
+356306,17610832,23548,"Curious, what's \Foxy\""? I see nothing in this commit with that term.""",\N,\N,1621794,7/24/12 11:25,,,
+356307,17610832,23548,"Gotcha. Your commit messages should explain what the changes to the code are. Like this one should be: \Add Guard rules for live reloading\"" or something similar. """,\N,\N,1622353,7/24/12 13:22,,,
+356308,4568866,472319,pulled this back into ZkToDo2 and broke out the cf specific steps into a maven profile. thanks! ,\N,\N,1612961,7/21/12 20:52,,,
+356309,1435628,120688,Is the 'class' column meant to in some way relate to Munsell colours?,\N,\N,1540018,7/5/12 0:41,,,
+356310,1435628,250530,"No. They are clusters from the fuzme output. Not relevant. Seeing its a test file maybe should have deleted that column.\
+\
+Sent from my iPhone\
+\
+On 05/07/2012, at 12:41 PM, \Sebastian\"" <reply@reply.github.com> wrote:",,,,,,,
+\,,,,,,,,,,
+,,,,,,,,,,
+\,,,,,,,,,,
+"> Is the 'class' column meant to i""",\N,\N,1540178,7/5/12 2:27,,,,,,
+356311,726104,14951,"hey @gwoo =)\
+\
+Did you see that i began work on li3_github too? It would be nice if we would bundle our efforts. Take a look at my repo: https://github.com/Tomen/li3_github\
+I'll be merging your new commit now.\
+\
+greetings",\N,\N,634932,10/6/11 14:40,,,
+356312,1435628,120688,"May I suggest replacing it with:\
+\
+```R\
+ctrial <- read.table(\Ctrial.txt\""", header=TRUE," sep=\""","\"")\",,,,
+\,,,,,,,,,,
+library(munsell)\,,,,,,,,,,
+\,,,,,,,,,,
+#generate all munsell hues\,,,,,,,,,,
+munsell_cols <- with(hue_slice()$data, paste(hue," \"" \""", value," \""/\""", chroma," sep=\""\""))\",,,,
+#Pick random colours\,,,,,,,,,,
+"random_co""",\N,\N,1540268,7/5/12 3:18,,,,,,
+356313,1435628,250530,"Good idea. Will be there soon.\
+\
+Sent from my iPhone\
+\
+On 05/07/2012, at 3:18 PM, \Sebastian\"" <reply@reply.github.com> wrote:",,,,,,,
+\,,,,,,,,,,
+,,,,,,,,,,
+\,,,,,,,,,,
+> May I suggest replacing it with:,,,,,,,,,,
+\,,,,,,,,,,
+> ```R,,,,,,,,,,
+\,,,,,,,,,,
+"> ctrial <- read.table(\""Ctrial.txt\""", header=TRUE," sep=\""","\"")",,,,,,,
+\,,,,,,,,,,
+> ,,,,,,,,,,
+\,,,,,,,,,,
+"> library(munsell""",\N,\N,1540414,7/5/12 5:01,,,,,,
+356314,7454648,601436,"取前两个字符\
+取第二个以后的字符\
+以及数字炒作",79,23,1433494,6/8/12 8:03,,,
+356315,6009584,176671,"win, +1, Like, etc. :+1:",\N,\N,577049,9/8/11 13:21,,,
+356316,1414465,10229,GJ Ferus. All the slang is mine now,\N,\N,1097106,3/17/12 3:00,,,
+356317,21877056,189166,i think you should remove this,600,51,1620138,7/24/12 3:00,,,
+356318,5439678,133462,Isn't this line useless now?,18,12,1603312,7/19/12 8:47,,,
+356319,7218178,50616,"Note that while this functionality has been committed, it is currently disabled by default.  I need to implement deletion before I might consider enabling this default.",\N,\N,1352022,5/20/12 5:40,,,
+356320,21877056,262088,you're right,600,51,1620344,7/24/12 4:51,,,
+356321,4373571,551512,"I have page tiles created with v1.2, the tile type name is \brix.web.tile.pagetile.PageTile\"".\",,,,,,,
+This patch has broken compatibility with them, I have an alternate suggestion.\,,,,,,,,,
+\,,,,,,,,,,
+Revert PageTile.TYPE_NAME;\,,,,,,,,,,
+```java\,,,,,,,,,,
+"public static String TYPE_NAME = \""brix.web.tile""",\N,\N,1376445,5/25/12 10:25,,,,,,
+356322,4373571,551512,"Why are you moving the tile type keys to org.brixcms, unless you are wanting to do something like reflection with the value?\
+\
+If you have a look at the other tiles, things like the SubTreeMenuTile have:\
+public static final String TYPE_NAME = \brix.web.tile""",\N,\N,1378784,5/25/12 20:01,,,
+356323,4373571,178851,"Hi,\
+\
+Revert PageTile.TYPE_NAME -> we don't wanna do this as brix should became org.brixcms globally;\
+\
+It may be better if we check for the current and old naming of the page tile and then unite them....\
+\
+",\N,\N,1376921,5/25/12 12:10,,,
+356324,4373571,178851,"From code point of view your right. However, it wasn't my decision alone to move to org.brixcms - I'll take a look at it and see how difficult it would be to fix it all over; ",\N,\N,1379879,5/26/12 8:40,,,
+356325,6897020,396712,You could technically create /run/goanysync here. It probably makes more sense to do it this way.,9,5,1620581,7/24/12 5:50,,,
+356326,3231472,86901,this of course is not used in 1.7 .. there we have the thumbnail.php re-director ( used in thumb embed ) and is safe to use without any async js lookup,\N,\N,1622823,7/24/12 15:11,,,
+356327,3231472,86907,"Right, but anyway we should use thumbnail.php only for thumbPlayer feature. it other cases it would be better to use thumbnailUrl from entry data.",\N,\N,1622868,7/24/12 15:19,,,
+356328,3231472,86901,"Yes, when thumb meta data is available best to use that. ",\N,\N,1622987,7/24/12 15:49,,,
+356329,602302,7750,不再需要virtual了,23,23,1622247,7/24/12 13:02,,,
+356330,3231447,86901,is this already fixed in 1.7 ? ,\N,\N,1622832,7/24/12 15:13,,,
+356331,602302,7750,取消这个设计 详细到联系人 只考虑单向同步问题,130,130,1622300,7/24/12 13:11,,,
+356332,602302,7750,设计意图？,7,7,1622267,7/24/12 13:07,,,
+356333,602302,7750,联系人和帐号的关联还没体现在设计中,\N,\N,1622313,7/24/12 13:13,,,
+356334,602302,106625,"恩，我看到你的Comment了，我刚才正在调整代码，现在git上的是我下班前5点左右提交的，还不太完整。\
+ContactGroup我的设计初衷是：一个通讯簿包含一些联系人，但是我参考了Google, Aliyun,163的通讯录联系人设计，它们都有一个概念叫联系人组，用于对一个通讯簿中的联系人进行各种自定义分组，用户可以随意新增或删除联系人组；联系人组是一个只在显示联系人时的一个附加设计，对联系人核心模型没有任何影响。我现在的代码中已经去掉了联系人的GroupId属性。待会儿我再提交一个版本；",\N,\N,1622342,7/24/12 13:21,,,
+356335,602302,106625,"联系人和帐号的关联：结构我已经设计了，Contact模型上有一个AccountId属性，可以调用SetAccount方法设置联系人对应的用户账号；\
+至于联系人与账号通过什么样的规则才能确定映射关系，我还没想好，主要是还不太清楚联系人会在什么场景下与账号进行关联。映射关系的规则我觉得能不能只要判断Email相同就认为是同一个人，然后对应到同一个Account",\N,\N,1622377,7/24/12 13:31,,,
+356336,12079378,476767,"Actually, only this and the next few lines were edited, the rest of the changes is the conversion to UFT-8 encoding.",123,433,1361204,5/22/12 14:30,,,
+356337,286023,62739,"put it rewritten to coffeescript in _$(document).ready_  @(_search.js.coffee_)\
+Also, replace _jQuery._ with _$._",\N,\N,1620840,7/24/12 7:00,,,
+356338,286023,2701337,"the problem is a test, no a js.",\N,\N,1620920,7/24/12 7:17,,,
+356339,2407091,206819,"Hi stt,\
+\
+I'm not from the DOSBox Team. Please report that issue to them, they have a fine Bugtacker at Sourceforge. ;)\
+If they have fixed that I'll pull the patch in my tree, from where you can get it.\
+\
+Best Regards,\
+Henne\
+\
+",\N,\N,992476,2/21/12 17:24,,,
+356340,2407091,41008,"This commit breaks changing drive by commanding \C:\"" etc"," fix pls?""",\N,\N,879964,1/18/12 21:34,,
+356341,2457589,344347,Looks good to me.,\N,\N,1442940,6/11/12 16:20,,,
+356342,6796656,142066,"Rob, what you did is exactly what I was thinking: 2 interfaces, one for a custom URL and the other for a routed URL.\
+\
+Can you just add documentation with the 2 cases to the pull request?\
+After that, I will merge it with the master.\
+\
+Thank you again!",\N,\N,1605400,7/19/12 16:22,,,
+356343,66205511,340682,localize,977,15,1481595,6/20/12 10:49,,,
+356344,66205511,340682,"task should always be cancelled in onPause /on Stop.\
+For all long running tasks, what happens when the user leaves the app. Will the sync continue? in which case it will crash as UI cannot be touched without a context.(BadTokenException)\
+\
+You should cancel",980,18,1481837,6/20/12 11:37,,,
+356345,21455185,33764,"Indeed this is a problem with ```getopt``` that interprets the first string as an option. Another alternative is to use the double dash ```--```\
+\
+e.g.:\
+\
+```\
+echo \foo-bar\"" | tr -- '-_' '+/'\",,,,,,,
+```\,,,,,,,,,,
+",17,13,1565425,2012-07-11 06:43:46""",,,,,,,,,,
+356346,1452797,22650,* Also improved the way the bitboards are rotated.,\N,\N,1620937,7/24/12 7:21,,,
+356347,286013,62739,I don't remember doing that. Heavy merging action...,1,1,1620952,7/24/12 7:24,,,
+356348,66205513,88122,I definitely was not thinking about how hmod uses main directory for folders when i did this.,\N,\N,1621017,7/24/12 7:41,,,
+356349,66205511,340682,"Also, Syncing should be localized....",980,18,1481839,6/20/12 11:37,,,
+356350,321194,68374,Fixes #2,\N,\N,1616484,7/23/12 11:39,,,
+356351,3410941,212404,"I tried to compile this on Centos 5.8 (GCC) 4.1.2 20080704 (Red Hat 4.1.2-52)\
+I've got next compiler error:\
+/tools/appleseed/src/appleseed/renderer/kernel/rendering/generic/generictilerenderer.cpp: In member function ‘void renderer::<unnamed>::GenericTileR",\N,\N,1621765,7/24/12 11:17,,,
+356352,883437,135191,"thats how it actually is eh :D thx Jason, lets get our hands dirty then",\N,\N,1620964,7/24/12 7:26,,,
+356353,3410941,32167,"Yuri, indeed the initial change failed to compile on gcc.  Did you pull the very latest changes (this commit basically) I pushed to GitHub this morning?",\N,\N,1621821,7/24/12 11:30,,,
+356354,3410941,212404,...And all other changes from last commit compiled without problem on gcc 4.1.2 .,\N,\N,1621853,7/24/12 11:38,,,
+356355,3410941,32167,"No problem :)\
+\
+On Tue, Jul 24, 2012 at 3:35 PM, Yuri Meshalkin <\
+reply@reply.github.com\
+> wrote:\
+\
+> Ok. I figured it out.\
+> SamplingContext child_sampling_context = sampling_context.split(0, 0);\
+> m_sample_renderer->render_sample( child_sampling_context, s",\N,\N,1621842,7/24/12 11:36,,,
+356356,3410941,212404,"Ok. I figured it out.\
+SamplingContext child_sampling_context = sampling_context.split(0, 0);\
+m_sample_renderer->render_sample( child_sampling_context, sample_position, shading_result);\
+Compiled just fine...\
+Sorry, that disturbed you...",\N,\N,1621837,7/24/12 11:35,,,
+356357,1452791,22650,This requires theory cells caching to be A LOT more efficient because currently number of loops increase almost-exponentially.,\N,\N,1621112,7/24/12 8:04,,,
+356358,30061119,53985,"org.hibernate.Session dbSession = HibernateUtil.getSessionWithActiveTransaction();\
+dbSession.beginTransaction();\
+\
+This place will crash on hibernate exception (nested transaction).\
+",,,,,,,
