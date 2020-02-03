@@ -19,9 +19,9 @@ class Processor():
     def write_to_postgres(self):
         if (self.started == False):
             return
-        self.postgres_connector.write(commits, 'overwrite', 'commits')
-        self.postgres_connector.write(users, 'overwrite', 'users')
-        self.postgres_connector.write(projects, 'overwrite', 'projects')
+        # self.postgres_connector.write(commits, 'overwrite', 'commits')
+        # self.postgres_connector.write(users, 'overwrite', 'users')
+        # self.postgres_connector.write(projects, 'overwrite', 'projects')
 
     # Method to write to PostgreSQL database for specific table
     def write_specific_table_to_postgres(self, name):
@@ -35,13 +35,27 @@ class Processor():
             pass
 
     # Method to read from S3 database  **** pending testing****
-    def read_from_tables(self):
-        users =  self.s3_reader.read('users')
-        projects = self.s3_reader.read('projects')
+    def read_from_default_tables(self):
+        # commit_comments = self.s3_reader.read('commit_comments')
+        # self.table_map['commit_comments'] = commit_comments
+        #*********************************************************************#
         commits = self.s3_reader.read('commits')
-        self.table_map['users'] = users
-        self.table_map['projects'] = projects
         self.table_map['commits'] = commits
+        #*********************************************************************#
+        # followers = self.s3_reader.read('followers')
+        # self.table_map['followers'] = followers
+        #*********************************************************************#
+        project_languages = self.s3_reader.read('project_languages')
+        self.table_map['project_languages'] = project_languages
+        #*********************************************************************#
+        projects = self.s3_reader.read('projects')
+        self.table_map['projects'] = projects
+        #*********************************************************************#
+        # repo_labels = self.s3_reader.read('repo_labels')
+        # self.table_map['repo_labels'] = repo_labels
+        #*********************************************************************#
+        users =  self.s3_reader.read('users')
+        self.table_map['users'] = users
         self.started = True
 
     # Method to count all table rows
@@ -76,11 +90,11 @@ class Processor():
         self.table_map['commits'] = self.table_map['commits'].drop(*columns_to_drop_commits)
 
         print("Status: dropping columns: users")
-        columns_to_drop_users = ['company', 'type', 'fake', 'long', 'lat']
+        columns_to_drop_users = ['company', 'type', 'fake', 'deleted', 'long', 'lat']
         self.table_map['users'] = self.table_map['users'].drop(*columns_to_drop_users)
 
         print("Status: dropping columns: projects")
-        columns_to_drop_projects = ['forked_from', 'deleted']
+        columns_to_drop_projects = ['forked_commit_id', 'deleted']
         self.table_map['projects'] = self.table_map['projects'].drop(*columns_to_drop_projects)
 
     # Method to show one specific table
