@@ -37,19 +37,26 @@
 * https://stackoverflow.com/questions/34514545/spark-dataframe-groupby-and-sort-in-the-descending-order-pyspark
 * **http://www.learnbymarketing.com/1100/pyspark-joins-by-example/ (semi-important)**
 * https://stackoverflow.com/questions/29988287/renaming-columns-for-pyspark-dataframes-aggregates
+* https://stackoverflow.com/questions/36132322/join-two-data-frames-select-all-columns-from-one-and-some-columns-from-the-othe
 
 ### Dash
 * https://dash.plot.ly/integrating-dash
 * https://dash.plot.ly/datatable
+* **https://gist.github.com/jakebrinkmann/de7fd185efe9a1f459946cf72def057e - convert spark df to pandas df (very important)**
+
+### Pandas
+* **https://stackoverflow.com/questions/36217969/how-to-compare-pandas-dataframe-against-none-in-python (semi-important)**
 
 #### Python Syntax Reminders
 * https://stackoverflow.com/questions/6130768/return-none-if-dictionary-key-is-not-available
 * https://www.w3schools.com/python/python_dictionaries.asp
 * https://stackoverflow.com/questions/46024562/how-do-i-avoid-keyerror-when-working-with-dictionaries
 * https://realpython.com/python-exceptions/
+* https://www.programiz.com/python-programming/methods/built-in/type
 
 ### Flask app
 * https://www.geeksforgeeks.org/flask-creating-first-simple-application/
+* https://pythonspot.com/flask-web-forms/
 
 ### GitTorrent:
 * **https://stackoverflow.com/questions/55766606/can-i-connect-to-ghtorrent-mysql-mongodb-database-through-ssh (semi-important)**
