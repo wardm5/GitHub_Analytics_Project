@@ -8,6 +8,6 @@ class Connector():
 
     # Write method for connection, will write to the PostgreSQL database
     def write(self, data_frame, mode, name):
-        print("Status: writing to database...")
+        print("Status: writing to database... ", name)
         data_frame.write.jdbc(url=self.url, table=name, mode=mode, properties=self.properties)
         print("Status: COMPLETE")

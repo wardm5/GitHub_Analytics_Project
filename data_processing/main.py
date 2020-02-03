@@ -11,7 +11,7 @@ program.get_table_names()
 
 # project.create_project_tables()
 program.create_bar_chart_of_langauge_table()
-# program.write_specific_table_to_postgres('default_4')
+program.write_specific_table_to_postgres('pie_chart_table')
 
 def create_project_tables():
     # percentile for commits

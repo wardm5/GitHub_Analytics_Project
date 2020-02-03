@@ -26,8 +26,10 @@ class Processor():
     # Method to write to PostgreSQL database for specific table
     def write_specific_table_to_postgres(self, name):
         try:
+            print("Status: Writing to table ", name)
             df = self.table_map[name]
             self.postgres_connector.write(df, 'overwrite', name)
+            print("Status: COMPLETE")
         except KeyError:
             print("Status: FAILURE - did not write to PostgreSQL database. ")
             pass
@@ -122,7 +124,7 @@ class Processor():
         print("Status: joining users and projects tables")
         inner_join = projects_table.join(users_table, projects_table.owner_id == users_table.id).select(users_table['login'], users_table['location'],projects_table['*'])
         inner_join.show()
-        self.table_map['default_2'] = inner_join
+        self.table_map['pie_chart_table'] = inner_join
 
     def create_default_table_3(self):
         if (self.started == None):
