@@ -1,3 +1,4 @@
+id,login,company,created_at,type,fake,deleted,long,lat,country_code,state,city,location
 -1,0xnoone,\N,4/18/16 11:42,USR,0,1,\N,\N,\N,\N,\N,\N
 1,tosch,Sage GmbH,12/15/08 12:28,USR,0,0,0,0,\N,\N,\N,"Rastede, Germany"
 2,jmettraux,\N,3/22/08 0:37,USR,0,0,132.4552927,34.3852029,jp,Hiroshima Prefecture,Hiroshima,Hiroshima
