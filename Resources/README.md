@@ -77,6 +77,7 @@
 * https://medium.com/@praveenkumarpalai/install-and-setuppostgresql-on-ubuntu-amazon-ec2-5d1af79b4fca
 * https://superuser.com/questions/598018/how-to-open-big-tar-gz-file
 * **https://stackoverflow.com/questions/28396065/how-to-move-files-from-amazon-ec2-to-s3-bucket-using-command-line (semi-important)**
+* **https://stackoverflow.com/questions/25983769/head-command-for-aws-s3-to-view-file-contents (very-important)**
 
 ### Misc
 * https://alvinalexander.com/linux-unix/vi-vim-delete-all-lines-how

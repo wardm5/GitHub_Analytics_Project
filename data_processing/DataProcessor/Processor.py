@@ -94,7 +94,7 @@ class Processor():
         self.table_map['users'] = self.table_map['users'].drop(*columns_to_drop_users)
 
         print("Status: dropping columns: projects")
-        columns_to_drop_projects = ['forked_commit_id', 'deleted']
+        columns_to_drop_projects = ['forked_commit_id']
         self.table_map['projects'] = self.table_map['projects'].drop(*columns_to_drop_projects)
 
     # Method to show one specific table
@@ -118,11 +118,18 @@ class Processor():
         projects = self.table_map['projects'].alias('projects')
         prod_lang = self.table_map['project_languages'].alias('prod_lang')
         inner_join = projects.join(prod_lang, projects.id == prod_lang.project_id) \
-                        .select(projects['owner_id'], projects['url'], projects['name'] \
-                        , projects['id'], prod_lang['language'], prod_lang['bytes']) \
+                        .select(projects.owner_id, projects.url, projects.deleted, \
+                        projects.name.alias('project_name') , projects.id.alias('product_id'), \
+                        prod_lang.language, prod_lang.bytes, projects.forked_from) \
                         .where(projects['updated_at'] == prod_lang['created_at'])
-        # projects['forked_from'].isnull()
-        # inner_join.where(F.isnul(F.col('')))
+
         inner_join = inner_join.orderBy('owner_id', 'id', inner_join['bytes'].desc())
+
+        inner_join = inner_join.alias('inner_join')
+        users = self.table_map['users'].alias('users')
+        inner_join = inner_join.join(users, users.id == inner_join.owner_id) \
+                        .select(users.login, users.id, users.location, inner_join.url, \
+                        inner_join.project_name, inner_join.language, inner_join.bytes, inner_join.deleted)
+        inner_join = inner_join.orderBy(inner_join.login)
         inner_join.show()
-        # self.table_map['pie_chart_table'] = inner_join
+        # self.table_map['pie_chart_data'] = inner_join
