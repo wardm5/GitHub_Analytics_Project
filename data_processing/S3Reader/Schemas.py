@@ -4,9 +4,13 @@ class Schemas():
     def __init__(self):
         self.schema_map = {}
         # adds default schemas to map
+        self.add_schema_to_map('commit_comments', self.get_commit_comments_schema())
         self.add_schema_to_map('commits', self.get_commits_schema())
-        self.add_schema_to_map('users', self.get_users_schema())
+        self.add_schema_to_map('followers', self.get_followers_schema())
+        self.add_schema_to_map('project_languages', self.get_project_languages_schema())
         self.add_schema_to_map('projects', self.get_projects_schema())
+        self.add_schema_to_map('repo_labels', self.get_repo_labels_schema())
+        self.add_schema_to_map('users', self.get_users_schema())
 
     # Method to add schema to schema map
     def add_schema_to_map(self, name, schema):
@@ -20,20 +24,8 @@ class Schemas():
             "Incorrect schema selected"
 
     #**************************** Default schemas ****************************#
-    # Method to return the commits schema
-    def get_commits_schema(self):
-        schema = StructType([
-            StructField("id", IntegerType(), False),
-            StructField("sha", StringType(), True),
-            StructField("author_id", IntegerType(), True),
-            StructField("committer_id", IntegerType(), True),
-            StructField("project_id", IntegerType(), True),
-            StructField("created_at", TimestampType(), True)
-        ])
-        return schema
-
-    # Method to return the commit_comments schema
-    def get_commits_schema(self):
+    # Method to return the commit comments schema
+    def get_commit_comments_schema(self):
         schema = StructType([
             StructField("id", IntegerType(), True),
             StructField("commit_id", IntegerType(), True),
@@ -42,6 +34,18 @@ class Schemas():
             StructField("line", IntegerType(), True),
             StructField("position", IntegerType(), True),
             StructField("comment_id", IntegerType(), True),
+            StructField("created_at", TimestampType(), True)
+        ])
+        return schema
+
+    # Method to return the commits schema
+    def get_commits_schema(self):
+        schema = StructType([
+            StructField("id", IntegerType(), False),
+            StructField("sha", StringType(), True),
+            StructField("author_id", IntegerType(), True),
+            StructField("committer_id", IntegerType(), True),
+            StructField("project_id", IntegerType(), True),
             StructField("created_at", TimestampType(), True)
         ])
         return schema
@@ -55,8 +59,8 @@ class Schemas():
         ])
         return schema
 
-    # Method to return the projects schema
-    def get_projects_schema(self):
+    # Method to return the project languages schema
+    def get_project_languages_schema(self):
         schema = StructType([
             StructField("project_id", 	  IntegerType(),False),	 	#_C0
             StructField("language", 	  StringType(),True),	 	#_C1
@@ -82,8 +86,8 @@ class Schemas():
         ])
         return schema
 
-    # Method to return the repo_lables schema
-    def get_repo_label_schema(self):
+    # Method to return the repo lables schema
+    def get_repo_labels_schema(self):
         schema = StructType([
             StructField("id", 	        IntegerType(),False),	 	#_C0
             StructField("repo_id", 	    IntegerType(),True),	 	#_C1
