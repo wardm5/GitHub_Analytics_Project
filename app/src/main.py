@@ -1,8 +1,28 @@
 from PostgresReader.Reader import *
 sql = Reader()
+# print("test")
+def language_breakdown(user_name):
+    print(user_name)
+    return sql.run_query("SELECT login, language, SUM(bytes) as sum \
+                          FROM pie_chart_data \
+                          WHERE login = '"+user_name+"'  \
+                          GROUP BY language \
+                          ORDER BY sum desc"
+                          )
 
-def run_query():
-    return sql.run_query("SELECT login as Login, language as Language, Count from default_2 where id = 148")
+def projects_breakdown(user_name):
+    print(user_name)
+    return sql.run_query("SELECT login, project_name as project name, language, SUM(bytes) as sum \
+                          FROM pie_chart_data \
+                          WHERE login = '"+user_name+"'  \
+                          GROUP BY  language \
+                          ORDER BY  sum desc"
+                          )
 
-sql.run_query("""SELECT * from default_2 where id = 5 """)
-sql.print_results()
+
+# print("test1")
+df = sql.run_query("SELECT * from pie_chart_data where login = 'abarth'")
+# languages = sql.run_query("SELECT language from languages_data")
+print(languages)
+# print("test2")
+print(df)

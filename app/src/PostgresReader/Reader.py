@@ -25,7 +25,9 @@ class Reader():
 
     # Method allows one to run a query to the SQL database and returns the results from that query
     def run_query(self, query):
+        print("Status: Running query")
         self.results = sqlio.read_sql_query(query, self.conn)
+        print("Status: COMPLETED")
         # self.query.execute(query)
         # self.results = self.query.fetchall()
         return self.results
