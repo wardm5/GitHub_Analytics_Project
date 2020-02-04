@@ -127,7 +127,6 @@ class Processor():
                         .where(projects.updated_at == prod_lang.created_at)
 
         inner_join = inner_join.orderBy('owner_id', 'id', inner_join['bytes'].desc())
-        print(type(inner_join))
         inner_join = inner_join.alias('inner_join')
         users = self.table_map['users'].alias('users')
         inner_join = inner_join.join(users, users.id == inner_join.author) \
@@ -135,5 +134,24 @@ class Processor():
                         inner_join.project_name, inner_join.language, inner_join.bytes, inner_join.deleted)
         inner_join = inner_join.orderBy(inner_join.login)
         inner_join.show()
-        print(type(inner_join))
         self.table_map['pie_chart_data'] = inner_join
+
+    # Creates table for language usesage - might not need, could use info from internet on top languages
+    def calculate_top_languages(self):
+        prod_lang = self.table_map['project_languages'].alias('prod_lang')
+        prod_lang = prod_lang.groupBy(prod_lang.language).agg(F.sum(prod_lang.bytes).alias('sum'))
+        prod_lang = prod_lang.orderBy(prod_lang.sum.desc(), prod_lang.language)
+        prod_lang = prod_lang.select(prod_lang.language, (prod_lang.sum / 1073741824).alias('sum')).limit(25)
+        prod_lang.show()
+        self.table_map['languages_data'] = prod_lang
+
+    # Creates table for language usesage - might not need, could use info from internet on top languages
+    def calculate_top_cities(self):
+        # .groupBy('language', 'owner_id').agg(count('id').alias('count')).select('language', 'owner_id', 'count(id)')
+        users = self.table_map['users'].alias('users')
+        users = users.groupBy(users.city).agg(F.count(users.id).alias('count_of_cities'))
+        users.show()
+        users = users.orderBy(users.count_of_cities.desc())
+        users = users.limit(200)
+        users.show()
+        self.table_map['cities_data'] = users

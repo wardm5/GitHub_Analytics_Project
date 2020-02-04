@@ -48,7 +48,7 @@ def create_projects_language_filter_table(self):
     if (self.started == None):
         return
     print("Status: Getting commit counts per project")
-    projects = self.table_map['projects'].groupBy('language', 'owner_id').agg(count('id').alias('count')).select('language', 'owner_id', 'count(id)')
+    projects = self.table_map['projects'].agg(count('id').alias('count')).select('language', 'owner_id', 'count(id)')
     projects = projects.orderBy('language', projects['count'].desc())
     window = Window.partitionBy(projects['language']).orderBy(projects['count'].desc())
     projects = projects.select('*', percent_rank().over(window).alias('rank'))
