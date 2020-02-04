@@ -38,6 +38,7 @@
 * **http://www.learnbymarketing.com/1100/pyspark-joins-by-example/ (semi-important)**
 * https://stackoverflow.com/questions/29988287/renaming-columns-for-pyspark-dataframes-aggregates
 * https://stackoverflow.com/questions/36132322/join-two-data-frames-select-all-columns-from-one-and-some-columns-from-the-othe
+* https://stackoverflow.com/questions/50493426/pyspark-divide-column-by-its-sum
 
 ### Dash
 * https://dash.plot.ly/integrating-dash
