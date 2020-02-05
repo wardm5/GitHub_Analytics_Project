@@ -7,8 +7,12 @@ class Reader():
     def __init__(self, bucket_name):
         self.spark = spark = SparkSession \
                         .builder \
-                        .appName("AutoRecuit") \
+                        .appName("AutoRecruit") \
                         .getOrCreate()
+        spark.conf.set('spark.executor.memory', '48g')
+        spark.conf.set('spark.executor.cores', '18')
+        spark.conf.set('spark.cores.max', '2')
+        spark.conf.set('spark.driver.memory', '8g')
         self.bucket_name = bucket_name
 
     # Method to read from S3 database based on a specific file name
