@@ -24,11 +24,11 @@ class Processor():
         # self.postgres_connector.write(projects, 'overwrite', 'projects')
 
     # Method to write to PostgreSQL database for specific table
-    def write_specific_table_to_postgres(self, name):
+    def write_specific_table_to_postgres(self, table_name):
         try:
-            df = self.table_map.get(name)
-            print("Status: Writing to table ", name)
-            self.postgres_connector.write(df, 'overwrite', name)
+            df = self.table_map.get(table_name)
+            print("Status: Writing to table ", table_name)
+            self.postgres_connector.write(df, 'overwrite', table_name)
             print("Status: COMPLETE")
         except KeyError:
             print("Status: FAILURE - did not write to PostgreSQL database. ")
@@ -70,11 +70,11 @@ class Processor():
         print("commit count: " , self.table_map.get('commits').count())
 
     # Method to get table stored in class
-    def get_table(self, name):
+    def get_table(self, table_name):
         if (self.started == False):
             return
-        if (self.table_map.get(name) != None):
-            return self.table_map.get(name)
+        if (self.table_map.get(table_name) != None):
+            return self.table_map.get(table_name)
         else:
             "Incorrect table selected"
 
@@ -82,6 +82,12 @@ class Processor():
     def get_table_names(self):
         print("Tables include:  ", self.table_map.keys())
         return self.table_map.keys()
+
+    def delete_table(self, table_name):
+        if (self.table_map.get(table_name) != None):
+            self.table_map.pop()
+        else:
+            print("Error: no table to delete, please try a different table name")
 
     # Method to preprocess tables by removing unneeded columns
     def preprocess_tables(self):
@@ -145,7 +151,7 @@ class Processor():
         prod_lang.show()
         self.table_map['languages_data'] = prod_lang
 
-    # Creates table for language usesage - might not need, could use info from internet on top languages
+    # Creates table that ranks cities
     def calculate_top_cities(self):
         # .groupBy('language', 'owner_id').agg(count('id').alias('count')).select('language', 'owner_id', 'count(id)')
         users = self.table_map['users'].alias('users')
@@ -155,3 +161,8 @@ class Processor():
         users = users.limit(200)
         users.show()
         self.table_map['cities_data'] = users
+
+    def calculate_commits(self):
+        users = self.table_map['users'].alias('users')
+        commits = self.table_map['commits'].alias('commits')
+        commits = commits.
