@@ -7,6 +7,7 @@ from pyspark.sql import functions as F
 from pyspark.sql.functions import *
 from pyspark.sql.window import Window
 from pyspark.sql.functions import percent_rank
+import time, datetime
 
 class Processor():
     def __init__(self, bucket_name):
@@ -89,6 +90,18 @@ class Processor():
         else:
             print("Error: no table to delete, please try a different table name")
 
+    # Simple method to start running a time stamp
+    def start_timestamp(self):
+        return time.time()
+
+    # Method to end timestamp, records to log
+    def end_timestamp(self, start, method):
+        # elapsed_time = time.time() - start
+        # elapsed_time=time.strftime("%m,%d,%y,%H:%M:%S", elapsed_time)
+        with open("/home/ubuntu/data_processing/log/log.txt", "a") as myfile:
+            myfile.write('TIME COMPLETED: ' + str(datetime.datetime.now()) + ',RUN TIME: ' + str(int(time.time() - start)) + ' seconds, METHOD: ' + method + '\n')
+        print('It took', time.time()-start, 'seconds.')
+
     # Method to preprocess tables by removing unneeded columns
     def preprocess_tables(self):
         if (self.started == False):
@@ -119,9 +132,10 @@ class Processor():
     #**************************** Default Methods ****************************#
     # Creates Pie Chart Graph
     def create_pie_chart_data(self):
+        start = self.start_timestamp()
         if (self.started == None):
+            print('It took', time.time()-start, 'seconds.')
             return
-        # print(type(self.table_map['projects']))
         print("Status: Getting commit counts per project")
         projects = self.table_map['projects'].alias('projects')
         prod_lang = self.table_map['project_languages'].alias('prod_lang')
@@ -129,40 +143,45 @@ class Processor():
                         .select(projects.owner_id.alias('author'), projects.url, \
                         projects.name.alias('project_name') , projects.id.alias('product_id'), \
                         prod_lang.language, prod_lang.bytes, projects.forked_from, \
-                        projects.deleted) \
+                        projects.deleted, projects.updated_at) \
                         .where(projects.updated_at == prod_lang.created_at)
 
         inner_join = inner_join.orderBy('owner_id', 'id', inner_join['bytes'].desc())
         inner_join = inner_join.alias('inner_join')
         users = self.table_map['users'].alias('users')
         inner_join = inner_join.join(users, users.id == inner_join.author) \
-                        .select(users.login, users.id, users.location, inner_join.url, \
-                        inner_join.project_name, inner_join.language, inner_join.bytes, inner_join.deleted)
+                        .select(users.login, users.id, users.city, inner_join.url, \
+                        inner_join.project_name, inner_join.language, inner_join.bytes, \
+                        inner_join.deleted, projects.updated_at)
         inner_join = inner_join.orderBy(inner_join.login)
         inner_join.show()
         self.table_map['pie_chart_data'] = inner_join
+        self.end_timestamp(start, 'create_pie_chart_data')
 
     # Creates table for language usesage - might not need, could use info from internet on top languages
     def calculate_top_languages(self):
+        start = self.start_timestamp()
         prod_lang = self.table_map['project_languages'].alias('prod_lang')
+        # print(prod_lang.count())  138205530 -> 50 rows
         prod_lang = prod_lang.groupBy(prod_lang.language).agg(F.sum(prod_lang.bytes).alias('sum'))
         prod_lang = prod_lang.orderBy(prod_lang.sum.desc(), prod_lang.language)
-        prod_lang = prod_lang.select(prod_lang.language, (prod_lang.sum / 1073741824).alias('sum')).limit(25)
+        prod_lang = prod_lang.select(prod_lang.language, (prod_lang.sum / 1073741824).alias('sum')).limit(50)
         prod_lang.show()
         self.table_map['languages_data'] = prod_lang
+        self.end_timestamp(start, 'calculate_top_languages')
 
     # Creates table that ranks cities
     def calculate_top_cities(self):
-        # .groupBy('language', 'owner_id').agg(count('id').alias('count')).select('language', 'owner_id', 'count(id)')
+        start = self.start_timestamp()
         users = self.table_map['users'].alias('users')
         users = users.groupBy(users.city).agg(F.count(users.id).alias('count_of_cities'))
-        users.show()
         users = users.orderBy(users.count_of_cities.desc())
         users = users.limit(200)
         users.show()
         self.table_map['cities_data'] = users
+        self.end_timestamp(start, 'calculate_top_cities')
 
-    def calculate_commits(self):
-        users = self.table_map['users'].alias('users')
-        commits = self.table_map['commits'].alias('commits')
-        commits = commits.
+    # def calculate_commits(self):
+    #     users = self.table_map['users'].alias('users')
+    #     commits = self.table_map['commits'].alias('commits')
+    #     commits = commits.
