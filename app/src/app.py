@@ -1,4 +1,4 @@
-#****************************** Production Code ******************************#
+############# PRODUCTION CODE #############
 import flask
 import dash
 from main import *
@@ -16,11 +16,9 @@ language_indicator = languages['language'].unique()
 languages = sql.run_query("SELECT city from cities_data")
 city_indicator = languages['city'].unique()
 df = language_breakdown("a13ks3y")
+df2 = projects_breakdown("a13ks3y")
 
-colors = {
-        'background': '#212121ff',
-        'text': '#ffab40'
-    }
+colors = {'background': '#212121ff', 'text': '#ffab40'}
 
 # Restful API
 @server.route('/api/')
@@ -61,49 +59,52 @@ def generate_table2(dataframe, max_rows=10):
         ]) for i in range(min(len(dataframe), max_rows))]
     )
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-
 app.layout = html.Div(children=[
-    html.H1('AutoRecuit',style={'text-align': 'center', 'background':colors['background'],'color':colors['text']}),
+    html.H1('AutoRecruit',style={'text-align': 'center', 'padding': '10px', 'background':colors['background'],'color':colors['text']}),
+
     html.Div([
         html.Div([
             dcc.Input(
+                style={'width': '100%'},
                 id='input-box',
+                placeholder='Enter a GitHub login...',
                 type='text',
-                value=''
-            ),
-        ],
-        style={'width': '25', 'margin-right': '5px'; 'display': 'inline-block'}),
-
+                # value='testing'
+            )],
+            style={'width': '40%', 'margin-right': '15px'}),
         html.Div([
             dcc.Dropdown(
-                id='languages',
+                id='input-1-state',
+                placeholder='Enter a language...',
                 options=[{'label': i, 'value': i} for i in language_indicator],
-                value='java'
-            ),
-        ],
-        style={'width': '25', 'margin-right': '5px'; 'display': 'inline-block'}),
+                # value='java'
+            )],
+            style={'width': '20%', 'margin-right': '15px'}),
         html.Div([
             dcc.Dropdown(
-                id='location',
+                id='input-2-state',
+                placeholder='Enter a major city...',
                 options=[{'label': i, 'value': i} for i in city_indicator],
-                value='seattle'
-            ),
-        ],
-        style={'width': '25', 'margin-right': '5px'; 'display': 'inline-block'}),
-        html.Div([
-            html.Button('Submit', id='button'),
-        ],
-        style={'width': '25', 'margin-right': '5px'; 'display': 'inline-block'}),
-    ]),
+                # value='seattle'
+            )],
+            style={'width': '20%', 'margin-right': '15px'}),
+        html.Button('Submit', style={'background-color': '#a4c2f4'},  id='button')
+    ], style={'margin': '2%', 'width': '100%', 'display':'flex'}),
+
+
+
+
+
+
     # dcc.Graph(id='language-table'),
 
     html.Div(id='output-container-button',
              children='Enter a value and press submit'),
 
     html.H4(children='Programming Languages'),
-    generate_table1(df)
-    # generate_table2()
+    generate_table1(df),
+
+    generate_table2(df2)
 ])
 
 @app.callback(
