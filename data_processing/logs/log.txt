@@ -1,0 +1,7 @@
+Completed Time, Run Time, Method Type
+TIME COMPLETED: 2020-02-05 19:37:52.578951,RUN TIME: 38 seconds, METHOD: calculate_top_cities
+TIME COMPLETED: 2020-02-05 19:49:15.153210,RUN TIME: 77 seconds, METHOD: calculate_top_cities
+TIME COMPLETED: 2020-02-05 20:02:55.141554,RUN TIME: 600 seconds, METHOD: calculate_top_languages
+TIME COMPLETED: 2020-02-05 20:10:48.830937,RUN TIME: 234 seconds, METHOD: calculate_top_languages
+TIME COMPLETED: 2020-02-05 20:27:19.889489,RUN TIME: 991 seconds, METHOD: create_pie_chart_data
+TIME COMPLETED: 2020-02-05 20:27:50.909170,RUN TIME: 31 seconds, METHOD: calculate_top_cities
