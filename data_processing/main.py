@@ -9,8 +9,8 @@ program.preprocess_tables()
 # show the current table names that you can work with
 
 # program.calculate_top_languages()
-# program.create_pie_chart_data()
-program.calculate_top_locations()
+# program.create_pie_chart_data()       # Should be used for Lanaguage breakdown, project table, and byte size comparison
+program.calculate_top_cities()
 program.get_table_names()
 program.write_specific_table_to_postgres('cities_data')
 # program.write_specific_table_to_postgres('pie_chart_data')
