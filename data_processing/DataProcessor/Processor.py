@@ -10,8 +10,8 @@ from pyspark.sql.functions import percent_rank
 import time, datetime
 
 class Processor():
-    def __init__(self, bucket_name):
-        self.postgres_connector = Connector()   # writes tables to PostgreSQL
+    def __init__(self, bucket_name, dns, port, db_user, password):
+        self.postgres_connector = Connector(dns, port, db_user, password)   # writes tables to PostgreSQL
         self.s3_reader = Reader(bucket_name)               # reads tables from S3
         self.table_map = {}
         self.started = False        # flag to see tables have been read from database
@@ -30,12 +30,17 @@ class Processor():
             df = self.table_map.get(table_name)
             print("Status: Writing to table ", table_name)
             self.postgres_connector.write(df, 'overwrite', table_name)
-            print("Status: COMPLETE")
         except KeyError:
             print("Status: FAILURE - did not write to PostgreSQL database. ")
             print("Make sure you spelt your table name correctly")
             print(KeyError)
             pass
+
+    # Method allows a user to search for their own file
+    #---- currently assumes data is in csv, could change going forward
+    def read_from_specific_table(self, file_name):
+        user_generated_file = self.s3_reader.read(file_name)
+        self.table_map[file_name] = user_generated_file
 
     # Method to read from S3 database  **** pending testing****
     def read_from_default_tables(self):
@@ -96,8 +101,6 @@ class Processor():
 
     # Method to end timestamp, records to log
     def end_timestamp(self, start, method):
-        # elapsed_time = time.time() - start
-        # elapsed_time=time.strftime("%m,%d,%y,%H:%M:%S", elapsed_time)
         with open("/home/ubuntu/data_processing/log/log.txt", "a") as myfile:
             myfile.write('TIME COMPLETED: ' + str(datetime.datetime.now()) + ',RUN TIME: ' + str(int(time.time() - start)) + ' seconds, METHOD: ' + method + '\n')
         print('It took', time.time()-start, 'seconds.')
@@ -152,9 +155,10 @@ class Processor():
         inner_join = inner_join.join(users, users.id == inner_join.author) \
                         .select(users.login, users.id, users.city, inner_join.url, \
                         inner_join.project_name, inner_join.language, inner_join.bytes, \
-                        inner_join.deleted, projects.updated_at)
+                        inner_join.deleted, projects.updated_at) \
+                        .where(users.country_code == "us")
         inner_join = inner_join.orderBy(inner_join.login)
-        inner_join.show()
+        # inner_join.show()
         self.table_map['pie_chart_data'] = inner_join
         self.end_timestamp(start, 'create_pie_chart_data')
 
@@ -166,7 +170,6 @@ class Processor():
         prod_lang = prod_lang.groupBy(prod_lang.language).agg(F.sum(prod_lang.bytes).alias('sum'))
         prod_lang = prod_lang.orderBy(prod_lang.sum.desc(), prod_lang.language)
         prod_lang = prod_lang.select(prod_lang.language, (prod_lang.sum / 1073741824).alias('sum')).limit(50)
-        prod_lang.show()
         self.table_map['languages_data'] = prod_lang
         self.end_timestamp(start, 'calculate_top_languages')
 
@@ -174,10 +177,9 @@ class Processor():
     def calculate_top_cities(self):
         start = self.start_timestamp()
         users = self.table_map['users'].alias('users')
-        users = users.groupBy(users.city).agg(F.count(users.id).alias('count_of_cities'))
+        users = users.groupBy(users.city, users.country_code).agg(F.count(users.id).alias('count_of_cities')).where(users.country_code == "us")
         users = users.orderBy(users.count_of_cities.desc())
         users = users.limit(200)
-        users.show()
         self.table_map['cities_data'] = users
         self.end_timestamp(start, 'calculate_top_cities')
 
