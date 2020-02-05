@@ -1,6 +1,7 @@
 ## Programming Guides
 * Spark: http://spark.apache.org/docs/2.1.0/programming-guide.html
 * Spark: https://spark.apache.org/docs/latest/sql-getting-started.html
+* Spark: https://spark.apache.org/docs/2.2.0/sql-programming-guide.html
 * Pegasus: https://blog.insightdatascience.com/how-to-get-hadoop-and-spark-up-and-running-on-aws-7a1b0ab55459
 * Pegasus Install: https://github.com/InsightDataScience/pegasus
 * PostgreSQL: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html
@@ -44,6 +45,7 @@
 * https://dash.plot.ly/integrating-dash
 * https://dash.plot.ly/datatable
 * **https://gist.github.com/jakebrinkmann/de7fd185efe9a1f459946cf72def057e - convert spark df to pandas df (very important)**
+* https://github.com/plotly/dash/issues/161
 
 ### Pandas
 * **https://stackoverflow.com/questions/36217969/how-to-compare-pandas-dataframe-against-none-in-python (semi-important)**
@@ -54,6 +56,9 @@
 * https://stackoverflow.com/questions/46024562/how-do-i-avoid-keyerror-when-working-with-dictionaries
 * https://realpython.com/python-exceptions/
 * https://www.programiz.com/python-programming/methods/built-in/type
+* https://www.geeksforgeeks.org/python-ways-to-remove-a-key-from-dictionary/
+* https://stackoverflow.com/questions/21839803/how-to-append-new-data-onto-a-new-line/33591893
+* https://stackoverflow.com/questions/3620943/measuring-elapsed-time-with-the-time-module
 
 ### Flask app
 * https://www.geeksforgeeks.org/flask-creating-first-simple-application/
@@ -79,6 +84,7 @@
 * https://superuser.com/questions/598018/how-to-open-big-tar-gz-file
 * **https://stackoverflow.com/questions/28396065/how-to-move-files-from-amazon-ec2-to-s3-bucket-using-command-line (semi-important)**
 * **https://stackoverflow.com/questions/25983769/head-command-for-aws-s3-to-view-file-contents (very-important)**
+* https://serverfault.com/questions/682708/copy-directory-structure-intact-to-aws-s3-bucket
 
 ### Misc
 * https://alvinalexander.com/linux-unix/vi-vim-delete-all-lines-how
