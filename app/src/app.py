@@ -89,12 +89,7 @@ app.layout = html.Div(children=[
             )],
             style={'width': '20%', 'margin-right': '15px'}),
         html.Button('Submit', style={'background-color': '#a4c2f4'},  id='button')
-    ], style={'margin': '2%', 'width': '100%', 'display':'flex'}),
-
-
-
-
-
+    ], style={'margin-right': '4%', 'margin-left': '2%', 'width': '100%', 'display':'flex'}),
 
     # dcc.Graph(id='language-table'),
 
