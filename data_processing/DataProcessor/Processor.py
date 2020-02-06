@@ -137,7 +137,6 @@ class Processor():
     def create_pie_chart_data(self):
         start = self.start_timestamp()
         if (self.started == None):
-            print('It took', time.time()-start, 'seconds.')
             return
         print("Status: Getting commit counts per project")
         projects = self.table_map['projects'].alias('projects')
@@ -158,7 +157,6 @@ class Processor():
                         inner_join.deleted, projects.updated_at) \
                         .where(users.country_code == "us")
         inner_join = inner_join.orderBy(inner_join.login)
-        # inner_join.show()
         self.table_map['pie_chart_data'] = inner_join
         self.end_timestamp(start, 'create_pie_chart_data')
 
