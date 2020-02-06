@@ -8,14 +8,19 @@ program.read_from_default_tables()
 # preprocess tables (remove unnecessary columns)
 program.preprocess_tables()
 # show the current table names that you can work with
-
-# program.calculate_top_languages()     # 'languages_data'
-# program.create_pie_chart_data()       # 'pie_chart_data' - Should be used for Lanaguage breakdown, project table, and byte size comparison
-# program.calculate_top_cities()          # 'cities_data'
-program.calculate_commits()           # 'commits_users_data'
-
 program.get_table_names()
+
+
+# DEFAULT TABLES FOR PROJECT
+# program.calculate_top_languages()
+# program.write_specific_table_to_postgres('languages_data')
+
+# NOTE: Should be used for Lanaguage breakdown, project table, and byte size comparison
+# program.create_pie_chart_data()
 # program.write_specific_table_to_postgres('pie_chart_data')
-# program.write_specific_table_to_postgres('pie_chart_data')
+
+# program.calculate_top_cities()
 # program.write_specific_table_to_postgres('cities_data')
+
+program.calculate_commits()           # 'commits_users_data'
 program.write_specific_table_to_postgres('commits_users_data')
