@@ -10,10 +10,11 @@ from pyspark.sql.functions import percent_rank
 import time, datetime
 
 class Processor():
-    def __init__(self, bucket_name, dns, port, db_user, password):
+    def __init__(self, bucket_path, dns, port, db_user, password):
         self.postgres_connector = Connector(dns, port, db_user, password)   # writes tables to PostgreSQL
-        self.s3_reader = Reader(bucket_name)               # reads tables from S3
+        self.s3_reader = Reader(bucket_path)               # reads tables from S3
         self.table_map = {}
+        self.timer = None
         self.started = False        # flag to see tables have been read from database
 
     # Method to write tables to PostgreSQL database
@@ -28,8 +29,8 @@ class Processor():
     def write_specific_table_to_postgres(self, table_name):
         try:
             df = self.table_map.get(table_name)
-            print("Status: Writing to table ", table_name)
-            self.postgres_connector.write(df, 'overwrite', table_name)
+            self.postgres_connector.write(df, 'overwrite', table_name, self.timer)
+            self.timer = None
         except KeyError:
             print("Status: FAILURE - did not write to PostgreSQL database. ")
             print("Make sure you spelt your table name correctly")
@@ -97,13 +98,13 @@ class Processor():
 
     # Simple method to start running a time stamp
     def start_timestamp(self):
-        return time.time()
+        self.timer = time.time()
+        return self.timer
 
     # Method to end timestamp, records to log
-    def end_timestamp(self, start, method):
+    def end_timestamp(self, method):
         with open("/home/ubuntu/data_processing/log/log.txt", "a") as myfile:
-            myfile.write('TIME COMPLETED: ' + str(datetime.datetime.now()) + ',RUN TIME: ' + str(int(time.time() - start)) + ' seconds, METHOD: ' + method + '\n')
-        print('It took', time.time()-start, 'seconds.')
+            myfile.write('TIME COMPLETED: ' + str(datetime.datetime.now()) + ',RUN TIME: ' + str(int(time.time() - self.timer)) + ' seconds, METHOD: ' + method + '\n')
 
     # Method to preprocess tables by removing unneeded columns
     def preprocess_tables(self):
@@ -143,45 +144,52 @@ class Processor():
         prod_lang = self.table_map['project_languages'].alias('prod_lang')
         inner_join = projects.join(prod_lang, projects.id == prod_lang.project_id) \
                         .select(projects.owner_id.alias('author'), projects.url, \
-                        projects.name.alias('project_name') , projects.id.alias('product_id'), \
+                        projects.name.alias('project_name'), projects.id.alias('product_id'), \
                         prod_lang.language, prod_lang.bytes, projects.forked_from, \
-                        projects.deleted, projects.updated_at) \
+                        projects.deleted, projects.updated_at, projects.description) \
                         .where(projects.updated_at == prod_lang.created_at)
-
         inner_join = inner_join.orderBy('owner_id', 'id', inner_join['bytes'].desc())
         inner_join = inner_join.alias('inner_join')
         users = self.table_map['users'].alias('users')
         inner_join = inner_join.join(users, users.id == inner_join.author) \
                         .select(users.login, users.id, users.city, inner_join.url, \
                         inner_join.project_name, inner_join.language, inner_join.bytes, \
-                        inner_join.deleted, projects.updated_at) \
+                        inner_join.deleted, inner_join.updated_at, inner_join.description) \
                         .where(users.country_code == "us")
-        inner_join = inner_join.orderBy(inner_join.login)
+        inner_join = inner_join.orderBy(inner_join.login, )
         self.table_map['pie_chart_data'] = inner_join
-        self.end_timestamp(start, 'create_pie_chart_data')
+        self.end_timestamp('create_pie_chart_data')
 
     # Creates table for language usesage - might not need, could use info from internet on top languages
     def calculate_top_languages(self):
-        start = self.start_timestamp()
+        self.start_timestamp()
         prod_lang = self.table_map['project_languages'].alias('prod_lang')
         # print(prod_lang.count())  138205530 -> 50 rows
         prod_lang = prod_lang.groupBy(prod_lang.language).agg(F.sum(prod_lang.bytes).alias('sum'))
         prod_lang = prod_lang.orderBy(prod_lang.sum.desc(), prod_lang.language)
         prod_lang = prod_lang.select(prod_lang.language, (prod_lang.sum / 1073741824).alias('sum')).limit(50)
+        # prod_lang.show()
         self.table_map['languages_data'] = prod_lang
-        self.end_timestamp(start, 'calculate_top_languages')
+        end_timestamp('calculate_top_languages')
 
     # Creates table that ranks cities
     def calculate_top_cities(self):
-        start = self.start_timestamp()
+        self.start_timestamp()
         users = self.table_map['users'].alias('users')
         users = users.groupBy(users.city, users.country_code).agg(F.count(users.id).alias('count_of_cities')).where(users.country_code == "us")
         users = users.orderBy(users.count_of_cities.desc())
         users = users.limit(200)
         self.table_map['cities_data'] = users
-        self.end_timestamp(start, 'calculate_top_cities')
+        self.end_timestamp('calculate_top_cities')
 
-    # def calculate_commits(self):
-    #     users = self.table_map['users'].alias('users')
-    #     commits = self.table_map['commits'].alias('commits')
-    #     commits = commits.
+    # Creates table that would rank candidates and return percentile
+    def calculate_commits(self):
+        self.start_timestamp()
+        users = self.table_map['users'].alias('users')
+        users = users.select(users.login, users.id, users.city).where(users.country_code == "us")
+        commits = self.table_map['commits'].alias('commits')
+        inner_join = users.join(commits, users.id == commits.committer_id) \
+                .groupBy(users.login, users.city).agg(F.count(commits.id).alias('count_of_commits'))
+        inner_join = inner_join.orderBy(inner_join.count_of_commits.asc())
+        self.table_map['commits_users_data'] = inner_join
+        self.end_timestamp('calculate_top_cities')
