@@ -34,3 +34,4 @@ __pycache__/
 
 data/*
 OLD_CODE/*
+/config.py

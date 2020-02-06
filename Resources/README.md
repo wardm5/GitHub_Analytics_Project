@@ -91,6 +91,8 @@
 * https://askubuntu.com/questions/56326/how-do-i-rename-a-directory-via-the-command-line
 * **https://www.interserver.net/tips/kb/extract-tar-gz-files-using-linux-command-line/ (important)**
 * https://unix.stackexchange.com/questions/461130/extracting-specific-files-from-tar-compressed-directory
+* https://stackoverflow.com/questions/4308610/how-to-ignore-certain-files-in-git
+* https://stackoverflow.com/questions/25501403/storing-the-secrets-passwords-in-a-separate-file
 
 ## Google Cloud - BigQuery
 ### S3 Transfers:
@@ -123,6 +125,7 @@
 
 ### Deploying Dash App
 * **https://stackoverflow.com/questions/23166158/make-python-script-to-run-forever-on-amazon-ec2 (very important)**
+* https://unix.stackexchange.com/questions/94527/how-do-i-kill-all-screens
 * **http://www.lauradhamilton.com/how-to-set-up-a-nodejs-web-server-on-amazon-ec2 (very important)**
 
 ## SQL
