@@ -11,12 +11,13 @@ import pandas as pd
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 server = flask.Flask(__name__)
 
-languages = sql.run_query("SELECT language from languages_data")
+languages = sql.run_query("SELECT language FROM languages_data ORDER BY language asc")
 language_indicator = languages['language'].unique()
-languages = sql.run_query("SELECT city from cities_data")
+languages = sql.run_query("SELECT city FROM cities_data ORDER BY city asc")
 city_indicator = languages['city'].unique()
-df = language_breakdown("a13ks3y")
-df2 = projects_breakdown("a13ks3y")
+df = language_breakdown("abarth")
+df2 = projects_breakdown("abarth")
+name = None
 
 colors = {'background': '#212121ff', 'text': '#ffab40'}
 
@@ -89,12 +90,21 @@ app.layout = html.Div(children=[
             )],
             style={'width': '20%', 'margin-right': '15px'}),
         html.Button('Submit', style={'background-color': '#a4c2f4'},  id='button')
-    ], style={'margin-right': '4%', 'margin-left': '2%', 'width': '100%', 'display':'flex'}),
+    ],
+    style={'margin-right': '4%', 'margin-left': '2%', 'width': '100%', 'display':'flex'}),
+    # html.Div(style={'margin-left': '2%'},
+    #         id='output-container-button',
+    #         children='Enter a value and press submit'),
 
-    # dcc.Graph(id='language-table'),
-
-    html.Div(id='output-container-button',
-             children='Enter a value and press submit'),
+    html.Div([
+        dcc.Graph(id='language-table'),
+        dcc.RadioItems(
+            id='yaxis-type',
+            options=[{'label': i, 'value': i} for i in ['Linear', 'Log']],
+            value='Linear',
+            labelStyle={'display': 'inline-block'}
+        )
+    ], style={'margin' : '2%  2% 2% 2%', 'width': '40%', 'height': '10%', 'display':'block'}),
 
     html.H4(children='Programming Languages'),
     generate_table1(df),
@@ -102,57 +112,63 @@ app.layout = html.Div(children=[
     generate_table2(df2)
 ])
 
+# @app.callback(
+#     dash.dependencies.Output('output-container-button', 'children'),
+#     [dash.dependencies.Input('button', 'n_clicks')],
+#     [dash.dependencies.State('input-box', 'value')])
+# def update_output(n_clicks, user_name):
+#     # str(user_name)
+#     # df = language_breakdown(str(user_name))
+#     return 'The input value was "{}" and the button has been clicked {} times'.format(
+#         user_name,
+#         n_clicks
+#     )
+
 @app.callback(
-    dash.dependencies.Output('output-container-button', 'children'),
-    [dash.dependencies.Input('button', 'n_clicks')],
-    [dash.dependencies.State('input-box', 'value')])
-#
-#     Output('indicator-graphic', 'figure'),
-#     [Input('xaxis-column', 'value'),
-#      Input('yaxis-column', 'value'),
-#      Input('xaxis-type', 'value'),
-#      Input('yaxis-type', 'value'),
-#      Input('year--slider', 'value')])
-#
-def update_output(n_clicks, user_name):
-    str(user_name)
-    df = language_breakdown(str(user_name))
-    generate_table1(df)
-    return 'The input value was "{}" and the button has been clicked {} times'.format(
-        user_name,
-        n_clicks
-    )
-#
-# def update_graph(xaxis_column_name, yaxis_column_name,
-#                  xaxis_type, yaxis_type,
-#                  year_value):
-#     dff = df[df['Year'] == year_value]
-#
-#     return {
-#         'data': [dict(
-#             x=dff[dff['Indicator Name'] == xaxis_column_name]['Value'],
-#             y=dff[dff['Indicator Name'] == yaxis_column_name]['Value'],
-#             text=dff[dff['Indicator Name'] == yaxis_column_name]['Country Name'],
-#             mode='markers',
-#             marker={
-#                 'size': 15,
-#                 'opacity': 0.5,
-#                 'line': {'width': 0.5, 'color': 'white'}
-#             }
-#         )],
-#         'layout': dict(
-#             xaxis={
-#                 'title': Languages,
-#                 'type': 'linear'
-#             },
-#             yaxis={
-#                 'title': Bytes,
-#                 'type': 'linear' if yaxis_type == 'Linear' else 'log'
-#             },
-#             margin={'l': 40, 'b': 40, 't': 10, 'r': 0},
-#             hovermode='closest'
-#         )
-#     }
-#
+    Output('language-table', 'figure'),
+    [Input('input-box', 'value'),
+    Input('yaxis-type', 'value')])
+def update_graph(user_name, yaxis_type):
+    if (user_name==None):
+        return {
+            'data': [dict(
+                x= [],
+                y= [],
+                type= 'bar'
+            )],
+            'layout': dict(
+                xaxis={
+                    'title': 'Languages',
+                    'type': 'category'
+                },
+                yaxis={
+                    'title': 'Gb of Data',
+                    'type': 'linear' if yaxis_type == 'Linear' else 'log'
+                },
+                margin={'l': 40, 'b': 40, 't': 10, 'r': 0},
+                hovermode='closest'
+            )
+        }
+    df = language_breakdown(user_name)
+    return {
+        'data': [dict(
+            x= df['language'],
+            y= df['sum'],
+            type= 'bar'
+        )],
+        'layout': dict(
+            xaxis={
+                'title': 'Languages',
+                'type': 'category'
+            },
+            yaxis={
+                'title': 'Gb of Data',
+                'type': 'linear' if yaxis_type == 'Linear' else 'log'
+            },
+            margin={'l': 40, 'b': 40, 't': 10, 'r': 0},
+            hovermode='closest'
+        )
+    }
+
 if __name__ == '__main__':
     app.run_server(debug=True, host='0.0.0.0', port=8080)
