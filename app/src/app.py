@@ -20,8 +20,6 @@ languages = queries.run_custom_query("SELECT language FROM languages_data ORDER 
 language_indicator = languages['language'].unique()
 cities = queries.run_custom_query("SELECT city FROM cities_data ORDER BY city asc")
 city_indicator = cities['city'].unique()
-df = queries.language_breakdown("abarth")
-df2 = queries.projects_breakdown("abarth")
 
 # Restful API - Next Steps
 @server.route('/api/')
@@ -83,22 +81,12 @@ app.layout = html.Div(children=[
         ], style={'width': '40%', 'margin-right': '2%'}),
         html.Div([
             html.H4(children='Programming Languages'),
-            content.generate_table2(df2)
+            dcc.Graph(id='commits-graph')
         ], style={'width': '50%', 'display':'block'})
-    ], style={'margin' : '2%  2% 2% 2%', 'width': '100%', 'display':'flex'})
-])
+    ], style={'margin' : '2%  2% 2% 2%', 'width': '100%', 'display':'flex'}),
 
-# @app.callback(
-#     dash.dependencies.Output('output-container-button', 'children'),
-#     [dash.dependencies.Input('button', 'n_clicks')],
-#     [dash.dependencies.State('input-box', 'value')])
-# def update_output(n_clicks, user_name):
-#     # str(user_name)
-#     # df = language_breakdown(str(user_name))
-#     return 'The input value was "{}" and the button has been clicked {} times'.format(
-#         user_name,
-#         n_clicks
-#     )
+    # content.generate_table2(df2)
+])
 
 # call back for changes to the language bar chart, modifies the graph based on query results of inputted user
 @app.callback(
@@ -112,5 +100,29 @@ def update_graph(user_name, yaxis_type):
         df = queries.language_breakdown(user_name)
         return content.build_table(df['language'],df['sum'], yaxis_type)
 
+# call back for changes to the language bar chart, modifies the graph based on query results of inputted user
+@app.callback(
+    Output('commits-graph', 'figure'),
+    [Input('input-box', 'value')])
+def update_commits_graph(user_name):
+    if (user_name==None):
+        return content.build_commits_table([])
+    else:
+        df1 = queries.commits(user_name)
+        df2 = queries.total_commits(user_name)
+        val = 0
+        if (df1['row_number'].iloc[0] == None or 0):
+            val = 0
+        elif (df2['count'].iloc[0] == None or 0):
+            val = 0
+        else:
+            val = float(df1['row_number'].iloc[0]) / float(df2['count'].iloc[0])
+        list = []
+        list.append(val)
+        return content.build_commits_table(list)
+
+# if __name__ == '__main__':
+#     app.run_server(debug=True, host='0.0.0.0', port=8080)
+
 if __name__ == '__main__':
-    app.run_server(debug=True, host='0.0.0.0', port=8080)
+    app.run_server(host='0.0.0.0', port=8080)
