@@ -1,5 +1,6 @@
 import dash_html_components as html
 import dash_core_components as dcc
+import dash_table
 class Content():
     def build_table(self, x, y, yaxis_type):
         return {
@@ -16,6 +17,27 @@ class Content():
                 yaxis={
                     'title': 'Gb of Data',
                     'type': 'linear' if yaxis_type == 'Linear' else 'log'
+                },
+                margin={'l': 40, 'b': 40, 't': 10, 'r': 0},
+                hovermode='closest'
+            )
+        }
+
+    def build_commits_table(self, x):
+        return {
+            'data': [dict(
+                x= x,
+                y= [],
+                type= 'bar',
+                orientation='h'
+            )],
+            'layout': dict(
+                xaxis={
+                    'title': 'Percentiles',
+                    'type': 'linear'
+                },
+                yaxis={
+                    'type': 'category'
                 },
                 margin={'l': 40, 'b': 40, 't': 10, 'r': 0},
                 hovermode='closest'
