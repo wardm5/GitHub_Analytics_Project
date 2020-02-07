@@ -10,22 +10,20 @@ import dash_table
 import pandas as pd
 
 # Initializers
-AutoRecruit_colors = {'background': '#212121ff', 'text': '#ffab40'}
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+AutoRecruit_colors = {'background': '#212121ff', 'text': '#ffab40'}
 server = flask.Flask(__name__)
 content = Content()
 queries = Queries()
 
 languages = queries.run_custom_query("SELECT language FROM languages_data ORDER BY language asc")
-# languages = sql.run_query("SELECT language FROM languages_data ORDER BY language asc")
 language_indicator = languages['language'].unique()
 cities = queries.run_custom_query("SELECT city FROM cities_data ORDER BY city asc")
-# cities = sql.run_query("SELECT city FROM cities_data ORDER BY city asc")
 city_indicator = cities['city'].unique()
 df = queries.language_breakdown("abarth")
 df2 = queries.projects_breakdown("abarth")
 
-# Restful API
+# Restful API - Next Steps
 @server.route('/api/')
 def index():
     return 'API functions:'
@@ -43,8 +41,10 @@ app = dash.Dash(
 )
 
 app.layout = html.Div(children=[
+    # Header
     html.H1('AutoRecruit',style={'text-align': 'center', 'padding': '10px', 'background':AutoRecruit_colors['background'],'color':AutoRecruit_colors['text']}),
 
+    # row of inputs (user input, language dropdown, city dropdown, submit button)
     html.Div([
         html.Div([
             dcc.Input(
@@ -52,45 +52,40 @@ app.layout = html.Div(children=[
                 id='input-box',
                 placeholder='Enter a GitHub login...',
                 type='text',
-                # value='testing'
-            )],
-            style={'width': '40%', 'margin-right': '15px'}),
+            )], style={'width': '40%', 'margin-right': '15px'}),
         html.Div([
             dcc.Dropdown(
                 id='input-1-state',
                 placeholder='Enter a language...',
                 options=[{'label': i, 'value': i} for i in language_indicator],
-                # value='java'
-            )],
-            style={'width': '20%', 'margin-right': '15px'}),
+            )
+        ],style={'width': '20%', 'margin-right': '15px'}),
         html.Div([
             dcc.Dropdown(
                 id='input-2-state',
                 placeholder='Enter a major city...',
                 options=[{'label': i, 'value': i} for i in city_indicator],
-                # value='seattle'
-            )],
-            style={'width': '20%', 'margin-right': '15px'}),
+            )
+        ], style={'width': '20%', 'margin-right': '15px'}),
         html.Button('Submit', style={'background-color': '#a4c2f4'},  id='button')
-    ],
-    style={'margin-right': '4%', 'margin-left': '2%', 'width': '100%', 'display':'flex'}),
-    # html.Div(style={'margin-left': '2%'},
-    #         id='output-container-button',
-    #         children='Enter a value and press submit'),
+    ], style={'margin-right': '4%', 'margin-left': '2%', 'width': '100%', 'display':'flex'}),
 
+    # Bar graph for language breakdown, table for project breakdown
     html.Div([
-        dcc.Graph(id='language-table'),
-        dcc.RadioItems(
-            id='yaxis-type',
-            options=[{'label': i, 'value': i} for i in ['Linear', 'Log']],
-            value='Linear',
-            labelStyle={'display': 'inline-block'}
-        )
-    ], style={'margin' : '2%  2% 2% 2%', 'width': '40%', 'display':'block'}),
-    html.Div([
-        html.H4(children='Programming Languages'),
-        content.generate_table2(df2)
-    ], style={'margin' : '2%  2% 2% 2%', 'width': '40%', 'display':'block'})
+        html.Div([
+            dcc.Graph(id='language-table'),
+            dcc.RadioItems(
+                id='yaxis-type',
+                options=[{'label': i, 'value': i} for i in ['Linear', 'Log']],
+                value='Linear',
+                labelStyle={'display': 'inline-block'}
+            )
+        ], style={'width': '40%', 'margin-right': '2%'}),
+        html.Div([
+            html.H4(children='Programming Languages'),
+            content.generate_table2(df2)
+        ], style={'width': '50%', 'display':'block'})
+    ], style={'margin' : '2%  2% 2% 2%', 'width': '100%', 'display':'flex'})
 ])
 
 # @app.callback(
@@ -114,10 +109,8 @@ def update_graph(user_name, yaxis_type):
     if (user_name==None):
         return content.build_table([],[], yaxis_type)
     else:
-        df = language_breakdown(user_name)
+        df = queries.language_breakdown(user_name)
         return content.build_table(df['language'],df['sum'], yaxis_type)
-
-
 
 if __name__ == '__main__':
     app.run_server(debug=True, host='0.0.0.0', port=8080)
