@@ -17,13 +17,13 @@ class Queries():
 
     def projects_breakdown(self, user_name):
         print(user_name)
-        return sql.run_query("SELECT project_name, project_description, language, SUM(bytes) as sum \
-                              FROM pie_chart_data \
-                              WHERE login = '"+user_name+"' \
-                              GROUP BY  project_name, description, language \
-                              ORDER BY  sum desc \
-                              LIMIT 10"
-                              )
-
-# df = sql.run_query("SELECT * from pie_chart_data where login = 'abarth'")
-# languages = sql.run_query("SELECT language from languages_data")
+        return sql.run_query("SELECT a.project_name, a.description, a.language, a.bytes as sum                  \
+                                FROM pie_chart_data a                                                           \
+                                INNER JOIN (                                                                    \
+                                            SELECT project_name, max(bytes) as sum                              \
+                                            FROM pie_chart_data                                                 \
+                                            WHERE login = '"+user_name+"'                                       \
+                                            GROUP BY project_name                                               \
+                                ) b  ON a.project_name = b.project_name AND a.bytes = b.sum                     \
+                                ORDER BY a.bytes desc                                                              \
+                                LIMIT 10")
