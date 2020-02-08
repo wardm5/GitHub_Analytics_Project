@@ -15,7 +15,7 @@ class Content():
                     'type': 'category'
                 },
                 yaxis={
-                    'title': 'Gb of Data',
+                    'title': 'Mb of Data',
                     'type': 'linear' if yaxis_type == 'Linear' else 'log'
                 },
                 margin={'l': 40, 'b': 40, 't': 10, 'r': 0},
@@ -34,7 +34,8 @@ class Content():
             'layout': dict(
                 xaxis={
                     'title': 'Percentiles',
-                    'type': 'linear'
+                    'type': 'linear',
+                    "range": [0, 1]
                 },
                 yaxis={
                     'type': 'category'
