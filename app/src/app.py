@@ -98,6 +98,7 @@ def update_graph(user_name, yaxis_type):
         return content.build_table([],[], yaxis_type)
     else:
         df = queries.language_breakdown(user_name)
+        df['sum'] = df['sum'].div(1000000).round(1)
         return content.build_table(df['language'],df['sum'], yaxis_type)
 
 # call back for changes to the language bar chart, modifies the graph based on query results of inputted user
@@ -121,8 +122,8 @@ def update_commits_graph(user_name):
         list.append(val)
         return content.build_commits_table(list)
 
-# if __name__ == '__main__':
-#     app.run_server(debug=True, host='0.0.0.0', port=8080)
-
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=8080)
+    app.run_server(debug=True, host='0.0.0.0', port=8080)
+
+# if __name__ == '__main__':
+#     app.run_server(host='0.0.0.0', port=8080)
