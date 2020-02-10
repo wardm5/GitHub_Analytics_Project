@@ -192,4 +192,11 @@ class Processor():
                 .groupBy(users.login, users.city).agg(F.count(commits.id).alias('count_of_commits'))
         inner_join = inner_join.orderBy(inner_join.count_of_commits.asc())
         self.table_map['commits_users_data'] = inner_join
-        self.end_timestamp('calculate_top_cities')
+        self.end_timestamp('commits_users_data')
+
+    def calculate_project_sum(self):
+        self.start_timestamp()
+        projects_sum = self.table_map['pie_chart_data'].alias('pie_chart_data')
+        projects_sum = projects_sum.groupBy(projects_sum.login).agg(F.sum(projects_sum.bytes).alias('sum'))
+        self.table_map['projects_sum'] = projects_sum
+        self.end_timestamp('projects_sum')
