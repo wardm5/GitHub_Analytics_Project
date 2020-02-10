@@ -24,7 +24,7 @@ class Content():
         }
 
     def build_commits_table(self, x):
-        return {
+        something = {
             'data': [dict(
                 x= x,
                 y= [],
@@ -44,6 +44,7 @@ class Content():
                 hovermode='closest'
             )
         }
+        return something
 
     def generate_table2(self, dataframe, max_rows=10):
         return html.Table(
