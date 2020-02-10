@@ -6,8 +6,6 @@ from components.Queries import *
 import dash_html_components as html
 import dash_core_components as dcc
 from dash.dependencies import Input, Output
-import dash_table
-import pandas as pd
 
 # Initializers
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -15,6 +13,7 @@ AutoRecruit_colors = {'background': '#212121ff', 'text': '#ffab40'}
 server = flask.Flask(__name__)
 content = Content()
 queries = Queries()
+overall_score = 0
 
 languages = queries.run_custom_query("SELECT language FROM languages_data ORDER BY language asc")
 language_indicator = languages['language'].unique()
@@ -80,47 +79,82 @@ app.layout = html.Div(children=[
             )
         ], style={'width': '40%', 'margin-right': '2%'}),
         html.Div([
-            html.H4(children='Programming Languages'),
-            dcc.Graph(id='commits-graph')
-        ], style={'width': '50%', 'display':'block'})
+            html.Div(
+                [html.H6(style={'width': 'min-content'}, id="commit-percentile"), html.P("Commit Percentile")],
+                id="wells",
+                style={'width': 'min-content',  'padding': '2%', 'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'},
+            ),
+            html.Div(
+                [html.H6(style={'width': 'min-content'},id="bytes-percentile"), html.P("Bytes Percentile")],
+                id="gas",
+                style={'width': 'min-content', 'padding': '2%',  'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'},
+            ),
+        ], style={'width': '50%', 'display':'flex', 'height': 'fit-content'})
     ], style={'margin' : '2%  2% 2% 2%', 'width': '100%', 'display':'flex'}),
 
-    # content.generate_table2(df2)
+    html.Div(id='my-div')
 ])
 
-# call back for changes to the language bar chart, modifies the graph based on query results of inputted user
+# Selectors -> well text
 @app.callback(
-    Output('language-table', 'figure'),
-    [Input('input-box', 'value'),
-    Input('yaxis-type', 'value')])
-def update_graph(user_name, yaxis_type):
-    if (user_name==None):
-        return content.build_table([],[], yaxis_type)
+    dash.dependencies.Output("bytes-percentile", "children"),
+    [dash.dependencies.Input('button', 'n_clicks')],
+    [dash.dependencies.State('input-box', 'value')])
+def update_well_text(n_clicks, user_name):
+    if (user_name == None):
+        return "0.0%"
     else:
-        df = queries.language_breakdown(user_name)
-        df['sum'] = df['sum'].div(1000000).round(1)
-        return content.build_table(df['language'],df['sum'], yaxis_type)
+        df1 = queries.bytes(user_name)
+        df2 = queries.total_bytes(user_name)
+        try:
+            val = float(df1['row_number'].iloc[0]) / float(df2['count'].iloc[0]) * 100
+            val = round(val, 2)
+            return str(val) + "%"
+        except:
+            return "0.0%"
 
-# call back for changes to the language bar chart, modifies the graph based on query results of inputted user
+# Selectors -> well text
 @app.callback(
-    Output('commits-graph', 'figure'),
-    [Input('input-box', 'value')])
-def update_commits_graph(user_name):
-    if (user_name==None):
-        return content.build_commits_table([])
+    dash.dependencies.Output("commit-percentile", "children"),
+    [dash.dependencies.Input('button', 'n_clicks')],
+    [dash.dependencies.State('input-box', 'value')])
+def update_well_text(n_clicks, user_name):
+    if (user_name == None):
+        return "0.0%"
     else:
         df1 = queries.commits(user_name)
         df2 = queries.total_commits(user_name)
-        val = 0
-        if (df1['row_number'].iloc[0] == None or 0):
-            val = 0
-        elif (df2['count'].iloc[0] == None or 0):
-            val = 0
-        else:
-            val = float(df1['row_number'].iloc[0]) / float(df2['count'].iloc[0])
-        list = []
-        list.append(val)
-        return content.build_commits_table(list)
+        try:
+            val = float(df1['row_number'].iloc[0]) / float(df2['count'].iloc[0]) * 100
+            val = round(val, 2)
+            return str(val) + "%"
+        except:
+            return "0.0%"
+
+# call back for changes to the language bar chart, modifies the graph based on query results of inputted user
+@app.callback(
+    dash.dependencies.Output('language-table', 'figure'),
+    [dash.dependencies.Input('button', 'n_clicks')],
+    [dash.dependencies.State('input-box', 'value')])
+def update_graph(n_clicks, user_name):
+    if (user_name==None):
+        return content.build_table([],[], 'linear')
+    else:
+
+        df = queries.language_breakdown(user_name)
+        df['sum'] = df['sum'].div(1000000).round(1)
+        return content.build_table(df['language'],df['sum'], 'linear')
+
+@app.callback(
+    dash.dependencies.Output(component_id='my-div', component_property='children'),
+    [dash.dependencies.Input('button', 'n_clicks')],
+    [dash.dependencies.State('input-box', 'value')])
+def update_output_div(n_clicks, user_name):
+    if (user_name==None):
+        return None
+    else:
+        df = queries.projects_breakdown(user_name)
+        return content.generate_table2(df)
 
 if __name__ == '__main__':
     app.run_server(debug=True, host='0.0.0.0', port=8080)
