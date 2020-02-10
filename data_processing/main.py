@@ -16,11 +16,13 @@ program.get_table_names()
 # program.write_specific_table_to_postgres('languages_data')
 
 # NOTE: Should be used for Lanaguage breakdown, project table, and byte size comparison
-# program.create_pie_chart_data()
-# program.write_specific_table_to_postgres('pie_chart_data')
+program.create_pie_chart_data()
+program.write_specific_table_to_postgres('pie_chart_data')
+program.calculate_project_sum()
+program.write_specific_table_to_postgres('projects_sum')
 
 # program.calculate_top_cities()
 # program.write_specific_table_to_postgres('cities_data')
 
-program.calculate_commits()           # 'commits_users_data'
-program.write_specific_table_to_postgres('commits_users_data')
+# program.calculate_commits()           # 'commits_users_data'
+# program.write_specific_table_to_postgres('commits_users_data')

@@ -10,6 +10,7 @@ from pyspark.sql.functions import percent_rank
 import time, datetime
 
 class Processor():
+    # Constructor for processor, will setup S3 Reader, and PostgreSQL Connector
     def __init__(self, bucket_path, dns, port, db_user, password):
         self.postgres_connector = Connector(dns, port, db_user, password)   # writes tables to PostgreSQL
         self.s3_reader = Reader(bucket_path)               # reads tables from S3
@@ -21,9 +22,9 @@ class Processor():
     def write_to_postgres(self):
         if (self.started == False):
             return
-        # self.postgres_connector.write(commits, 'overwrite', 'commits')
-        # self.postgres_connector.write(users, 'overwrite', 'users')
-        # self.postgres_connector.write(projects, 'overwrite', 'projects')
+        self.postgres_connector.write(commits, 'overwrite', 'commits')
+        self.postgres_connector.write(users, 'overwrite', 'users')
+        self.postgres_connector.write(projects, 'overwrite', 'projects')
 
     # Method to write to PostgreSQL database for specific table
     def write_specific_table_to_postgres(self, table_name):
@@ -90,6 +91,7 @@ class Processor():
         print("Tables include:  ", self.table_map.keys())
         return self.table_map.keys()
 
+    # Method to delete table in table_map
     def delete_table(self, table_name):
         if (self.table_map.get(table_name) != None):
             self.table_map.pop()
@@ -194,6 +196,7 @@ class Processor():
         self.table_map['commits_users_data'] = inner_join
         self.end_timestamp('commits_users_data')
 
+    # Method to help calculate percentile of user compared to other users
     def calculate_project_sum(self):
         self.start_timestamp()
         projects_sum = self.table_map['pie_chart_data'].alias('pie_chart_data')
