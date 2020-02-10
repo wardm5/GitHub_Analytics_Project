@@ -102,7 +102,7 @@ class Schemas():
             StructField("login",     StringType(),True), 		   #_c1
             StructField("company",   StringType(),True), 		       #_c2
             StructField("created_at", TimestampType(),True),             #_c3
-            StructField("type", 	 StringType(),True),        #_c4
+            StructField("user_type", 	 StringType(),True),        #_c4
             StructField("fake", 	 IntegerType(),True),            #_c5
             StructField("deleted", 	 IntegerType(),True),		   #_c6
             StructField("long", 	 DecimalType(),True),	   #_c7
