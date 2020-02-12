@@ -81,55 +81,49 @@ app.layout = html.Div(children=[
         html.Div([
             html.Div(
                 [html.H6(style={'width': 'min-content'}, id="commit-percentile"), html.P("Commit Percentile")],
-                id="wells",
-                style={'width': 'min-content',  'padding': '2%', 'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'},
+                style={'width': '30%',  'padding': '1%', 'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'},
             ),
             html.Div(
                 [html.H6(style={'width': 'min-content'},id="bytes-percentile"), html.P("Bytes Percentile")],
-                id="gas",
-                style={'width': 'min-content', 'padding': '2%',  'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'},
+                style={'width': '30%', 'padding': '1%',  'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'},
+            ),
+            html.Div(
+                [html.H6(style={'width': 'min-content'},id="score"), html.P("Total Candidate Score")],
+                style={'width': '30%', 'padding': '1%',  'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'},
             ),
         ], style={'width': '50%', 'display':'flex', 'height': 'fit-content'})
     ], style={'margin' : '2%  2% 2% 2%', 'width': '100%', 'display':'flex'}),
 
+    # table with project information
     html.Div(id='my-div')
 ])
 
-# Selectors -> well text
+# call back calculates user's percentiles for commits, bytes, and overall score
 @app.callback(
-    dash.dependencies.Output("bytes-percentile", "children"),
-    [dash.dependencies.Input('button', 'n_clicks')],
+    [dash.dependencies.Output("bytes-percentile", "children"),
+     dash.dependencies.Output("commit-percentile", "children"),
+     dash.dependencies.Output("score", "children")],
+    [dash.dependencies.Input('button', 'n_clicks'),
+     dash.dependencies.Input('input-1-state', 'value'),
+     dash.dependencies.Input('input-2-state', 'value')],
     [dash.dependencies.State('input-box', 'value')])
-def update_well_text(n_clicks, user_name):
+def update_well_text(n_clicks, language, city, user_name):
     if (user_name == None):
-        return "0.0%"
+        return "0.0%", "0.0%", "0.0%"
     else:
-        df1 = queries.bytes(user_name)
-        df2 = queries.total_bytes(user_name)
+        bytes = queries.bytes(user_name)
+        total_bytes = queries.total_bytes(user_name)
+        commits = queries.commits(user_name)
+        total_commits = queries.total_commits(user_name)
         try:
-            val = float(df1['row_number'].iloc[0]) / float(df2['count'].iloc[0]) * 100
-            val = round(val, 2)
-            return str(val) + "%"
-        except:
-            return "0.0%"
+            bytes_percentile = float(bytes['row_number'].iloc[0]) / float(total_bytes['count'].iloc[0]) * 100
+            bytes_percentile = round(bytes_percentile, 2)
 
-# Selectors -> well text
-@app.callback(
-    dash.dependencies.Output("commit-percentile", "children"),
-    [dash.dependencies.Input('button', 'n_clicks')],
-    [dash.dependencies.State('input-box', 'value')])
-def update_well_text(n_clicks, user_name):
-    if (user_name == None):
-        return "0.0%"
-    else:
-        df1 = queries.commits(user_name)
-        df2 = queries.total_commits(user_name)
-        try:
-            val = float(df1['row_number'].iloc[0]) / float(df2['count'].iloc[0]) * 100
-            val = round(val, 2)
-            return str(val) + "%"
+            commits_percentile = float(commits['row_number'].iloc[0]) / float(total_commits['count'].iloc[0]) * 100
+            commits_percentile = round(commits_percentile, 2)
+            return str(bytes_percentile) + "%",  str(commits_percentile) + "%", str((bytes_percentile + commits_percentile) / 2) + "%"
         except:
-            return "0.0%"
+            return "0.0%", "0.0%", "0.0%"
 
 # call back for changes to the language bar chart, modifies the graph based on query results of inputted user
 @app.callback(
@@ -140,11 +134,11 @@ def update_graph(n_clicks, user_name):
     if (user_name==None):
         return content.build_table([],[], 'linear')
     else:
-
         df = queries.language_breakdown(user_name)
         df['sum'] = df['sum'].div(1000000).round(1)
         return content.build_table(df['language'],df['sum'], 'linear')
 
+# call back gets user's largest projects and displays them in a table
 @app.callback(
     dash.dependencies.Output(component_id='my-div', component_property='children'),
     [dash.dependencies.Input('button', 'n_clicks')],
