@@ -27,7 +27,7 @@ def index():
 
 @server.route('/api/<users>')
 def hello_name(name):
-   return 'Hello %s!' % users
+    return 'Hello %s!' % user
 
 # Dash App Functions
 app = dash.Dash(
@@ -107,6 +107,8 @@ app.layout = html.Div(children=[
      dash.dependencies.Input('input-1-state', 'value'),
      dash.dependencies.Input('input-2-state', 'value')],
     [dash.dependencies.State('input-box', 'value')])
+# if inputs such as button being clicked ouccrs, then this method will take in the parameters
+# and use them to calculate the overall score, commit percentile, and byte percentile for the user
 def update_well_text(n_clicks, language, city, user_name):
     if (user_name == None):
         return "0.0%", "0.0%", "0.0%"
