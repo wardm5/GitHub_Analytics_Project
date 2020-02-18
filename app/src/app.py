@@ -131,14 +131,16 @@ def update_well_text(n_clicks, language, city, user_name):
 @app.callback(
     dash.dependencies.Output('language-table', 'figure'),
     [dash.dependencies.Input('button', 'n_clicks')],
-    [dash.dependencies.State('input-box', 'value')])
-def update_graph(n_clicks, user_name):
+    [dash.dependencies.State('input-box', 'value'),
+    dash.dependencies.State('yaxis-type', 'value')])
+def update_graph(n_clicks, user_name, yaxis_type):
+    print(yaxis_type)
     if (user_name==None):
-        return content.build_table([],[], 'linear')
+        return content.build_table([],[], yaxis_type)
     else:
         df = queries.language_breakdown(user_name)
         df['sum'] = df['sum'].div(1000000).round(1)
-        return content.build_table(df['language'],df['sum'], 'linear')
+        return content.build_table(df['language'],df['sum'], yaxis_type)
 
 # call back gets user's largest projects and displays them in a table
 @app.callback(
