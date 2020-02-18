@@ -15,7 +15,7 @@ class Queries():
                               LIMIT 6"
                               )
 
-    def projects_breakdown(self, user_name):
+    def projects_breakdown_1(self, user_name):
         sql = Reader()
         return sql.run_query("SELECT a.project_name, a.description, a.language, a.bytes as sum \
                                 FROM pie_chart_data a \
@@ -25,6 +25,19 @@ class Queries():
                                             WHERE login = '"+user_name+"' \
                                             GROUP BY project_name \
                                 ) b  ON a.project_name = b.project_name AND a.bytes = b.sum \
+                                ORDER BY a.bytes desc \
+                                LIMIT 6")
+
+    def projects_breakdown_2(self, user_name, language):
+        sql = Reader()
+        return sql.run_query("SELECT DISTINCT a.project_name, a.description, a.language, a.bytes as sum \
+                                FROM pie_chart_data a \
+                                INNER JOIN ( \
+                                            SELECT project_name, max(bytes) as sum \
+                                            FROM pie_chart_data \
+                                            WHERE login = '"+user_name+"' AND language = '"+language+"' \
+                                            GROUP BY project_name \
+                                ) b  ON a.project_name = b.project_name AND a.bytes = b.sum  \
                                 ORDER BY a.bytes desc \
                                 LIMIT 6")
 
