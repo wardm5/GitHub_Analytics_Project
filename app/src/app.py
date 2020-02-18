@@ -146,12 +146,16 @@ def update_graph(n_clicks, user_name, yaxis_type):
 @app.callback(
     dash.dependencies.Output(component_id='my-div', component_property='children'),
     [dash.dependencies.Input('button', 'n_clicks')],
-    [dash.dependencies.State('input-box', 'value')])
-def update_output_div(n_clicks, user_name):
+    [dash.dependencies.State('input-box', 'value'),
+    dash.dependencies.State('input-1-state', 'value')])  #input-1-state
+def update_output_div(n_clicks, user_name, language):
     if (user_name==None):
         return None
+    elif (language==None):
+        df = queries.projects_breakdown_1(user_name)
+        return content.generate_table2(df)
     else:
-        df = queries.projects_breakdown(user_name)
+        df = queries.projects_breakdown_2(user_name, language)
         return content.generate_table2(df)
 
 if __name__ == '__main__':
