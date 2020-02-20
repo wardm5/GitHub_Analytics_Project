@@ -19,6 +19,7 @@ languages = queries.run_custom_query("SELECT language FROM languages_data ORDER 
 language_indicator = languages['language'].unique()
 cities = queries.run_custom_query("SELECT city FROM cities_data ORDER BY city asc")
 city_indicator = cities['city'].unique()
+random_users = queries.run_custom_query("SELECT login FROM pie_chart_data order by random() limit 5")
 
 # Restful API - Next Steps
 @server.route('/api/')
@@ -81,38 +82,48 @@ app.layout = html.Div(children=[
         html.Div([
             html.Div(
                 [html.H6(style={'width': 'min-content'}, id="commit-percentile"), html.P("Commit Percentile")],
-                style={'width': '30%',  'padding': '1%', 'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'},
+                style={'width': '25%',  'padding': '1%', 'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'},
             ),
             html.Div(
                 [html.H6(style={'width': 'min-content'},id="bytes-percentile"), html.P("Bytes Percentile")],
-                style={'width': '30%', 'padding': '1%',  'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'},
+                style={'width': '25%', 'padding': '1%',  'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'},
             ),
             html.Div(
                 [html.H6(style={'width': 'min-content'},id="score"), html.P("Total Candidate Score")],
-                style={'width': '30%', 'padding': '1%',  'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'},
+                style={'width': '25%', 'padding': '1%',  'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'},
             ),
-        ], style={'width': '50%', 'display':'flex', 'height': 'fit-content'})
+            html.Div(
+                [html.H6(style={'width': 'min-content'},id="results"), html.P("Results")],
+                style={'width': '25%', 'padding': '1%',  'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'},
+            ),
+        ], style={'width': '50%', 'display':'flex', 'height': 'fit-content'}),
+
     ], style={'margin' : '2%  2% 2% 2%', 'width': '100%', 'display':'flex'}),
 
     # table with project information
-    html.Div(id='my-div')
+    html.Div(id='my-div'),
+    content.generate_table3(random_users)
 ])
 
 # call back calculates user's percentiles for commits, bytes, and overall score
 @app.callback(
     [dash.dependencies.Output("bytes-percentile", "children"),
      dash.dependencies.Output("commit-percentile", "children"),
-     dash.dependencies.Output("score", "children")],
+     dash.dependencies.Output("score", "children"),
+     dash.dependencies.Output("results", "children")],
     [dash.dependencies.Input('button', 'n_clicks'),
-     dash.dependencies.Input('input-1-state', 'value'),
-     dash.dependencies.Input('input-2-state', 'value')],
+     dash.dependencies.Input('input-1-state', 'value'),   # language
+     dash.dependencies.Input('input-2-state', 'value')],  # city
     [dash.dependencies.State('input-box', 'value')])
 # if inputs such as button being clicked ouccrs, then this method will take in the parameters
 # and use them to calculate the overall score, commit percentile, and byte percentile for the user
 def update_well_text(n_clicks, language, city, user_name):
     if (user_name == None):
-        return "0.0%", "0.0%", "0.0%"
-    else:
+        return "0.0%", "0.0%", "0.0%", "User does not currently exit in database"
+    elif (language == None and city == None or language == None and city != None):
+        print(language)
+        print(city)
+
         bytes = queries.bytes(user_name)
         total_bytes = queries.total_bytes(user_name)
         commits = queries.commits(user_name)
@@ -123,9 +134,60 @@ def update_well_text(n_clicks, language, city, user_name):
 
             commits_percentile = float(commits['row_number'].iloc[0]) / float(total_commits['count'].iloc[0]) * 100
             commits_percentile = round(commits_percentile, 2)
-            return str(bytes_percentile) + "%",  str(commits_percentile) + "%", str((bytes_percentile + commits_percentile) / 2) + "%"
+            return str(bytes_percentile) + "%",  str(commits_percentile) + "%", str((bytes_percentile + commits_percentile) / 2) + "%", "Please pick a language to get user comparison"
         except:
-            return "0.0%", "0.0%", "0.0%"
+            return "0.0%", "0.0%", "0.0%", "Please pick a language to get user comparison"
+    elif (city == None):
+        lang = queries.languages(language)
+        user = queries.user_language(user_name, language)
+
+        bytes = queries.bytes(user_name)
+        total_bytes = queries.total_bytes(user_name)
+        commits = queries.commits(user_name)
+        total_commits = queries.total_commits(user_name)
+        try:
+            bytes_percentile = float(bytes['row_number'].iloc[0]) / float(total_bytes['count'].iloc[0]) * 100
+            bytes_percentile = round(bytes_percentile, 2)
+
+            commits_percentile = float(commits['row_number'].iloc[0]) / float(total_commits['count'].iloc[0]) * 100
+            commits_percentile = round(commits_percentile, 2)
+
+            calc = ""
+            num = round((float(user['sum'].iloc[0]) / float(lang['avg'].iloc[0])) * 100,1)
+            print(num)
+            if (num  < 100):
+                calc =  "User is below average by " + str(num-100) +  "%"
+
+            else:
+                calc =  "User is above average by " + str(num) +  "%"
+            print(calc)
+            return str(bytes_percentile) + "%",  str(commits_percentile) + "%", str((bytes_percentile + commits_percentile) / 2) + "%", calc
+        except:
+            return "0.0%", "0.0%", "0.0%", "Error 1 occurred: please try again."
+    else:
+        city_lang = queries.cities_languages(city, language)
+        user = queries.user_language(user_name, language)
+
+        bytes = queries.bytes(user_name)
+        total_bytes = queries.total_bytes(user_name)
+        commits = queries.commits(user_name)
+        total_commits = queries.total_commits(user_name)
+        try:
+            bytes_percentile = float(bytes['row_number'].iloc[0]) / float(total_bytes['count'].iloc[0]) * 100
+            bytes_percentile = round(bytes_percentile, 2)
+
+            commits_percentile = float(commits['row_number'].iloc[0]) / float(total_commits['count'].iloc[0]) * 100
+            commits_percentile = round(commits_percentile, 2)
+
+            calc = ""
+            num = round((float(user['sum'].iloc[0]) / float(city_lang['avg'].iloc[0])) * 100,1)
+            if (num < 100):
+                calc =  "User is below average by " + str(num-100)+  "%"
+            else:
+                calc =  "User is above average by " + str(num) + "%"
+            return str(bytes_percentile) + "%",  str(commits_percentile) + "%", str((bytes_percentile + commits_percentile) / 2) + "%", calc
+        except:
+            return "0.0%", "0.0%", "0.0%",  "Error 2 occurred: please try again."
 
 # call back for changes to the language bar chart, modifies the graph based on query results of inputted user
 @app.callback(
