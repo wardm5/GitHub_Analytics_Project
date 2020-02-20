@@ -65,3 +65,13 @@ class Content():
                 html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
             ]) for i in range(min(len(dataframe), max_rows))]
         )
+
+    def generate_table3(self, dataframe, max_rows=10):
+        return html.Table(
+            # Header
+            [html.Tr("Random Users")] +
+            # Body
+            [html.Tr([
+                html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
+            ]) for i in range(min(len(dataframe), max_rows))]
+        )

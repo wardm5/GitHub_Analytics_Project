@@ -15,6 +15,46 @@ class Queries():
                               LIMIT 6"
                               )
 
+
+
+    # language averages for users
+    def languages(self, language):
+        sql = Reader()
+        return sql.run_query(" 			select avg(b.sum)  as avg  \
+                                    	FROM (		\
+                                    		SELECT DISTINCT login, language,  Sum(bytes) as sum  \
+                                    		FROM pie_chart_data        \
+                                    		where language = '"+language+"'  \
+                                    		group by login, language  \
+                                    		order by sum asc  \
+                                    	) b    ")
+    # language and city averages for users
+    def cities_languages(self, city_name, language):
+        sql = Reader()
+        return sql.run_query(" 			select avg(b.sum) as avg   \
+                                    	FROM (		\
+                                    		SELECT DISTINCT login, language,  Sum(bytes) as sum  \
+                                    		FROM pie_chart_data        \
+                                    		where language = '"+language+"' and city = '"+city_name+"'  \
+                                    		group by login, language  \
+                                    		order by sum asc  \
+                                    	) b ")
+    # user sum
+    def user(self, user_name):
+        sql = Reader()
+        return sql.run_query(" 			select sum(bytes) as sum  \
+                                        from pie_chart_data   \
+                                        where login = '"+user_name+"'  ")
+    # user sum for lanugage only
+    def user_language(self, user_name, language):
+        sql = Reader()
+        return sql.run_query(" 			select sum(bytes) as sum \
+                                        from pie_chart_data   \
+                                        where login =  '"+user_name+"' and language = '"+language+"' ")
+
+
+
+
     def projects_breakdown_1(self, user_name):
         sql = Reader()
         return sql.run_query("SELECT a.project_name, a.description, a.language, a.bytes as sum \
@@ -70,3 +110,9 @@ class Queries():
         sql = Reader()
         return sql.run_query("SELECT count(*) as count \
                                FROM projects_sum")
+
+# queries = Queries()
+# # total_language = queries.total_language()
+# # print(total_users['count'].iloc[0])
+# lang = queries.cities('Seattle', 'MohamedFAhmed')
+# print(lang['row_number'].iloc[0])
