@@ -17,6 +17,7 @@
 * https://stackoverflow.com/questions/14346065/upload-image-available-at-public-url-to-s3-using-boto
 * https://stackoverflow.com/questions/54289735/use-python-requests-to-download-an-compressed-tar-gzfile-and-unzip-it-using-tar
 * https://stackoverflow.com/questions/51276201/how-to-extract-files-in-s3-on-the-fly-with-boto3
+* **https://www.c-sharpcorner.com/article/uploading-file-to-aws-s3-using-aws-cli/ Upload files on directory to S3**
 
 ### Psycopg2
 * **https://wiki.postgresql.org/wiki/Psycopg2_Tutorial (important)**
@@ -46,6 +47,14 @@
 * https://dash.plot.ly/datatable
 * **https://gist.github.com/jakebrinkmann/de7fd185efe9a1f459946cf72def057e - convert spark df to pandas df (very important)**
 * https://github.com/plotly/dash/issues/161
+* https://pbpython.com/plotly-dash-intro.html
+* https://dash.plot.ly/getting-started
+* https://dash.plot.ly/getting-started-part-2
+* https://dash.plot.ly/getting-started
+* https://dash.plot.ly/state
+* https://dash.plot.ly/dash-core-components
+* https://dash.plot.ly/interactive-graphing
+* https://community.plot.ly/t/multiple-outputs/15334
 
 ### Pandas
 * **https://stackoverflow.com/questions/36217969/how-to-compare-pandas-dataframe-against-none-in-python (semi-important)**
@@ -59,6 +68,7 @@
 * https://www.geeksforgeeks.org/python-ways-to-remove-a-key-from-dictionary/
 * https://stackoverflow.com/questions/21839803/how-to-append-new-data-onto-a-new-line/33591893
 * https://stackoverflow.com/questions/3620943/measuring-elapsed-time-with-the-time-module
+* https://w3schools.com/python/ref_func_round.asp
 
 ### Flask app
 * https://www.geeksforgeeks.org/flask-creating-first-simple-application/
@@ -136,6 +146,7 @@
 * https://www.w3schools.com/sql/sql_like.asp
 * https://www.geeksforgeeks.org/sql-aliases/
 * https://www.w3schools.com/sql/sql_join_inner.asp
+* https://stackoverflow.com/questions/1572831/avg-of-a-sum-in-one-query
 
 ## GitHub Dataset
 * http://ghtorrent.org/files/schema.pdf
