@@ -101,8 +101,19 @@ app.layout = html.Div(children=[
     ], style={'margin' : '2%  2% 2% 2%', 'width': '100%', 'display':'flex'}),
 
     # table with project information
-    html.Div(id='my-div'),
-    content.generate_table3(random_users)
+    html.Div([
+        html.Div([
+            html.H6("User's Projects", style={'width': 'auto'}),
+            html.Div(id='my-div')],
+            style={'width': '70%', 'padding': '1%',  'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'},
+        ),
+        html.Div([
+            html.H6("Random Users to Try", style={'width': 'auto'}),
+            content.generate_table3(random_users)],
+            style={'width': '15%', 'padding': '1%',  'background': '#d3d3d3', 'border-radius': '10px', 'margin-right': '2%'}
+        )],
+        style={'width': '100%', 'padding': '1%',  'border-radius': '10px', 'margin-right': '2%', 'display':'flex'},
+    )
 ])
 
 # call back calculates user's percentiles for commits, bytes, and overall score
@@ -221,7 +232,7 @@ def update_output_div(n_clicks, user_name, language):
         return content.generate_table2(df)
 
 if __name__ == '__main__':
-    app.run_server(debug=True, host='0.0.0.0', port=8080)
+    app.run_server(debug=False, host='0.0.0.0', port=8080)
 
 # if __name__ == '__main__':
 #     app.run_server(host='0.0.0.0', port=8080)

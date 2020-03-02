@@ -15,8 +15,6 @@ class Queries():
                               LIMIT 6"
                               )
 
-
-
     # language averages for users
     def languages(self, language):
         sql = Reader()

@@ -69,7 +69,7 @@ class Content():
     def generate_table3(self, dataframe, max_rows=10):
         return html.Table(
             # Header
-            [html.Tr("Random Users")] +
+            # [html.Tr("Random Users")] +
             # Body
             [html.Tr([
                 html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
